@@ -91,7 +91,9 @@ Analysis of seafloor structure and ocean crust concerns mapping, detecting, and 
 In terms of the data-driven analyses, previous works investigating the oceanic seabed can be roughly classified into studies focused on bathymetric mapping and geophysical analysis. Mapping seafloor usually characterises the bathymetric patterns with increased cartographic details of data visualization and improved methods \cite{Battista,Lemenkova202105,Lemenkova202012}. Marine geophysical methods generally investigate the geology of continental margins with deep-sea drilling \cite{Schlich1992TheGA}, analysis of features extracted from seismic survey and remote sensing data \cite{NEGI2022229330}, investigating the structure of the deep ocean basins \cite{BENARD2010633,RAMANA2001241,DAVIS201616} and modelling mid-ocean ridge system in a global or regional context \cite{FREY200073,Sreejith,Lemenkova202112}. However, methods of bathymetric survey are of comparatively high complexity and high cost, as they require detailed hydrographic equipment such as mutlibeam echo sounder systems onboard the research cruise \cite{Falvey}. Although they supply novel information on origin, evolution, structure, stratigraphy, and tectonic features of the oceanic crust, they also do not provide matching of the multi-source geophysical data for modelling seafloor in an explicit way. 
 
 \subsection{Related work}
-It is known that seafloor bathymetry and geophysical setting of the oceanic crust are two important cues for modelling lithosphere \cite{WATSON201697}. However, the integrated capture and processing of multi-source data, -- such as bathymetry, marine geologic data (development on the  Earth's crust including age, spreading rates and symmetry), marine geophysical data (sediment thickness, gravity and magnetic anomalies), -- has always been a challenging task, and few attempts have been made to explore it. Tide modelling with regard to bathymetric gradients was computed based on satellite altimetry data \cite{Maraldi}. The retreat of glaciers using mass balance measurements was estimated for analysis of spatial distribution of surface mass balance \cite{Verfaillie}.
+It is known that seafloor bathymetry and geophysical setting of the oceanic crust are two important cues for modelling lithosphere \cite{WATSON201697}. However, the integrated capture and processing of multi-source data, -- such as bathymetry, marine geologic data (development on the Earth's crust including age, spreading rates and symmetry), marine geophysical data (sediment thickness, gravity and magnetic anomalies), -- has always been a challenging task, and few attempts have been made to explore it. 
+
+Tide modelling with regard to bathymetric gradients was computed based on satellite altimetry data \cite{Maraldi}. The retreat of glaciers using mass balance measurements was estimated for analysis of spatial distribution of surface mass balance \cite{Verfaillie}. 
 
 Further applications of marine remote sensing data on Kerguelen include marine biology. For instance, satellite altimetry data can be used to jointly represent patterns of oceanic currents and draw conclusions on connectivity between habitats \cite{MORI201645}. A study by \cite{COTTE2022103650} is in part similar in using hydrographic and acoustic data for analysis of vertical layers of the ocean to identify community distribution and carbon content. Mathieu et al. \cite{MATHIEU2011206} combine SRTM DEM, remote sensing data and geological field campaign to clarify the structures of Kerguelen Islands. The interest to the marine biology of the Kerguelen Plateau region is explained by a unique wildlife with vulnerable species well-preserved due to the remote isolated location of the archipelago \cite{fishes8040174}, and seasonal effects of the circumpolar currents on the fish communities \cite{Damerell,MONGIN2008880,Park}.  This makes the ecosystems of Kerguelen and other adjacent areas of French Austral Lands as environmental heritage \cite{Sombetzkib,Sombetzkia,Naim}.
 
@@ -103,13 +105,16 @@ This study aims at investigating the geophysical and topographic setting of the 
 %----------- section ----------->
 \section{Study area}
 
-\pagebreak
+The Kerguelen Plateau presents an extended topographic elevation situation in the south-western sector of the Indian Ocean, Figure \ref{fig01}. The structure of its major geographic boundaries are as follows. To the northwest, it is limited by the Crozet Archipelago located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the southwest -- by the Enderby Basin. The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup and spreading between India and Antarctica \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina}. Currently, it presents one of the world's largest the volcanic plateaus (the total length of 2300 km) with occasional evidence of volcanism remaining on the Heard and McDonald Islands. \cite{Li}. 
+
+Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by the Princess Elizabeth Land. Kerguelen Plateau is asymmetric in its structure, with notable variations in two parts. Northern part of the Kerguelen Archipelago (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500-2000 m) \cite{Ramsay}. 
+
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
 \centering
 	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_01.jpg}
 }
-\caption{Map of the Kerguelen Plateau region, Southern Ocean. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig01}}
+\caption{Map of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
 \end{figure}
 
 %----------- section ----------->
@@ -123,7 +128,7 @@ The materials used in this study as raw cartographic grids include the following
 %----------- subsection ----------->
 \subsection{Methods}
 
-the cartographic methodology is based on using the Generic Mapping Tools (GMT) version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202206}.
+The cartographic methodology is based on using the Generic Mapping Tools (GMT) version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202206}.
 
 %----------- subsection ----------->
 \subsection{Subsection}
@@ -204,7 +209,8 @@ Spreading half rates of the ocean crust are visualised based on the 2 arc min ne
 
 %----------- subsection ----------->
 \subsection{Magnetic anomalies over Kerguelen Plateau}
-The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}
+
+The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. The analysis of the magnetic anomaly patterns in the south-west Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}.
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
