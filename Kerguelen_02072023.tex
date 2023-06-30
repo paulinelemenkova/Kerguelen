@@ -108,9 +108,7 @@ In our approach, we combine the bathymetric and marine geophysical data on Kergu
 %----------- section ----------->
 \section{Study area}
 
-The Kerguelen Plateau presents an extended topographic elevation situation in the south-western sector of the Indian Ocean, Figure \ref{fig01}. The structure of its major geographic boundaries are as follows. To the northwest, it is limited by the Crozet Archipelago located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the southwest -- by the Enderby Basin. The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup and spreading between India and Antarctica \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina}. Currently, it presents one of the world's largest the volcanic plateaus (the total length of 2300 km) with occasional evidence of volcanism remaining on the Heard and McDonald Islands. \cite{Li}. 
-
-Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by the Princess Elizabeth Land. Kerguelen Plateau is asymmetric in its structure, with notable variations in two parts. Northern part of the Kerguelen Archipelago (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500-2000 m) \cite{Ramsay}. 
+The Kerguelen Plateau presents an extended topographic elevation situation in the south-western sector of the Indian Ocean, Figure \ref{fig01}. The structure of its major geographic boundaries are as follows. To the northwest, it is limited by the Crozet Archipelago located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the southwest -- by the Enderby Basin, Figure \ref{fig01}. 
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -119,6 +117,8 @@ Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Ant
 }
 \caption{Map of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
 \end{figure}
+
+The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup and spreading between India and Antarctica \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina}. Currently, it presents one of the world's largest the volcanic plateaus (the total length of 2300 km) with occasional evidence of volcanism remaining on the Heard and McDonald Islands. \cite{Li}. Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by the Princess Elizabeth Land. Kerguelen Plateau is asymmetric in its structure, with notable variations in two parts. Northern part of the Kerguelen Archipelago (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500-2000 m) \cite{Ramsay}. 
 
 %----------- section ----------->
 \section{Materials and Methods}
@@ -131,10 +131,9 @@ The materials used in this study as raw cartographic grids include the following
 %----------- subsection ----------->
 \subsection{Methods}
 
-The cartographic methodology is based on using the Generic Mapping Tools (GMT) version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202206,Lemenkova202203}.
+ In this study, the cartographic methodology is based on using the Generic Mapping Tools (GMT) programming suite version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202203}. The most prominent feature of GMT is using scripting approach that principally differs it from the conventional software due to the embedded programming language. Major advantages of GMT include modular toolbox system with over 140 existing modules which enables to generate highly customised mapping workflows, high print-quality graphics, geodetic-precision projections, reliable data processing algorithms applicable to large datasets and raster grids, flexibility to operating systems and open source licence \cite{WesselLuis}. 
 
-%----------- subsection ----------->
-\subsection{Subsection}
+While traditional GIS-based methods usually employ graphical user interface (GUI) for mapping and data visualization with existing standards menu of the software, script-based methods of GMT capture the dataset by running a script written using embedded language which operates similar to the programming approaches. Script consists of a consequence of several commands with pre-defined parameters that control the appearance of the cartographic elements on a map. The most well-known cartographic tools that use scripts for data processing are GMT \cite{Lemenkova202217} and GRASS GIS \cite{NETELER2012124}. While the latter is mostly used for image processing, theoretical cartography and ecological studies with numerous existing examples  \cite{ROCCHINI2017166,FRIGERI20111265,Lemenkova202313,SOROKINE2007685}, GMT is applied in geophysical and geological studies \cite{Lee,Lemenkova202206,DeSanto}.
 
 %----------- section ----------->
 \pagebreak
