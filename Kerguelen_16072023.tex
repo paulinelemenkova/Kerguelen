@@ -34,6 +34,39 @@
 \usepackage{gensymb} % for \textdegree
 \usepackage{tabularx}
 
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepmagenta},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\scriptsize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
 %=================================================================
 % Full title of the paper (Capitalized)
 \Title{Seafloor and Ocean Crust Structure of the Kerguelen Plateau from Marine Geophysical and Satellite Altimetry Datasets}
@@ -87,7 +120,7 @@ $^{1}$ \quad Laboratory of Image Synthesis and Analysis (LISA), École polytechn
 
 %----------- subsection ----------->
 \subsection{Background}
-Analysis of seafloor structure and ocean crust concerns mapping, detecting, and recognising the bathymetric structures and variations in geophysical fields analysed from the remote sensing data. Among these problems, integrated geophysics interpretation of satellite altimetry,  marine gravimetry and magnetic anomalies is one of the most active research areas and has attracted much research interest over the past decades. Previous studies \cite{ESHAGH2021313} provided a broad overview of numerous approaches for analysing satellite gravimetry data to model the Earth beneath the sea. Marine geophysical and satellite altimetry data provide information on the crustal density and processes in the upper mantle \cite{KAPAWAR2021106692,PENG2022110823,ZHANG202368}, sediment thickness and basement depths \cite{Lemenkova202005}. Moreover, the analysis of the geophysical data enables to reveal the key characteristics regarding the lithosphere thickness such as Moho discontinuity, elastic thickness \cite{TESAURO201378}, viscosity and flexural rigidity. Such data are essential for geological investigations and our understanding of the Earth's structure.
+Analysis of seafloor structure and ocean crust concerns mapping, detecting, and recognising the bathymetric structures and variations in geophysical fields analysed from the remote sensing data. Among these problems, integrated geophysics interpretation of satellite altimetry,  marine gravimetry and magnetic anomalies is one of the most active research areas and has attracted much research interest over the past decades. Previous studies \cite{ESHAGH2021313} provided a broad overview of numerous approaches for analysing satellite gravimetry data to model the Earth beneath the sea. Marine geophysical and satellite altimetry data provide information on crustal density and processes in the upper mantle \cite{KAPAWAR2021106692,PENG2022110823,ZHANG202368}, sediment thickness and basement depth \cite{Lemenkova202005}. Moreover, the analysis of the geophysical data enables to reveal key characteristics regarding the lithosphere thickness such as Moho discontinuity and elastic thickness \cite{TESAURO201378}, viscosity and flexural rigidity. Such data are essential for geological investigations and our understanding of the Earth's structure.
 
 In terms of the data-driven analyses, previous works investigating the oceanic seabed can be roughly classified into studies focused on bathymetric mapping and geophysical analysis. Mapping seafloor usually characterises the bathymetric patterns with increased cartographic details of data visualization and improved methods \cite{Battista,Lemenkova202105,Lemenkova202012}. Marine geophysical methods generally investigate the geology of continental margins with deep-sea drilling \cite{Schlich1992TheGA,Veevers1991a}, analysis of features extracted from seismic survey and remote sensing data \cite{NEGI2022229330}, investigating the structure of the deep ocean basins \cite{BENARD2010633,RAMANA2001241,DAVIS201616} and modelling mid-ocean ridge system in a global or regional context \cite{FREY200073,Sreejith,Lemenkova202112}. However, methods of bathymetric survey are of comparatively high complexity and high cost, as they require detailed hydrographic equipment such as mutlibeam echo sounder systems onboard the research cruise \cite{Falvey}. Although they supply novel information on origin, evolution, structure, stratigraphy, and tectonic features of the oceanic crust, they also do not provide matching of the multi-source geophysical data for modelling seafloor in an explicit way. 
 
@@ -96,7 +129,7 @@ In terms of the data-driven analyses, previous works investigating the oceanic s
 
 It is known that seafloor bathymetry and geophysical setting of the oceanic crust are two important cues for modelling lithosphere \cite{WATSON201697}. However, the integrated capture and processing of multi-source data, -- such as bathymetry, marine geologic data (development on the Earth's crust including age, spreading rates and symmetry), marine geophysical data (sediment thickness, gravity and magnetic anomalies), -- has always been a challenging task, and few attempts have been made to explore it. An integrated use of the satellite-derived data from Cryosat-2 and Saral/AltiKa satellite altimetry and the ship-measured gravity data were applied for for estimating marine gravity anomalies \cite{NGUYEN2020505}. Mapping lithospheric structures such as tectonic blocks is performed based on the satellite gravity data including World Gravity Model (WGM) and Gravity Recovery and Climate Experiment (GRACE) \cite{EMISHAW2023104775}. The Earth Gravity Model (EGM) and astrogeodetic vertical deflections were employed for modelling gravity  and geopotential difference \cite{WANG2023}. A joint processing of terrestrial and satellite geodetic data was applied for solving theoretical issues of geodesy such as altimetry–gravimetry boundary-value problem \cite{Lehmann}.
 
-The use of remote sensing data, satellite altimetry and gravimetry, has proven to be effective in geophysical and environmental studies. Numerous examples exist in recent literature with case studies on estimating geoid values, evaluating gravity anomalies, tectonic and crustal structures, glacial and hydrological research and habitat mapping. Thus, satellite altimetry data can be used to jointly represent patterns of oceanic currents and draw conclusions on connectivity between habitats \cite{MORI201645}. A study by \cite{COTTE2022103650} is in part similar in using hydrographic and acoustic data for analysis of vertical layers of the ocean to identify community distribution and carbon content. Tide modelling with regard to bathymetric gradients was computed based on satellite altimetry data \cite{Maraldi}. The retreat of glaciers using mass balance measurements was estimated for analysis of spatial distribution of surface mass balance \cite{Verfaillie}. Mathieu et al. \cite{MATHIEU2011206} combine SRTM DEM, remote sensing data and geological field campaign to clarify the structures of Kerguelen Islands. 
+The use of the remote sensing data, satellite altimetry and gravimetry has proven to be effective in geophysical and environmental studies. Numerous examples exist in recent literature with case studies on estimating geoid values, evaluating gravity anomalies, tectonic and crustal structures, glacial and hydrological research and habitat mapping. Thus, satellite altimetry data can be used to jointly represent patterns of oceanic currents and draw conclusions on connectivity between habitats \cite{MORI201645}. A study by \cite{COTTE2022103650} is in part similar in using hydrographic and acoustic data for analysis of vertical layers of the ocean to identify community distribution and carbon content. Tide modelling with regard to bathymetric gradients was computed based on satellite altimetry data \cite{Maraldi}. The retreat of glaciers using mass balance measurements was estimated for analysis of spatial distribution of surface mass balance \cite{Verfaillie}. Mathieu et al. \cite{MATHIEU2011206} combine SRTM DEM, remote sensing data and geological field campaign to clarify the structures of Kerguelen Islands. 
 
 Such examples illustrate that a combination of bathymetric and geophysical data for detailed analysis of the Earth's crust structure and topography outperforms their use separately, and suggests that seafloor mapping should be based on the analysis of the heterogeneous features of the seabed derived from various datasets, as pointed earlier \cite{COWLEY2004267,Lemenkova202125,1993A234,ABUAMARAH2019868}. Since such methods can be regarded as feature-level combinations of seafloor fabric showing local appearance of prominent features such as fracture zones, ridges, seamounts, deep-sea trenches, canyons and rifts, the use of scripting programming approach to fuse different integrated geophysical datasets enables to match data from various sources, resolution and origin for a detailed analysis of the seafloor structure and geodynamic setting \cite{Veevers1991b,Lemenkova202104,Hill}. More applications of the use of remote sensing data on Kerguelen focus on marine biology which is explained by a unique wildlife with vulnerable species, well-preserved due to the remote isolated location of the archipelago \cite{fishes8040174}, and seasonal effects of the circumpolar currents on the fish communities \cite{Damerell,MONGIN2008880,Park}. A combination of such factors makes the ecosystems of Kerguelen an environmental heritage \cite{Sombetzkib,Sombetzkia,Naim}. 
 
@@ -133,7 +166,7 @@ The materials used in this study as raw cartographic grids include the following
 
  In this study, the cartographic methodology is based on using the Generic Mapping Tools (GMT) programming suite version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202203}. The most prominent feature of GMT is using scripting approach that principally differs it from the conventional software due to the embedded programming language. Major advantages of GMT include modular toolbox system with over 140 existing modules which enables to generate highly customised mapping workflows, high print-quality graphics, geodetic-precision projections, reliable data processing algorithms applicable to large datasets and raster grids, flexibility to operating systems and open source licence \cite{WesselLuis}. 
 
-While traditional GIS-based methods usually employ graphical user interface (GUI) for mapping and data visualization with existing standards menu of the software, script-based methods of GMT capture the dataset by running a script written using embedded language which operates similar to the programming approaches. Script consists of a consequence of several commands with pre-defined parameters that control the appearance of the cartographic elements on a map. The most well-known cartographic tools that use scripts for data processing are GMT \cite{Lemenkova202217} and GRASS GIS \cite{NETELER2012124}. While the latter is mostly used for image processing, theoretical cartography and ecological studies with numerous existing examples  \cite{ROCCHINI2017166,FRIGERI20111265,Lemenkova202313,SOROKINE2007685}, GMT is applied in geophysical and geological studies \cite{Lee,Lemenkova202206,DeSanto}.
+While the traditional GIS-based methods usually employ graphical user interface (GUI) for mapping and data visualization with existing standards menu of the software, script-based methods of GMT capture the dataset by running a script written using embedded language which operates similar to the programming approaches. Script consists of a consequence of several commands with pre-defined parameters that control the appearance of the cartographic elements on a map. The most well-known cartographic tools that use scripts for data processing are GMT \cite{Lemenkova202217} and GRASS GIS \cite{NETELER2012124}. While the latter is mostly used for image processing, theoretical cartography and ecological studies with numerous existing examples  \cite{ROCCHINI2017166,FRIGERI20111265,Lemenkova202313,SOROKINE2007685}, GMT is applied in geophysical and geological studies \cite{Lee,Lemenkova202206,DeSanto}.
 
 %----------- section ----------->
 \pagebreak
@@ -286,6 +319,67 @@ WGM & World Gravity Model \\
 WDMAM & World Digital Magnetic Anomaly Map\\
 \end{tabular}
 }
+
+\pagebreak
+\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{GMT scripts}
+\subsection[\appendixname~\thesubsection]{GMT script for mapping age, spreading rates and spreading asymmetry of the ocean crust}
+
+\begin{lstlisting}[language=bash,caption=Mapping age spreading rates and spreading asymmetry of the ocean crust,style=mystyle,label={lst01}]
+#!/bin/sh
+# Age, spreading rates and spreading asymmetry of the ocean crust, 2 arc min netCDF grid v 3
+# GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, gmtlogo, psconvert
+
+exec bash
+
+# Cut off raster image
+gmt grdcut ageerror.3.2.nc -R-40/150/-70/-10 -Gker_error.tif
+gdalinfo ker_error.tif -stats
+# Minimum=8.000, Maximum=1313.000, Mean=196.616, StdDev=156.744
+# Color palette
+gmt makecpt -Ccyan-magenta-yellow-white.cpt -T8/800.000 -N > age.cpt
+# Generate a file
+ps=Ker_error.ps
+gmt grdimage ker_error.tif -Cage.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Add grid
+gmt psbasemap -R -J -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Crustal Age Uncertainty of the Oceanic Lithosphere in Kerguelen Plateau and SW Indian Ocean" -O -K >> $ps
+# gmt psxy -R -J ridge.gmt -Sf0.5c/0.15c+l+t -Wthin,yellow -Gpurple -O -K >> $ps
+gmt psxy -R -J TP_Indian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_Australian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_African.txt -L -Wthickest,red -O -K >> $ps
+# tectonic slab contours
+# gmt psxy -R -J GSFML_SF_FZ_KM.gmt -Wthick,slateblue3 -O -K >> $ps
+gmt psxy -R -J GSFML_SF_FZ_KM.gmt -Wthick,darkmagenta -O -K >> $ps
+gmt psxy -R -J GSFML_SF_FZ_RM.gmt -Wthick,darkmagenta -O -K >> $ps
+# transform faults
+gmt psxy -R -J transform.gmt -Sc0.05c -Ggreen -Wthick,deeppink1 -O -K >> $ps  
+# Legend
+gmt psscale -Dg-30/-58+w15.4c/0.4c+v+ml+e -R -J -Cage.cpt \
+    --FONT_LABEL=10p,0,dimgray --FONT_ANNOT_PRIMARY=10p,0,black \
+    -Bg100f20a100+l"Color scale: 'jet' [R=0/15000, H=0, C=RGB]" \
+    -I0.2 -By+l"m/yr." -O -K >> $ps
+# Scale, directional rose
+gmt psbasemap -R -J \
+    --FONT=10p,0,black --MAP_TITLE_OFFSET=0.3c \
+    -Tdx0.8c/10.3c+w0.3i+f2+l+o0.15i \
+    -Lx16.0c/-1.6c+c318/-57+w2000k+l"Scale (km) at 55\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+0.0 5.9 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+0.0. 6.6 Global Seafloor Fabric and Magnetic Lineation Data (GSFML) are shown by cyan lines
+EOF
+=
+# Convert to image file using GhostScript
+gmt psconvert Ker_error.ps -A1.7c -E720 -Tj -Z
+
+\end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
