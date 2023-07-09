@@ -325,6 +325,50 @@ WDMAM & World Digital Magnetic Anomaly Map\\
 \appendixstart
 \appendix
 \section[\appendixname~\thesection]{GMT scripts}
+
+\subsection[\appendixname~\thesubsection]{GMT script for mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection}
+
+\begin{lstlisting}[language=bash,caption=Mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection,style=mystyle,label={lst01}]
+# Subset study area
+grdcut ETOPO1_Ice_g_gmt4.grd -R-40/150/-70/-20 -Gkgl_relief.nc
+gdalinfo ss_relief.nc -stats
+# Minimum=-8239.000, Maximum=6392.000
+# Color palette
+gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt
+# Generate a file
+ps=Bathymetry_Kgl.ps
+gmt grdimage kgl_relief.nc -Cmyocean.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Add shorelines
+gmt grdcontour kgl_relief.nc -R -J -C1000 -Wthinnest,blue -O -K >> $ps
+# Add grid
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Topographic map of the Kerguelen Plateau" \
+    -Lx15.0c/-1.3c+c318/-57+w2000k+l"Scale (km) at 60\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# Texts
+gmt pstext -R -J -X0.0c -Y0.0c -N -O -K \
+    -F+jTL+f9p,Helvetica,white+jLB >> $ps << EOF
+66.0 -62.0 Enderby
+66.5 -63.0 Basin
+EOF
+# Other text are added likewise
+# Add legend
+gmt psscale -Dg-27.0/-60+w15.4c/0.4c+v+ml -R -J -Cmyocean.cpt \
+    -Bg1000f200a2000+l"Color scale: geo global bathymetry/topography relief [R=-8239/6392, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+# Add GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f10p,Palatino-Roman,black+jLB >> $ps << EOF
+4.0 6.1 ETOPO1 global terrain model, 1 arc min resolution grid
+2.0 5.5 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Bathymetry_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+
 \subsection[\appendixname~\thesubsection]{GMT script for mapping age, spreading rates and spreading asymmetry of the ocean crust}
 
 \begin{lstlisting}[language=bash,caption=Mapping age spreading rates and spreading asymmetry of the ocean crust,style=mystyle,label={lst01}]
