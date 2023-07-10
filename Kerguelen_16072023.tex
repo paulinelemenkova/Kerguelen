@@ -164,10 +164,8 @@ All the maps have been plotted using scripting toolset Generic Mapping Tools ver
 The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig02}.
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_02.jpg}
-}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_02.jpg}
 \caption{Age of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
 \end{figure} 
 
@@ -191,11 +189,9 @@ Mapping age, age uncertainty, spreading rates and spreading asymmetries of Kergu
 The tectonic slab contours are added using the 'psxy' module with the following command: 'gmt psxy -R -J file.gmt -Wthick,darkmagenta -O -K >> \$ps'. Several grids are combined and represented through plotted raster grids to show the age-depth correlations in the seafloor. The fulls scripts are presented in Appendix \ref{App} in Listing \ref{lst02} for mapping age of the oceanic lithosphere over Kerguelen Plateau, Listing \ref{lst03} for mapping asymmetries in crustal accretion on conjugate ridge flanks over Kerguelen Plateau (Figure \ref{fig03}), Listing \ref{lst04} for visualisation of spreading half rates of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean and Listing \ref{lst05} for mapping crustal age uncertainty of the oceanic lithosphere over the Kerguelen Plateau.
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_03.jpg}
-}
-\caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig03}}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_03.jpg}
+\caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping tool: GMT. Map source: author. \label{fig03}}
 \end{figure}
 
 \subsubsection{Mapping sediment thickness}
@@ -223,51 +219,45 @@ The final maps of geoid are completed from the aggregation of EGM96 and EGM-2008
 Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). The difference between the gridded age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}).
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_04.jpg}
-}
-\caption{Spreading half rates of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean with added GSFML data. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig04}}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_04.jpg}
+\caption{Spreading half rates of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean with added GSFML data. Mapping tool: GMT. Map source: author. \label{fig04}}
 \end{figure}
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_05.jpg}
-}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_05.jpg}
 \caption{Age uncertainty in lithosphere crust (m.y) over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Cartography: GMT, version 6-1-1. Map source: author. \label{fig05}}
 \end{figure}
 
 %----------- subsection ----------->
 \subsection{Sediment thickness}
 
-Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the ability of approximation modelling to numerically highlight sedimentation trends in major oceanic basins. The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m).
+Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the approximated modelling highlighting the sedimentation trends around Kerguelen, Figure \ref{fig06}. 
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_06.jpg}
-}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_06.jpg}
 \caption{Sediment thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
 \end{figure}
+
+The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m).
 
 %----------- subsection ----------->
 \subsection{Free-air gravity anomaly and vertical gravity gradients}
 
+Marine gravity field over the Kerguelen Plateau region and adjacent areas of the south-west Indian Ocean are shown in Figure \ref{fig07}. Vertical gravity gradient anomalies over Kerguelen Plateau region showing variations in gravity with the change in topographic elevations are visualised in Figure \ref{fig08}.
+
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_07.jpg}
-}
-\caption{Marine gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig07}}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_07.jpg}
+\caption{Marine gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig07}}
 \end{figure}
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_08.jpg}
-}
-\caption{Vertical gravity gradient anomalies over the Kerguelen Plateau region showing variations in gravity with the change in topographic elevations. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig08}}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_08.jpg}
+\caption{Vertical gravity gradient anomalies over Kerguelen Plateau. Mapping: GMT. Map source: author. \label{fig08}}
 \end{figure}
 
 %----------- subsection ----------->
@@ -294,7 +284,9 @@ The anomaly of the magnetic intensity at an altitude of 5 km above mean sea leve
 
 %----------- subsection ----------->
 \subsection{Geoid models}
-The variations in the geopotential geoid models over Kerguelen is shown in Figure \ref{fig10}. The high anomalies in geoid level above the Kerguelen Plateau are explained by the high volcanism associated to a ridge formation on hot lithosphere, which is reflected in the extraordinary thickness below Kerguelen with geoid values of above 40 m (red areas in Figure \ref{fig10}) which exceeds normal thickness of the oceanic crust. This proves previous investigations on geoid in the Kerguelen Archipelago that reported anomalous thickness in this area \cite{RECQ1987301}. Such isostatic compensation associated with the anomalously high geoid values is related to the topographically rough elevated surfaces with regions of active tectonic uplift signifying upper mantle processes \cite{Coblentz}. Comparison of the geoid map with topography (sf. Figures \ref{fig01} and \ref{fig10}) implies correlation between the continued geodynamic processes in south-west Indian Ocean and the topography structure of the Kerguelen Archipelago. Moreover, this proves a high positive correlation between geoid height and deep structure of the seafloor topography, which is noted earlier for the regions of large plateaus and swells \cite{SandwellMacKenzie}. 
+The variations in the geopotential models over Kerguelen is shown in Figure \ref{fig10}. The high anomalies in geoid level above the Kerguelen Plateau are explained by the high volcanism associated to a ridge formation on hot lithosphere, which is reflected in the extraordinary thickness below Kerguelen with geoid values of above 40 m (red areas in Figure \ref{fig10}) which exceeds normal thickness of the oceanic crust. This proves previous investigations on geoid in the Kerguelen Archipelago that reported anomalous thickness in this area \cite{RECQ1987301}. Such isostatic compensation associated with the anomalously high geoid values is related to the topographically rough elevated surfaces with regions of active tectonic uplift signifying upper mantle processes \cite{Coblentz}. 
+
+A comparison of the geoid map with topography (sf. Figures \ref{fig01} and \ref{fig10}) implies correlation between the continued geodynamic processes in south-west Indian Ocean and the topography structure of the Kerguelen Archipelago. Moreover, this proves a high positive correlation between geoid height and deep structure of the seafloor topography, which is noted earlier for the regions of large plateaus and swells \cite{SandwellMacKenzie}. 
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
