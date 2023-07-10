@@ -156,12 +156,22 @@ The origin of the Kerguelen Plateau is related to the hotspot associated with th
 %----------- section ----------->
 \section{Materials and Methods}
 
-All the maps have been plotted using scripting toolset Generic Mapping Tools version 6.1.1, \href{https://www.generic-mapping-tools.org/}{https://www.generic-mapping-tools.org/}. A key aspect of the GMT algorithms is to consider that each cartographic element evaluated by its parameters adds new layers on the map regarding the target location which can be adjusted using refined flag options in special modules. Thus, a modular scripting approach of GMT differs it from the traditional GIS. The final map is completed from the aggregation of lines of code in a script where each module defines certain features on a map. To make mapping process effective, a script is run from the console for each visualization and adjusted accordingly to the target cartographic elements: projections, grids, colour palettes, raster extent and annotations, etc. To this end, we also define these cartographic elements stepwise on each of the presented maps, as demonstrated in script placed in the Appendix \ref{App} of this study. Such strategy of data visualization adopted by GMT ensures high automation of data processing which outperforms conventional mapping tools.
+All the maps have been plotted using scripting toolset Generic Mapping Tools version 6.1.1, \href{https://www.generic-mapping-tools.org/}{https://www.generic-mapping-tools.org/}. A key aspect of the GMT algorithms is to consider that each cartographic element evaluated by its parameters adds new layers on the map regarding the target location which can be adjusted using refined flag options in special modules. Thus, a modular scripting approach of GMT differs it from GIS. 
 
 %----------- subsection ----------->
 \subsection{Data}
 
-The materials used in this study as raw cartographic grids include the following datasets. The bathymetric mapping was based on the ETOPO Global Relief Model \cite{NOAA}; the gravity grids were derived from EGM-2008 \cite{Pavlis}. The data on sediment thickness are derived from the GlobSed dataset showing the distribution of the sediment thickness in the World's Oceans \cite{Straume}. The magnetic data are derived from the two available information sources compiled originally from satellite, airborne, and marine magnetic measurements: the Earth Magnetic Anomaly Grid (EMAG2) \cite{Maus}, which has a resolution of 2 arc minutes, and the World Digital Magnetic Anomaly Map (WDMAM) which has 3-minute resolution \cite{Lesur}. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the dataset originally developed by Müller et al. \cite{Mueller}. 
+The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig02}.
+
+\begin{figure}[H]
+\makebox[1.0\linewidth][r]{%
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_02.jpg}
+}
+\caption{Age of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
+\end{figure} 
+
+The bathymetric mapping was based on the ETOPO Global Relief Model \cite{NOAA}; the gravity grids were derived from EGM-2008 \cite{Pavlis}. The data on sediment thickness are derived from the GlobSed dataset showing the distribution of the sediment thickness in the World's Oceans \cite{Straume}. The magnetic data are derived from the two available information sources compiled originally from satellite, airborne, and marine magnetic measurements: the Earth Magnetic Anomaly Grid (EMAG2) \cite{Maus}, which has a resolution of 2 arc minutes, and the World Digital Magnetic Anomaly Map (WDMAM) which has 3-minute resolution \cite{Lesur}. 
 
 %----------- subsection ----------->
 \subsection{Methods}
@@ -176,35 +186,9 @@ The script for plotting the topographic/bathymetric map is presented in Listing 
 
 \subsubsection{Mapping seafloor age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
 
-\subsubsection{Mapping sediment thickness}
+Mapping age, age uncertainty, spreading rates and spreading asymmetries of Kerguelen Plateau and the SW Indian Ocean basins is performed based on the raster grids with 2 minute resolution. The grids are reprogected to Lambert Azimuthal Equal-Area projection using data from the major features in the basin of Indian Ocean. Thus, mid-ocean ridges and tectonic plates are added using 'psxy' module to show the borders of Indian, African and Australian plates, e.g., 'gmt psxy -R -J TPIndian.txt -L -Wthickest,red -O -K >> \$ps', Figure \ref{fig03}. 
 
-A representation of the GlobSed 5-arc-minute total sediment thickness grid is extracted from the global raster grid given a target location of Kerguelen area using 'gmt grdcut GlobSed-v2.nc' command which selects the file. The amplitude of values is checked using GDAL library embedded in GMT as follows: 'gdalinfo file.nc -stats'. Given this extent of the values, the colour palette table is defined accordingly and presented using 'psscale' module with defined parameters of location of the element on the map as follows: '-Dg-33/-59+w15.4c/0.4c', where -Dg-33/-59 defines the position of the colour scale on the map by coordinates. The grid annotations and graticules are added by 'psbasemap', and the rest of the script with added comments for brief explanations is presented in Listing \ref{lst06}. 
-
-\subsubsection{Geophysical mapping}
-
-To highlight features and subsurface characteristics not visible from geologic data, maps of gravity anomalies were prepared using gravity datasets. The full scripts for plotting geophysical maps are presented in Appendix in Listing \ref{lst07} for free-air gravity anomalies and Listing \ref{lst08} for vertical gravity gradient. The most essential lines of the code are as follows. For free-air gravity, the module 'img2grd' was first applied to convert the image from .IMG into GRD format. The projection was defined using '-JU43/6.0i' flag in 'grdimage' module and the region extent is clipped by "-R40/110/-70/-20" which passed to the next modules accordingly using '-R -J' flags. The vertical gravity gradient was plotted using the satellite-derived grid originally obtained from altimeters CryoSat-2, Jason-1/2 \cite{Harper} which enables to identify ridge propagation on the seafloor.
-
-\subsubsection{Mapping magnetic anomalies}
-
-\subsubsection{Mapping geoid anomalies}
-
-%----------- section ----------->
-\pagebreak
-\section{Results and Discussion}
-
-%----------- subsection ----------->
-\subsection{Ocean floor formation}
-
-Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}.
-
-\begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
-\centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_02.jpg}
-}
-\caption{Age of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
-\end{figure}
-
+The tectonic slab contours are added using the 'psxy' module with the following command: 'gmt psxy -R -J file.gmt -Wthick,darkmagenta -O -K >> \$ps'. Several grids are combined and represented through plotted raster grids to show the age-depth correlations in the seafloor. The fulls scripts are presented in Appendix \ref{App} in Listing \ref{lst02} for mapping age of the oceanic lithosphere over Kerguelen Plateau, Listing \ref{lst03} for mapping asymmetries in crustal accretion on conjugate ridge flanks over Kerguelen Plateau (Figure \ref{fig03}), Listing \ref{lst04} for visualisation of spreading half rates of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean and Listing \ref{lst05} for mapping crustal age uncertainty of the oceanic lithosphere over the Kerguelen Plateau.
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -214,7 +198,29 @@ Age, spreading rates and spreading symmetry of the ocean crust indicate the evol
 \caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig03}}
 \end{figure}
 
-Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). The difference between the gridded age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}).
+\subsubsection{Mapping sediment thickness}
+
+A representation of the GlobSed 5-arc-minute total sediment thickness grid is extracted from the global raster grid given a target location of Kerguelen area using 'gmt grdcut GlobSed-v2.nc' command which selects the file. The amplitude of values is checked using GDAL library embedded in GMT as follows: 'gdalinfo file.nc -stats'. Given this extent of the values, the colour palette table is defined accordingly and presented using 'psscale' module with defined parameters of location of the element on the map as follows: '-Dg-33/-59+w15.4c/0.4c', where -Dg-33/-59 defines the position of the colour scale on the map by coordinates. The grid annotations and graticules are added by 'psbasemap', and the rest of the script with added comments for brief explanations is presented in Listing \ref{lst06}. 
+
+\subsubsection{Geophysical mapping}
+
+To highlight features and subsurface characteristics not visible from geologic data, maps of gravity anomalies were prepared using gravity datasets in UTM projection, Zone 43. The full scripts for plotting geophysical maps are presented in Appendix in Listing \ref{lst07} for free-air gravity anomalies and Listing \ref{lst08} for vertical gravity gradient. The most essential lines of the code are as follows. For free-air gravity, the module 'img2grd' was first applied to convert the image from .IMG into GRD format. The projection was defined using '-JU43/6.0i' flag in 'grdimage' module and the region extent is clipped by "-R40/110/-70/-20" which passed to the next modules accordingly using '-R -J' flags. The vertical gravity gradient was plotted using the satellite-derived grid originally obtained from altimeters CryoSat-2, Jason-1/2 \cite{Harper} which enables to identify ridge propagation on the seafloor.
+
+\subsubsection{Mapping magnetic anomalies}
+
+In mapping of the magnetic anomalies , we used two different grids - WDMAM and the EMAG2. The first was subset from the global grid using code $gmt grdcut @earth_wdmam_03m -R50/100/-70/-30 -Gker_mag.nc$ and the second was obtained from the EMAG 2-minute resolution grid as follows: $"gmt grdcut EMAG2_V2.grd -R50/100/-70/-30 -Gker_mag.nc"$. The images were visualised using 'grdimage' module with color palettes adjusted accoridng to the range of data distribution over the Keerguelen Plateau and South-West Indian Ocean using code 'gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt'. The remaining parts of the GMT scripts are presented for both maps visualised using WDMAM and the EMAG2 in Listing \ref{lst09} and \ref{lst10}, accordingly.
+
+\subsubsection{Mapping geoid anomalies}
+
+The final maps of geoid are completed from the aggregation of EGM96 and EGM-2008 using lines of code in a GMT script where each module defines certain features on a map. To make mapping process effective, the scripts are run from the console for each visualization of the geoid and adjusted accordingly to the target cartographic elements: projections, grids, colour palettes, raster extent and annotations, etc. To this end, we also define these cartographic elements stepwise on each of the presented maps of the geoid, as demonstrated in script placed in the Appendix \ref{App} of this study in Listing \ref{lst11} for EGM96 and Listing \ref{lst12} for EGM-2008. Such strategy of data visualization adopted by GMT ensures high automation of data processing which outperforms conventional mapping tools.
+
+%----------- section ----------->
+\section{Results and Discussion}
+
+%----------- subsection ----------->
+\subsection{Ocean floor formation}
+
+Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). The difference between the gridded age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}).
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -267,7 +273,7 @@ Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the ability
 %----------- subsection ----------->
 \subsection{Magnetic anomalies over Kerguelen Plateau}
 
-The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. The analysis of the magnetic anomaly patterns in the south-west Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}. The comparison of Figure \ref{fig05} reveals that the information on age uncertainties for grid cells coincides with marine magnetic anomaly identifications around the Kerguelen region (Figure \ref{fig09}), which is also observed with regard to the conjugate ridge flanks (Figure \ref{fig03}). 
+The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. The analysis of the magnetic anomaly patterns in the south-west Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}. The comparison of Figure \ref{fig05} reveals that the information on age uncertainties for grid cells coincides with marine magnetic anomaly identifications around the Kerguelen region (Figure \ref{fig09}), which is also observed with regard to the conjugate ridge flanks (Figure \ref{fig03}). The EMAG-2 and WDMAM grids used for plotting the magnetic anomalies show various levels of details of the grids which enable to reveal the details on the subsurface structure of the seafloor around the Kerguelen Plateau and composition of the Earth's crust in South-West Indian Ocean.  
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -331,12 +337,13 @@ The following abbreviations are used in this manuscript:\\
 \noindent 
 \begin{tabular}{@{}ll}
 DEM & Digital Elevation Model \\
-EGM2008 & Earth Gravitational Model 2008\\
+EGM2008 & Earth Gravitational Model 2008 \\
 EMAG-2 & Earth Magnetic Anomaly Grid (EMAG) 2 \\
 GRACE & Gravity Recovery and Climate Experiment \\
 GMT & Generic Mapping Tools \\
 NOAA & National Oceanic and Atmospheric Administration \\
 SRTM & Shuttle Radar Topography Mission \\
+UTM & Universal Transverse Mercator \\
 WGM & World Gravity Model \\
 WDMAM & World Digital Magnetic Anomaly Map\\
 \end{tabular}
