@@ -647,6 +647,56 @@ EOF
 gmt psconvert Gravity_Kgl_vert.ps -A1.0c -E720 -Tj -Z
 \end{lstlisting}
 
+\subsection[\appendixname~\thesubsection]{GMT scripts for mapping magnetic anomalies over the Kerguelen Plateau}
+
+\begin{lstlisting}[language=bash,caption=Mapping magnetic anomalies by WDMAM over Kerguelen Plateau,style=mystyle,label={lst09}]
+exec bash
+gmt grdcut @earth_wdmam_03m -R50/100/-70/-30 -Gker_mag.nc
+gdalinfo ker_mag.nc -stats
+gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt
+ps=Magnet_Kgl.ps
+gmt grdimage ker_mag.nc -Cmyocean.cpt -R50/100/-70/-30 -JM6.5i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour ker_mag.nc -R -J -C200 -A1+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Marine and Earth airborne Magnetic Anomaly Grid on Kerguelen Plateau" \
+    -Lx14.0c/-3.0c+c318/-57+w1000k+l"Mercator projection. Scale (km)"+f \
+    -UBL/-5p/-80p -O -K >> $ps
+gmt psscale -Dg50/-71.5+w16.0c/0.4c+h+ml+e -R -J -Cmyocean.cpt \
+    -Bg100f10a50+l"Color scale: mag (Colors for magnetic anomaly maps), [C=RGB]" \
+    -I0.2 -By+l"nT" -O -K >> $ps
+gmt logo -Dx6.5/-3.8+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f11p,0,black+jLB >> $ps << EOF
+1.2 15.8 WDMAM (World Digital Magnetic Anomaly Map), 3 arc min resolution grid
+EOF
+gmt psconvert Magnet_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,caption=Mapping magnetic anomalies by EMAG2 over Kerguelen Plateau,style=mystyle,label={lst10}]
+exec bash
+gmt grdcut EMAG2_V2.grd -R50/100/-70/-30 -Gker_mag.nc
+gdalinfo ker_mag.nc -stats
+gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt
+ps=Magnet_Kgl.ps
+gmt grdimage ker_mag.nc -Cmyocean.cpt -R50/100/-70/-30 -JM6.5i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour ker_mag.nc -R -J -C200 -A1+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Detailed marine and Earth EMAG-2 airborne Magnetic Anomaly Grid on Kerguelen Plateau" \
+    -Lx14.0c/-3.0c+c318/-57+w1000k+l"Mercator projection. Scale (km)"+f \
+    -UBL/-5p/-80p -O -K >> $ps
+gmt psscale -Dg50/-71.5+w16.0c/0.4c+h+ml+e -R -J -Cmyocean.cpt \
+    -Bg100f10a50+l"Color scale: mag (Colors for magnetic anomaly maps), [C=RGB]" \
+    -I0.2 -By+l"nT" -O -K >> $ps
+gmt logo -Dx6.5/-3.8+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f11p,0,black+jLB >> $ps << EOF
+1.2 15.8 EMAG-2 (Earth Magnetic Anomaly Grid, 2 arc min resolution)
+EOF
+gmt psconvert Magnet_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
 %\printendnotes[custom] % Un-comment to print a list of endnotes
