@@ -697,6 +697,66 @@ EOF
 gmt psconvert Magnet_Kgl.ps -A1.0c -E720 -Tj -Z
 \end{lstlisting}
 
+\subsection[\appendixname~\thesubsection]{GMT scripts for mapping geoid anomalies over the Kerguelen Plateau}
+
+\begin{lstlisting}[language=bash,caption=Mapping geoid anomalies in Kerguelen Plateau by EGM96,style=mystyle,label={lst11}]
+exec bash
+gdalinfo geoid.egm96.grd -stats
+gmt grd2cpt geoid.egm96.grd -Cjet > geoid.cpt
+ps=Geoid_Ker.ps
+gmt grdimage geoid.egm96.grd -I+a45+nt1 -R40/110/-70/-20 -JQ7.5i -Cgeoid.cpt -P -K > $ps
+gmt grdcontour geoid.egm96.grd -R -J -C2 -A4+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Geoid gravitational model EGM96 over East Antarctic, Kerguelen Plateau and SW Indian Ocean" \
+    -Lx16.0c/-1.5c+c318/-57+w1000k+l"Cylindrical equidistant projection. Scale (km)"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+gmt psscale -Dg33/-70+w13.4c/0.4c+v+ml+e -R -J -Cgeoid.cpt \
+    -Bg10f1a10+l"Color scale: jet [C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+gmt logo -Dx7.0/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y12.5c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+1.0 3.0 EGM96: 15 arc minute resolution grid based on the gravitational force of the Earth
+EOF
+gmt psconvert Geoid_Ker.ps -A1.6c -E720 -Tj -Z
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash,caption=Mapping geoid anomalies in Kerguelen Plateau by EGM2008,style=mystyle,label={lst12}]
+gmt grdconvert s45e45/w001001.adf geoid_Kerg1.grd
+gmt grdconvert s45e90/w001001.adf geoid_Kerg2.grd
+gmt grdconvert s90e45/w001001.adf geoid_Kerg3.grd
+gmt grdconvert s90e90/w001001.adf geoid_Kerg4.grd
+gdalinfo geoid_Kerg2.grd -stats
+gdalinfo geoid_Kerg1.grd -stats
+gmt makecpt -Cjet.cpt -V -T-50/60 > myocean.cpt
+exec bash
+ps=Geoid_Kgl.ps
+gmt grdimage geoid_Kerg1.grd -Cmyocean.cpt -R45/115/-70/-20 -JQ7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdimage geoid_Kerg2.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
+gmt grdimage geoid_Kerg3.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
+gmt grdimage geoid_Kerg4.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
+gmt grdcontour geoid_Kerg1.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt grdcontour geoid_Kerg2.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt grdcontour geoid_Kerg3.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt grdcontour geoid_Kerg4.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    --MAP_FRAME_AXES=wESN \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Geoid gravitational model EGM-2008 over East Antarctic, Kerguelen Plateau and SW Indian Ocean " \
+    -Lx16.0c/-1.3c+c318/-57+w1000k+l"Cylindrical equidistant projection. Scale (km)"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+gmt psscale -Dg38/-70+w14.0c/0.4c+v+ml+e -R -J -Cmyocean.cpt \
+    -Bg10f1a10+l"Color scale: rainbow [R=-30/50, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+gmt logo -Dx7.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y10.5c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+3.0 6.1 Earth geoid image EGM2008: vertical datum of 2.5 min resolution
+EOF
+gmt psconvert Geoid_Kgl.ps -A1.5c -E720 -Tj -Z
+\end{lstlisting}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{adjustwidth}{-\extralength}{0cm}
 %\printendnotes[custom] % Un-comment to print a list of endnotes
