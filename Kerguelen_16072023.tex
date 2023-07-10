@@ -172,6 +172,8 @@ While the traditional GIS-based methods usually employ graphical user interface 
 
 \subsubsection{Topographic/bathymetric mapping}
 
+The script for plotting the topographic/bathymetric map is presented in Listing \ref{lst01}. The script consists of several lines of code where each iteration involves plotting the target cartographic element: relief, grid, colour legend, graticules, textual annotations, etc. The most essential element of the code are as follows. Mapping starts with selecting the map snippet from the global ETOPO1 grid by 'grdcut'. The selection of the isolines is performed through a 'grdcontour' with 1.000 m gap. In our case, these lines are meaningful locations that yield a high representation estimate for seafloor bathymetry. The use of 'grdimage' results in plotted image of the raster grid in colours defined by 'makecpt' module as follows: gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt. Here, the values -T-8239/6392 indicate extreme (min/max) data for topographic grid inspected by 'gdalinfo' module earlier. The rest of the code is presented in Listing \ref{lst01} with key comments.
+
 \subsubsection{Mapping seafloor age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
 
 \subsubsection{Mapping sediment thickness}
@@ -212,7 +214,7 @@ Age, spreading rates and spreading symmetry of the ocean crust indicate the evol
 \caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig03}}
 \end{figure}
 
-Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). 
+Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). The difference between the gridded age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}).
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -265,7 +267,7 @@ Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the ability
 %----------- subsection ----------->
 \subsection{Magnetic anomalies over Kerguelen Plateau}
 
-The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. The analysis of the magnetic anomaly patterns in the south-west Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}.
+The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. The analysis of the magnetic anomaly patterns in the south-west Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}. The comparison of Figure \ref{fig05} reveals that the information on age uncertainties for grid cells coincides with marine magnetic anomaly identifications around the Kerguelen region (Figure \ref{fig09}), which is also observed with regard to the conjugate ridge flanks (Figure \ref{fig03}). 
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
