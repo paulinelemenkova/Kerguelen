@@ -156,6 +156,8 @@ The origin of the Kerguelen Plateau is related to the hotspot associated with th
 %----------- section ----------->
 \section{Materials and Methods}
 
+All the maps have been plotted using scripting toolset Generic Mapping Tools version 6.1.1, \href{https://www.generic-mapping-tools.org/}{https://www.generic-mapping-tools.org/}. A key aspect of the GMT algorithms is to consider that each cartographic element evaluated by its parameters adds new layers on the map regarding the target location which can be adjusted using refined flag options in special modules. Thus, a modular scripting approach of GMT differs it from the traditional GIS. The final map is completed from the aggregation of lines of code in a script where each module defines certain features on a map. To make mapping process effective, a script is run from the console for each visualization and adjusted accordingly to the target cartographic elements: projections, grids, colour palettes, raster extent and annotations, etc. To this end, we also define these cartographic elements stepwise on each of the presented maps, as demonstrated in script placed in the Appendix \ref{App} of this study. Such strategy of data visualization adopted by GMT ensures high automation of data processing which outperforms conventional mapping tools.
+
 %----------- subsection ----------->
 \subsection{Data}
 
@@ -167,6 +169,22 @@ The materials used in this study as raw cartographic grids include the following
  In this study, the cartographic methodology is based on using the Generic Mapping Tools (GMT) programming suite version 6-1-1 \cite{Wessel} using developed scripting workflow \cite{Lemenkova202212,Lemenkova202203}. The most prominent feature of GMT is using scripting approach that principally differs it from the conventional software due to the embedded programming language. Major advantages of GMT include modular toolbox system with over 140 existing modules which enables to generate highly customised mapping workflows, high print-quality graphics, geodetic-precision projections, reliable data processing algorithms applicable to large datasets and raster grids, flexibility to operating systems and open source licence \cite{WesselLuis}. 
 
 While the traditional GIS-based methods usually employ graphical user interface (GUI) for mapping and data visualization with existing standards menu of the software, script-based methods of GMT capture the dataset by running a script written using embedded language which operates similar to the programming approaches. Script consists of a consequence of several commands with pre-defined parameters that control the appearance of the cartographic elements on a map. The most well-known cartographic tools that use scripts for data processing are GMT \cite{Lemenkova202217} and GRASS GIS \cite{NETELER2012124}. While the latter is mostly used for image processing, theoretical cartography and ecological studies with numerous existing examples  \cite{ROCCHINI2017166,FRIGERI20111265,Lemenkova202313,SOROKINE2007685}, GMT is applied in geophysical and geological studies \cite{Lee,Lemenkova202206,DeSanto}.
+
+\subsubsection{Topographic/bathymetric mapping}
+
+\subsubsection{Mapping seafloor age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
+
+\subsubsection{Mapping sediment thickness}
+
+A representation of the GlobSed 5-arc-minute total sediment thickness grid is extracted from the global raster grid given a target location of Kerguelen area using 'gmt grdcut GlobSed-v2.nc' command which selects the file. The amplitude of values is checked using GDAL library embedded in GMT as follows: 'gdalinfo file.nc -stats'. Given this extent of the values, the colour palette table is defined accordingly and presented using 'psscale' module with defined parameters of location of the element on the map as follows: '-Dg-33/-59+w15.4c/0.4c', where -Dg-33/-59 defines the position of the colour scale on the map by coordinates. The grid annotations and graticules are added by 'psbasemap', and the rest of the script with added comments for brief explanations is presented in Listing \ref{lst06}. 
+
+\subsubsection{Geophysical mapping}
+
+To highlight features and subsurface characteristics not visible from geologic data, maps of gravity anomalies were prepared using gravity datasets. The full scripts for plotting geophysical maps are presented in Appendix in Listing \ref{lst07} for free-air gravity anomalies and Listing \ref{lst08} for vertical gravity gradient. The most essential lines of the code are as follows. For free-air gravity, the module 'img2grd' was first applied to convert the image from .IMG into GRD format. The projection was defined using '-JU43/6.0i' flag in 'grdimage' module and the region extent is clipped by "-R40/110/-70/-20" which passed to the next modules accordingly using '-R -J' flags. The vertical gravity gradient was plotted using the satellite-derived grid originally obtained from altimeters CryoSat-2, Jason-1/2 \cite{Harper} which enables to identify ridge propagation on the seafloor.
+
+\subsubsection{Mapping magnetic anomalies}
+
+\subsubsection{Mapping geoid anomalies}
 
 %----------- section ----------->
 \pagebreak
@@ -214,6 +232,8 @@ Spreading half rates of the ocean crust are visualised based on the 2 arc min ne
 
 %----------- subsection ----------->
 \subsection{Sediment thickness}
+
+Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the ability of approximation modelling to numerically highlight sedimentation trends in major oceanic basins. The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m).
 
 \begin{figure}[H]
 \makebox[1.0\linewidth][r]{%
@@ -321,10 +341,10 @@ WDMAM & World Digital Magnetic Anomaly Map\\
 }
 
 \pagebreak
-\appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
+\appendixtitles{yes} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendixstart
 \appendix
-\section[\appendixname~\thesection]{GMT scripts}
+\section[\appendixname~\thesection]{GMT scripts}\label{App}
 
 \subsection[\appendixname~\thesubsection]{GMT script for mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection}
 
@@ -369,7 +389,7 @@ EOF
 gmt psconvert Bathymetry_Kgl.ps -A1.0c -E720 -Tj -Z
 \end{lstlisting}
 
-\subsection[\appendixname~\thesubsection]{GMT script for mapping age, spreading rates and spreading asymmetry of the ocean crust}
+\subsection[\appendixname~\thesubsection]{GMT script for mapping age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
 
 \begin{lstlisting}[language=bash,caption=Mapping age of the oceanic lithosphere over Kerguelen Plateau and SW Indian Ocean,style=mystyle,label={lst02}]
 gmt grdcut age.3.2.nc -R-40/150/-70/-10 -Gker_age.tif
