@@ -4,8 +4,6 @@
 %=================================================================
 \documentclass[geomatics,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
 
-
-
 % MDPI internal commands
 \firstpage{1} 
 \makeatletter 
@@ -17,7 +15,7 @@
 \pubyear{2023}
 \copyrightyear{2023}
 %\externaleditor{Academic Editor: Firstname Lastname}
-\datereceived{16 July 2023} 
+\datereceived{11 July 2023} 
 \daterevised{} 
 \dateaccepted{} 
 \datepublished{} 
@@ -106,7 +104,7 @@ $^{1}$ \quad Laboratory of Image Synthesis and Analysis (LISA), École polytechn
 }
 
 % Keywords
-\keyword{Antarctic; Southern Ocean; bathymetry; French Southern and Antarctic Lands; cartography; satellite altimetry; marine geophysics; keyword 8; keyword 9; keyword 10} 
+\keyword{Antarctic; Southern Ocean; bathymetry; French Southern and Antarctic Lands; cartography; satellite altimetry; marine geophysics; sediments; magnetic anomalies; seafloor} 
 
 % The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
 %\PACS{J0101}
@@ -131,7 +129,9 @@ It is known that seafloor bathymetry and geophysical setting of the oceanic crus
 
 The use of the remote sensing data, satellite altimetry and gravimetry has proven to be effective in geophysical and environmental studies. Numerous examples exist in recent literature with case studies on estimating geoid values, evaluating gravity anomalies, tectonic and crustal structures, glacial and hydrological research and habitat mapping. Thus, satellite altimetry data can be used to jointly represent patterns of oceanic currents and draw conclusions on connectivity between habitats \cite{MORI201645}. A study by \cite{COTTE2022103650} is in part similar in using hydrographic and acoustic data for analysis of vertical layers of the ocean to identify community distribution and carbon content. Tide modelling with regard to bathymetric gradients was computed based on satellite altimetry data \cite{Maraldi}. The retreat of glaciers using mass balance measurements was estimated for analysis of spatial distribution of surface mass balance \cite{Verfaillie}. Mathieu et al. \cite{MATHIEU2011206} combine SRTM DEM, remote sensing data and geological field campaign to clarify the structures of Kerguelen Islands. 
 
-Such examples illustrate that a combination of bathymetric and geophysical data for detailed analysis of the Earth's crust structure and topography outperforms their use separately, and suggests that seafloor mapping should be based on the analysis of the heterogeneous features of the seabed derived from various datasets, as pointed earlier \cite{COWLEY2004267,Lemenkova202125,1993A234,ABUAMARAH2019868}. Since such methods can be regarded as feature-level combinations of seafloor fabric showing local appearance of prominent features such as fracture zones, ridges, seamounts, deep-sea trenches, canyons and rifts, the use of scripting programming approach to fuse different integrated geophysical datasets enables to match data from various sources, resolution and origin for a detailed analysis of the seafloor structure and geodynamic setting \cite{Veevers1991b,Lemenkova202104,Hill}. More applications of the use of remote sensing data on Kerguelen focus on marine biology which is explained by a unique wildlife with vulnerable species, well-preserved due to the remote isolated location of the archipelago \cite{fishes8040174}, and seasonal effects of the circumpolar currents on the fish communities \cite{Damerell,MONGIN2008880,Park}. A combination of such factors makes the ecosystems of Kerguelen an environmental heritage \cite{Sombetzkib,Sombetzkia,Naim}. 
+Such examples illustrate that a combination of bathymetric and geophysical data for detailed analysis of the Earth's crust structure and topography outperforms their use separately, and suggests that seafloor mapping should be based on the analysis of the heterogeneous features of the seabed derived from various datasets, as pointed earlier \cite{COWLEY2004267,Lemenkova202125,1993A234,ABUAMARAH2019868}. Since such methods can be regarded as feature-level combinations of seafloor fabric showing local appearance of prominent features such as fracture zones, ridges, seamounts, deep-sea trenches, canyons and rifts, the use of scripting programming approach to fuse different integrated geophysical datasets enables to match data from various sources, resolution and origin for a detailed analysis of the seafloor structure and geodynamic setting \cite{Veevers1991b,Lemenkova202104,Hill}. 
+
+More applications of the use of remote sensing data on Kerguelen focus on marine biology which is explained by a unique wildlife with vulnerable species, well-preserved due to the remote isolated location of the archipelago -- 4.000 km from South Africa and Australia  \cite{Rue1932b,fishes8040174}. Moreover, specific flora and fauna of the Kerguelen Islands is associated with geologic substrate and soil on basaltic basement, as well as the effects from Polar climate, and includes rare Antarctic species  \cite{Rue1932a,Paulian,Aubert3723}. Finally, the distribution of fish communities is affected by seasonal changes of the circumpolar currents \cite{Damerell,MONGIN2008880,Park}. A combination of these factors makes the ecosystems of Kerguelen an environmental heritage \cite{Sombetzkib,Sombetzkia,Naim}. 
 
 %----------- subsection ----------->
 \subsection{Objection and motivation}
@@ -151,7 +151,9 @@ The Kerguelen Plateau presents an extended topographic elevation situation in th
 \caption{Map of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
 \end{figure}
 
-The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup and spreading between India and Antarctica \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina}. Currently, it presents one of the world's largest the volcanic plateaus (the total length of 2300 km) with occasional evidence of volcanism remaining on the Heard and McDonald Islands. \cite{Li}. Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by the Princess Elizabeth Land. Kerguelen Plateau is asymmetric in its structure, with notable variations in two parts. Northern part of the Kerguelen Archipelago (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500-2000 m) \cite{Ramsay}. 
+The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup (ca. 120-110 Ma) and spreading between India and Antarctica in south-western segment of the current Indian Ocean \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina} and associated with the formation of the basaltic basement caused by active submarine volcanism on the aseismic ridge and sedimentation since Cretaceous  \cite{Henry}.
+
+Currently, it presents one of the world's largest the volcanic plateaus (the total length of 2300 km) with occasional evidence of volcanism remaining on the Heard and McDonald Islands. \cite{Li}. Morphologically, Kerguelen Plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by the Princess Elizabeth Land. Kerguelen Plateau is asymmetric in its structure, with notable variations in two parts. Northern part of the Kerguelen Archipelago (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500-2000 m) \cite{Ramsay}. 
 
 %----------- section ----------->
 \section{Materials and Methods}
@@ -243,12 +245,12 @@ Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the approxi
 \caption{Sediment thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
 \end{figure}
 
-The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m).
+The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m). Higher level of sediment thickness in these areas may also indicate earlier processes of the subaerial erosion which took place before the subsidence and associated sedimentation.
 
 %----------- subsection ----------->
 \subsection{Free-air gravity anomaly and vertical gravity gradients}
 
-Marine gravity field over the Kerguelen Plateau region and adjacent areas of the south-west Indian Ocean are shown in Figure \ref{fig07}. Vertical gravity gradient anomalies over Kerguelen Plateau region showing variations in gravity with the change in topographic elevations are visualised in Figure \ref{fig08}.
+Marine gravity field over the Kerguelen Plateau region and adjacent areas of the south-west Indian Ocean are shown in Figure \ref{fig07}. The gravity highs on the Kerguelen Plateau and Heard Island correspond to the maximal bathymetric elevations and indicate the seamounts formed of Miocene basalts erupted during volcanic activity in the southern Indian Ocean and resulted in a large igneous province, which proveds relevant studies \cite{Weis}. Vertical gravity gradient anomalies over Kerguelen Plateau region showing variations in gravity with the change in topographic elevations are visualised in Figure \ref{fig08}.
 
 \begin{figure}[H]
 \centering
