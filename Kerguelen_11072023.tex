@@ -103,13 +103,11 @@ $^{1}$ \quad Laboratory of Image Synthesis and Analysis (LISA), École polytechn
 \abstract{The volcanic Kerguelen Islands are formed on one of the world's largest submarine plateaus. Located in the remote segment of the southern Indian Ocean close to Antarctica, the Kerguelen Plateau is notable for complex tectonic origin and geologic formation related to the Cretaceous history of the continents. This is reflected in varying age of the oceanic crust adjacent to the plateau and highly heterogeneous bathymetry of the Keguelen Plateau where seafloor structure of the southern segment  differs significantly from its northern part. Remote sensing data derived from marine gravity and satellite radar altimetry surveys serve as an important source of information for mapping of such complex seafloor features. Automatic matching of topographic and geophysical grids with high accuracy is essential for complex geologic-tectonic investigations. We propose incorporating the geospatial information from NOAA, EMAG2 and WDMAM, ETOPO1, EGM96 and EGM2008 to refine the extent and distribution of features extracted from geospatial datasets. The cartographic joint analysis of topography, magnetic anomalies, tectonic and gravity data is based on integrated mapping using scripting toolset Generic Mapping Tools (GMT). The refined mapping of the submerged features (Broken Ridge orientation, seamounts around the Crozet Islands, fabric of seafloor and orientation and frequency of magnetic anomalies) is used to analyse the correspondence of the objects with regard to free-air gravity and magnetic anomalies, geodynamics and seabed structure in south-west Indian Ocean. Experimental results show that integrating the proposed datasets using the state-of-the-art cartographic scripting language improves identification and visualization of the seabed objects. The presented research includes 10 new maps which contribute to  increasing the knowledge of subsurface seafloor structure around the Kerguelen Plateau and composition of the Earth's crust in the French Southern and Antarctic Lands.
 }
 
-% Keywords
 \keyword{Antarctic; Southern Ocean; bathymetry; French Southern and Antarctic Lands; cartography; satellite altimetry; marine geophysics; sediments; magnetic anomalies; seafloor} 
 
-% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
-%\PACS{J0101}
-%\MSC{}
-%\JEL{}
+\PACS{91.10.Da; 91.10.Op; 93.85.Pq; 91.10.Fc; 91.10.Jf; 91.10.Vr}
+\MSC{86A30; 86-05; 86A04; 86A70}
+\JEL{Y91; C83; C88; C90; C00; C60; C61}
 
 \begin{document}
 
@@ -141,15 +139,21 @@ In our approach, we combine the bathymetric and marine geophysical data on Kergu
 %----------- section ----------->
 \section{Study area}
 
-The Kerguelen Plateau presents an extended topographic elevation situation in the south-western sector of the Indian Ocean, Figure \ref{fig01}. The structure of its major geographic boundaries are as follows. To the northwest, it is limited by the Crozet Archipelago located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the southwest -- by the Enderby Basin, Figure \ref{fig01}. 
+The Kerguelen Plateau presents an extended topographic elevation situation in the south-western sector of the Indian Ocean, Figure \ref{fig01}. 
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
 \centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_01.jpg}
-}
+	\hspace{100pt}\includegraphics[width=12.0 cm]{Fig_01.jpg}
 \caption{Map of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
 \end{figure}
+
+The structure of its major geographic boundaries are as follows. To the northwest, it is limited by the Crozet Archipelago located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the south -- by the Antarctic including Enderby Land, Kemp Land, Mac Robertson Land, Princess Elizabeth Land, Wilhelm II Land and Queen Mary Land, Figure \ref{fig02}. 
+
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=12.0 cm]{Fig_02.jpg}
+\caption{Age of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
+\end{figure} 
 
 The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup (ca. 120-110 Ma) and spreading between India and Antarctica in south-western segment of the current Indian Ocean \cite{Guglielmi}. The early surface expression of the Kerguelen Plume at the Southern Kerguelen Plateau is estimated in Mesozoic around 120 Ma \cite{Gaina} and associated with the formation of the basaltic basement caused by active submarine volcanism on the aseismic ridge and sedimentation since Cretaceous  \cite{Henry}.
 
@@ -163,13 +167,13 @@ All the maps have been plotted using scripting toolset Generic Mapping Tools ver
 %----------- subsection ----------->
 \subsection{Data}
 
-The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig02}.
+The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig03}.
 
 \begin{figure}[H]
 \centering
-	\hspace{100pt}\includegraphics[width=12.0 cm]{Fig_02.jpg}
-\caption{Age of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
-\end{figure} 
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_03.jpg}
+\caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping tool: GMT. Map source: author. \label{fig03}}
+\end{figure}
 
 The bathymetric mapping was based on the ETOPO Global Relief Model \cite{NOAA}; the gravity grids were derived from EGM-2008 \cite{Pavlis}. The data on sediment thickness are derived from the GlobSed dataset showing the distribution of the sediment thickness in the World's Oceans \cite{Straume}. The magnetic data are derived from the two available information sources compiled originally from satellite, airborne, and marine magnetic measurements: the Earth Magnetic Anomaly Grid (EMAG2) \cite{Maus}, which has a resolution of 2 arc minutes, and the World Digital Magnetic Anomaly Map (WDMAM) which has 3-minute resolution \cite{Lesur}. 
 
@@ -186,14 +190,20 @@ The script for plotting the topographic/bathymetric map is presented in Listing 
 
 \subsubsection{Mapping seafloor age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
 
-Mapping age, age uncertainty, spreading rates and spreading asymmetries of Kerguelen Plateau and the SW Indian Ocean basins is performed based on the raster grids with 2 minute resolution. The grids are reprogected to Lambert Azimuthal Equal-Area projection using data from the major features in the basin of Indian Ocean. Thus, mid-ocean ridges and tectonic plates are added using 'psxy' module to show the borders of Indian, African and Australian plates, e.g., 'gmt psxy -R -J TPIndian.txt -L -Wthickest,red -O -K >> \$ps', Figure \ref{fig03}. 
-
-The tectonic slab contours are added using the 'psxy' module with the following command: 'gmt psxy -R -J file.gmt -Wthick,darkmagenta -O -K >> \$ps'. Several grids are combined and represented through plotted raster grids to show the age-depth correlations in the seafloor. The fulls scripts are presented in Appendix \ref{App} in Listing \ref{lst02} for mapping age of the oceanic lithosphere over Kerguelen Plateau, Listing \ref{lst03} for mapping asymmetries in crustal accretion on conjugate ridge flanks over Kerguelen Plateau (Figure \ref{fig03}), Listing \ref{lst04} for visualisation of spreading half rates of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean and Listing \ref{lst05} for mapping crustal age uncertainty of the oceanic lithosphere over the Kerguelen Plateau.
+Mapping age, age uncertainty, spreading rates and spreading asymmetries of Kerguelen Plateau and the SW Indian Ocean basins is performed based on the raster grids with 2 minute resolution. The grids are reprogected to Lambert Azimuthal Equal-Area projection using data from the major features in the basin of Indian Ocean. Mid-ocean ridges and tectonic plates are added using 'psxy' module to show the borders of Indian, African and Australian plates: 'gmt psxy -R -J TPIndian.txt -L -Wthickest,red -O -K >> \$ps', Figure \ref{fig04}. 
 
 \begin{figure}[H]
 \centering
-	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_03.jpg}
-\caption{Age, spreading rates and spreading symmetry of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean: asymmetries in crustal accretion (\%) on conjugate ridge flanks. Mapping tool: GMT. Map source: author. \label{fig03}}
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_04.jpg}
+\caption{Spreading half rates of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean with added GSFML data. Mapping tool: GMT. Map source: author. \label{fig04}}
+\end{figure}
+
+The tectonic slab contours are added using the 'psxy' module with the following command: 'gmt psxy -R -J file.gmt -Wthick,darkmagenta -O -K >> \$ps'. Several grids are combined and represented through plotted raster grids to show the age-depth correlations in the seafloor. The fulls scripts are presented in Appendix \ref{App} in Listing \ref{lst02} for mapping age of the oceanic lithosphere over Kerguelen Plateau, Listing \ref{lst03} for mapping asymmetries in crustal accretion on conjugate ridge flanks over Kerguelen Plateau, Listing \ref{lst04} for visualisation of spreading half rates of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean and Listing \ref{lst05} for mapping crustal age uncertainty of the oceanic lithosphere over the Kerguelen Plateau, Figure \ref{fig05}.
+
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_05.jpg}
+\caption{Age uncertainty in lithosphere crust (m.y) over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Cartography: GMT, version 6-1-1. Map source: author. \label{fig05}}
 \end{figure}
 
 \subsubsection{Mapping sediment thickness}
@@ -220,32 +230,18 @@ The final maps of geoid are completed from the aggregation of EGM96 and EGM-2008
 
 Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Spreading half rates of the ocean crust are visualised based on the 2 arc min netCDF grid v.3.6 (NOAA). The difference between the gridded age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}).
 
-\begin{figure}[H]
-\centering
-	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_04.jpg}
-\caption{Spreading half rates of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean with added GSFML data. Mapping tool: GMT. Map source: author. \label{fig04}}
-\end{figure}
-
 Unique geophysical setting of the Kerguelen Plateau underlain by oceanic crust is strongly associated with its tectonic origin and history. Originally formed as a single structure Kerguelen was then split by seafloor spreading in the south-west sector of the Indian Ocean as pointed earlier \cite{BRADLEY1988243}. Moreover, volcanic activity on the northern and central parts of the Kerguelen Plateau  underlying the Heard Island proves that it is located on a hotspot, as noted in earlier studies \cite{Duncan2016,Plenier}. Such unstable position impacts the geodynamic patterns over the Kerguelen, with higher uncertainty of age of the oceanic crust, Figure \ref{fig05} compared to the adjacent areas.
-
-\begin{figure}[H]
-\centering
-	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_05.jpg}
-\caption{Age uncertainty in lithosphere crust (m.y) over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Cartography: GMT, version 6-1-1. Map source: author. \label{fig05}}
-\end{figure}
 
 %----------- subsection ----------->
 \subsection{Sediment thickness}
 
-Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the approximated modelling highlighting the sedimentation trends around Kerguelen, Figure \ref{fig06}. 
+Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the approximated modelling highlighting the sedimentation trends around Kerguelen, Figure \ref{fig06}. The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m). Higher level of sediment thickness in these areas may also indicate earlier processes of the subaerial erosion which took place before the subsidence and associated sedimentation.
 
 \begin{figure}[H]
 \centering
 	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_06.jpg}
 \caption{Sediment thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
 \end{figure}
-
-The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m). Higher level of sediment thickness in these areas may also indicate earlier processes of the subaerial erosion which took place before the subsidence and associated sedimentation.
 
 %----------- subsection ----------->
 \subsection{Free-air gravity anomaly and vertical gravity gradients}
