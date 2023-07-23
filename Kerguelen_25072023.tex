@@ -100,7 +100,7 @@ $^{1}$ \quad Laboratory of Image Synthesis and Analysis (LISA), École polytechn
 %\firstnote{Current address: Affiliation 3.} 
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{The volcanic Kerguelen Islands are formed on one of the world's largest submarine plateaus. Located in the remote segment of the southern Indian Ocean close to Antarctica, the Kerguelen Plateau is notable for complex tectonic origin and geologic formation related to the Cretaceous history of the continents. This is reflected in varying age of the oceanic crust adjacent to the plateau and highly heterogeneous bathymetry of the Keguelen Plateau where seafloor structure of the southern segment  differs significantly from its northern part. Remote sensing data derived from marine gravity and satellite radar altimetry surveys serve as an important source of information for mapping of such complex seafloor features. We propose incorporating the geospatial information from NOAA, EMAG2 and WDMAM, ETOPO1, EGM96 and EGM2008 to refine the extent and distribution of features extracted from geospatial datasets. The cartographic joint analysis of topography, magnetic anomalies, tectonic and gravity data is based on integrated mapping using scripting toolset Generic Mapping Tools (GMT). The refined mapping of the submerged features (Broken Ridge orientation, seamounts around the Crozet Islands, fabric of seafloor and orientation and frequency of magnetic anomalies) is used to analyse the correspondence of the objects with regard to free-air gravity and magnetic anomalies, geodynamics and seabed structure in south-west Indian Ocean. Experimental results show that integrating the proposed datasets using the state-of-the-art cartographic scripting language improves identification and visualization of the seabed objects. The presented research includes 10 new maps which contribute to  increasing the knowledge of subsurface seafloor structure around the Kerguelen Plateau and composition of the Earth's crust in the French Southern and Antarctic Lands.
+\abstract{The volcanic Kerguelen Islands are formed on one of the world's largest submarine plateaus. Located in the remote segment of the southern Indian Ocean close to Antarctica, the Kerguelen Plateau is notable for complex tectonic origin and geologic formation related to the Cretaceous history of the continents. This is reflected in varying age of the oceanic crust adjacent to the plateau and highly heterogeneous bathymetry of the Keguelen Plateau where seafloor structure of the southern segment  differs significantly from its northern part. Remote sensing data derived from marine gravity and satellite radar altimetry surveys serve as an important source of information for mapping of such complex seafloor features. We propose incorporating the geospatial information from NOAA, EMAG2 and WDMAM, ETOPO1 and EGM96 to refine the extent and distribution of features extracted from geospatial datasets. The cartographic joint analysis of topography, magnetic anomalies, tectonic and gravity data is based on integrated mapping using scripting toolset Generic Mapping Tools (GMT). The refined mapping of the submerged features (Broken Ridge orientation, seamounts around the Crozet Islands, fabric of seafloor and orientation and frequency of magnetic anomalies) is used to analyse the correspondence of the objects with regard to free-air gravity and magnetic anomalies, geodynamics and seabed structure in south-west Indian Ocean. Experimental results show that integrating the proposed datasets using the state-of-the-art cartographic scripting language improves identification and visualization of the seabed objects. The presented research includes 10 new maps which contribute to  increasing the knowledge of subsurface seafloor structure around the Kerguelen Plateau and composition of the Earth's crust in the French Southern and Antarctic Lands.
 }
 
 \keyword{Antarctic; Southern Ocean; bathymetry; French Southern and Antarctic Lands; cartography; satellite altimetry; marine geophysics; sediments; magnetic anomalies; seafloor} 
@@ -134,13 +134,7 @@ More applications of the use of remote sensing data on Kerguelen focus on marine
 %----------- subsection ----------->
 \subsection{Objection and motivation}
 
-In our approach, we combine the bathymetric and marine geophysical data on Kerguelen Plateau in regional and local scales with varied level of details to describe the structures of the south-west Indian Ocean. \hl{In particular}, the \hl{present} study aims at investigating the geophysical and topographic setting of the Kerguelen Plateau using the integrated datasets \hl{that} cannot be achieved with separate use of data. Ten new maps are presented and described to visualise spatial variations, reveal correlation and capture the matches between geophysical and topographic setting of the Kerguelen region contributing and continuing the existing cartographic works on Kerguelen \cite{Nougier,Petit,RECQ1989133}.
-selected segment of the south-west Indian Ocean that belongs to the French Southern and Antarctic Lands \cite{Rue1931,Faivre,Dupouy}. Given the remote location of the Kerguelen Archipelago, one of the most isolated places on Earth, and high cost of geological and geophysical sampling, the integrated use of the satellite derived data presented in this study enables to get better insights into the structure of the Kerguelen Plateau and south-west Indian Ocean.
-
-%----------- section ----------->
-\section{Study area}
-
-The Kerguelen Plateau presents an extended  $6500 km^2$ large topographic elevation situated in the south-western sector of the Indian Ocean \cite{Operto}, Figure \ref{fig01}.  
+In our approach, we combine the bathymetric and marine geophysical data on Kerguelen Plateau (Figure \ref{fig01}) in regional and local scales with varied level of details to describe the structures of the south-west Indian Ocean. 
 
 \begin{figure}[H]
 \centering
@@ -148,7 +142,13 @@ The Kerguelen Plateau presents an extended  $6500 km^2$ large topographic elevat
 \caption{Map of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
 \end{figure}
 
-The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup in Cretaceous (ca. 120-110 Ma) and spreading between India and Antarctica in south-western segment of the current Indian Ocean \cite{Guglielmi}. Early surface expression of the Kerguelen Plume at the southern Kerguelen Plateau initiated in Mesozoic around 120 Ma \cite{Gaina}.
+\hl{In particular}, the \hl{present} study aims at investigating the geophysical and topographic setting of the Kerguelen Plateau using the integrated datasets \hl{that} cannot be achieved with separate use of data. Ten new maps are presented and described to visualise spatial variations, reveal correlation and capture the matches between geophysical and topographic setting of the Kerguelen region contributing and continuing the existing cartographic works on Kerguelen \cite{Nougier,Petit,RECQ1989133}.
+selected segment of the south-west Indian Ocean that belongs to the French Southern and Antarctic Lands \cite{Rue1931,Faivre,Dupouy}. Given the remote location of the Kerguelen Archipelago, one of the most isolated places on Earth, and high cost of geological and geophysical sampling, the integrated use of the satellite derived data presented in this study enables to get better insights into the structure of the Kerguelen Plateau and south-west Indian Ocean.
+
+%----------- section ----------->
+\section{Study area}
+
+The Kerguelen Plateau presents an extended  $6500 km^2$ large topographic elevation situated in the south-western sector of the Indian Ocean \cite{Operto}, Figure \ref{fig01}.  The origin of the Kerguelen Plateau is related to the hotspot associated with the the kinematics of Gondwana breakup in Cretaceous (ca. 120-110 Ma) and spreading between India and Antarctica in south-western segment of the current Indian Ocean \cite{Guglielmi}. Early surface expression of the Kerguelen Plume at the southern Kerguelen Plateau initiated in Mesozoic around 120 Ma \cite{Gaina}.
  
 Active submarine volcanism on the aseismic ridge and sedimentation processes since Cretaceous resulted in the formation of the basaltic basement of Kerguelen  \cite{Henry}. The volcanism continued in the Kerguelen hotspot up to Tertiary  (<40 Ma) and is now reflected in current geologic and mineralogical structure of the archipelago which is covered up to 85\%  by basalts originated from the mantle plume of the hotspot and resulting from the crystallisation of the raised and cooled basaltic magma \cite{NICOLAYSEN2000313,Lacroix,Doucet}. Nowadays, Kerguelen Archipelago presents a shallow submarine plateau limited to the northwest by the Crozet Archipelago which is located WNW 1250 km \cite{BRETON2013126}, to the north -- by the African-Antarctic Basins, to the northeast -- by the Australian-Antarctic Basin, and to the south -- by the Antarctic. The adjacent lands here include the Enderby Land, Kemp Land, Mac Robertson Land, Princess Elizabeth Land, Wilhelm II Land and Queen Mary Land, Figure \ref{fig02}. 
 
@@ -168,7 +168,7 @@ All the maps have been plotted using scripting toolset Generic Mapping Tools ver
 %----------- subsection ----------->
 \subsection{Data}
 
-The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig03}.
+The materials used in this study as raw cartographic grids include the following datasets. The marine geological data regarding age, spreading rates, and asymmetry of the ocean crust were derived from the high-resolution dataset \cite{Mueller}, Figure \ref{fig03}. \hl{The dataset on spreading asymmetry is derived from the NOAA where units are expressed as \% of crustal accretion of the seafloor, i.e. symmetric spreading results in values of 50\% on conjugate ridge flanks.}
 
 \begin{figure}[H]
 \centering
@@ -185,7 +185,7 @@ The bathymetric mapping was based on the ETOPO Global Relief Model \cite{NOAA}; 
 
 \subsubsection{Topographic/bathymetric mapping}
 
-The script for plotting the topographic/bathymetric map is presented in Listing \ref{lst01}. The script consists of several lines of code where each iteration involves plotting the target cartographic element: relief, grid, colour legend, graticules, textual annotations, etc. The most essential element of the code are as follows. Mapping starts with selecting the map snippet from the global ETOPO1 grid by 'grdcut'. The selection of the isolines is performed through a 'grdcontour' with 1.000 m gap. In our case, these lines are meaningful locations that yield a high representation estimate for seafloor bathymetry. The use of 'grdimage' results in plotted image of the raster grid in colours defined by 'makecpt' module as follows: gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt. Here, the values -T-8239/6392 indicate extreme (min/max) data for topographic grid inspected by 'gdalinfo' module earlier. The rest of the code is presented in Listing \ref{lst01} with key comments.
+The script for plotting the topographic/bathymetric map is presented in Listing \ref{lst01}.\hl{ }The most essential element of the code are as follows. Mapping starts with selecting the map snippet from the global ETOPO1 grid by 'grdcut'. The selection of the isolines is performed through a 'grdcontour' with 1.000 m gap. In our case, these lines are meaningful locations that yield a high representation estimate for seafloor bathymetry. The use of 'grdimage' results in plotted image of the raster grid in colours defined by 'makecpt' module as follows: gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt. Here, the values -T-8239/6392 indicate extreme (min/max) data for topographic grid inspected by 'gdalinfo' module earlier. The rest of the code is presented in Listing \ref{lst01} with key comments.
 
 \subsubsection{Mapping seafloor age, spreading rates, spreading asymmetry and age uncertainty of the ocean crust}
 
@@ -229,7 +229,7 @@ The final maps of geoid are completed from the aggregation of EGM96 and EGM-2008
 %----------- subsection ----------->
 \subsection{Ocean floor formation}
 
-A general physical-geographic structure of the Kerguelen Plateau is visible in map of Figure \ref{fig01} with a general orientation of the archipelago in NW-SE slanted direction and a total extent surpassing 2000 km in length. Northern and southern parts of the plateau are asymmetric where less expressed southern part is older and lie in deeper water in the topographically subdued areas. Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Unique geophysical setting of the Kerguelen Plateau underlain by oceanic crust is strongly associated with its tectonic origin and history. 
+A general physical-geographic structure of the Kerguelen Plateau is visible in map of Figure \ref{fig01} with a general orientation of the archipelago in NW-SE slanted direction and a total extent surpassing 2000 km in length. Northern and southern parts of the plateau are asymmetric where less expressed southern part is older and lie in deeper water in the topographically \hl{downlifted} areas. Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps in ocean floor formation in South-West Indian Ocean and the Kerguelen Plateau. The age of the ocean crust was determined by interpolation of adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Unique geophysical setting of the Kerguelen Plateau underlain by oceanic crust is strongly associated with its tectonic origin and history. 
 
 The geodynamics setting of the oceanic crust (Figures \ref{fig02}, \ref{fig03}, \ref{fig04} and \ref{fig05}) shows strong relationship of the Kerguelen Plateau to the Mid-Ocean Ridge and South-West Indian Ridge which resulted in the uplift of the Kerguelen Plateau as a remnant of the Mesozoic oceanic basin existing after the separation of Gondwana. The analysis of the bathymetric map with geodynamic maps shows that seafloor heterogeneity correlates with seafloor spreading rates where rougher basement is formed in the areas with low half-spreading rate threshold (30-35 mm/year and lower): Figure \ref{fig01} and Figure \ref{fig04}. Thus, the heterogeneity in seafloor patterns varies significantly in various basins of the Indian ocean depending on the geodynamic setting and development of ocean crust.
 
@@ -255,13 +255,13 @@ Marine gravity field over the Kerguelen Plateau region and adjacent areas of the
 
 \begin{figure}[H]
 \centering
-	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_07.jpg}
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_07.jpg}
 \caption{Marine gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig07}}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-	\hspace{100pt}\includegraphics[width=11.0 cm]{Fig_08.jpg}
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_08.jpg}
 \caption{Vertical gravity gradient over Kerguelen Plateau. Mapping: GMT. Map source: author. \label{fig08}}
 \end{figure}
 
@@ -275,55 +275,39 @@ The analysis of maps shows that free-air gravity over the Kerguelen are higher t
 The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over Kerguelen is shown in Figure \ref{fig09}. 
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
-	\begin{subfigure}[b]{.65\textwidth}
-		\centering
-			\includegraphics[width=9.0cm]{Fig_09a.jpg}
-		\caption{}
-	\end{subfigure}	
-	%\vspace{1mm}
-	\begin{subfigure}[b]{.60\textwidth}
-		\centering
-			\includegraphics[width=9.5cm]{Fig_09b.jpg}
-		\caption{}
-	\end{subfigure}%
-}
-\caption{(\textbf{a}): Patterns of the marine and terrestrial airborne magnetic anomaly over the Kerguelen Plateau using 3-min resolution grid of WDMAM, south-west Indian Ocean; (\textbf{b}): Marine and Earth airborne magnetic anomaly grid based on EMAG-2 over the Kerguelen Plateau region. Black areas signify "no data" in the original grid. Cartography: GMT, version 6-1-1. Map source: author.}\label{fig09}
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_09.jpg}
+\caption{Patterns of the marine and terrestrial airborne magnetic anomaly over the Kerguelen Plateau \hl{on a} 3-min resolution grid of WDMAM, south-west Indian Ocean. Map source: author. \label{fig09}}
 \end{figure}
 
-The crustal volume contributes to the decreased amplitude of the magnetic anomaly around Kerguelen as can be seen as dark blue areas in Figure \ref{fig09} with lower values of around -500 mGal. The analysis of the magnetic anomaly patterns in the SW Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}. The comparison of Figure \ref{fig09} with Figure \ref{fig05} reveals that age uncertainties for grid cells coincide with marine magnetic anomaly identified around the Kerguelen, which is also observed for the conjugate ridge flanks (see Figure \ref{fig03} and Figure \ref{fig09}). 
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_10.jpg}
+\caption{Marine and Earth airborne magnetic anomaly grid based on EMAG-2 over the Kerguelen Plateau region. Black areas signify "no data" in the original grid. Map source: author. \label{fig10}}
+\end{figure}
+
+The crustal volume contributes to the decreased amplitude of the magnetic anomaly around Kerguelen as can be seen as dark blue areas in Figure \ref{fig10} with lower values of around -500 mGal. The analysis of the magnetic anomaly patterns in the SW Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal blocks movements, which is visible on different magnetic pattern over the mid-ocean ridge, as reported earlier \cite{LePichon}. The comparison of Figure \ref{fig10} with Figure \ref{fig05} reveals that age uncertainties for grid cells coincide with marine magnetic anomaly identified around the Kerguelen, which is also observed for the conjugate ridge flanks (see Figure \ref{fig03} and Figure \ref{fig10}). 
 
 The EMAG-2 and WDMAM grids used for plotting the magnetic anomalies show various levels of details of the grids which enable to reveal the subsurface structure of the seafloor around the Kerguelen Plateau and composition of the Earth's crust in South-West Indian Ocean. Here, magnetic fabric data correlate with hotspot activities and active volcanism which is notable over the central and northern parts of the archipelago \cite{HENRY2003153,Xu,Pettersen}. Moreover, values of intermediate crustal thickness in the oceanic crust beneath the Kerguelen Plateau and large-amplitude magnetic anomalies over the archipelago evidence that the plateau is oceanic in origin and is associated with the plate volcanism caused by tectonic plate activity, which is also proved in relevant studies \cite{Direen,Charvis1995}. Therefore, the distinct magnetic patterns visible in maps in Figure \ref{fig10} corresponds to high hotspot activity and associated with lava flows. 
 
 %----------- subsection ----------->
 \subsection{Geoid models}
-The geopotential models over Kerguelen based on EGM-2008 and EGM96 datasets are shown in Figure \ref{fig10}. The variations of geoid over the Kerguelen Plateau point at existing isostatic compensation of the archipelago due to low-density mantle. Thus, high anomalies in geoid level above the Kerguelen Plateau are explained by the high volcanism associated to a ridge formation on hot lithosphere, which is reflected in the extraordinary thickness below Kerguelen with geoid values of above 40 m (red areas in Figure \ref{fig10}) which exceeds normal thickness of the oceanic crust. This proves previous investigations on geoid in the Kerguelen Archipelago that reported anomalous thickness in this area \cite{RECQ1987301}. Such isostatic compensation associated with the anomalously high geoid values is related to the topographically rough elevated surfaces with regions of active tectonic uplift signifying upper mantle processes \cite{Coblentz}. 
+The geopotential models over Kerguelen based on the EGM96 dataset are shown in Figure \ref{fig11}. The variations of geoid over the Kerguelen Plateau point at existing isostatic compensation of the archipelago due to low-density mantle. Thus, high anomalies in geoid level above the Kerguelen Plateau are explained by the high volcanism associated to a ridge formation on hot lithosphere, which is reflected in the extraordinary thickness below Kerguelen with geoid values of above 40 m (red areas in Figure \ref{fig11}) which exceeds normal thickness of the oceanic crust. This proves previous investigations on geoid in the Kerguelen Archipelago that reported anomalous thickness in this area \cite{RECQ1987301}. Such isostatic compensation associated with the anomalously high geoid values is related to the topographically rough elevated surfaces with regions of active tectonic uplift signifying upper mantle processes \cite{Coblentz}. 
 
 \begin{figure}[H]
-\makebox[1.0\linewidth][r]{%
-	\begin{subfigure}[b]{.75\textwidth}
-		\centering
-			\includegraphics[width=9.6cm]{Fig_10a.jpg}
-		\caption{}
-	\end{subfigure}	\\
-	
-	\begin{subfigure}[b]{.60\textwidth}
-		\centering
-			\includegraphics[width=9.5cm]{Fig_10b.jpg}
-		\caption{}
-	\end{subfigure}%
-}
-\caption{(\textbf{a}): Geoid model based on EGM-96 over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean; (\textbf{b}): Geoid model based on EGM-2008 over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Cartography: GMT, version 6-1-1. Map source: author.}\label{fig10}
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_11.jpg}
+\caption{Geoid model based on EGM-96 over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig11}}
 \end{figure}
 
-A comparison of the geoid map with topography (sf. Figures \ref{fig01} and \ref{fig10}) implies correlation between the continued geodynamic processes in south-west Indian Ocean and the topography structure of the Kerguelen Archipelago. Moreover, this proves a high positive correlation between geoid height and deep structure of the seafloor topography, which is noted earlier for the regions of large plateaus and swells \cite{SandwellMacKenzie}. Geodetic data are useful to reveal tectonic structures and topographic patterns. Thus, identification of lithospheric structures and tectonic blocks can be performed based on the satellite gravity data such as World Gravity Model (WGM) and Gravity Recovery and Climate Experiment (GRACE) \cite{EMISHAW2023104775}. The EGM and astrogeodetic vertical deflections are useful for modelling gravity and geopotential difference \cite{WANG2023}. Processing terrestrial and satellite geodetic data can be employed for solving theoretical issues of geodesy such as altimetry–gravimetry boundary-value problem \cite{Lehmann}. Other examples include integrated use of the satellite-derived data from Cryosat-2 and altimetry with ship-measured gravity data for estimating marine gravity anomalies \cite{NGUYEN2020505}.
+A comparison of the geoid map with topography (sf. Figures \ref{fig01} and \ref{fig11}) implies correlation between the continued geodynamic processes in south-west Indian Ocean and the topography structure of the Kerguelen Archipelago. Moreover, this proves a high positive correlation between geoid height and deep structure of the seafloor topography, which is noted earlier for the regions of large plateaus and swells \cite{SandwellMacKenzie}. Geodetic data are useful to reveal tectonic structures and topographic patterns. Thus, identification of lithospheric structures and tectonic blocks can be performed based on the satellite gravity data such as World Gravity Model (WGM) and Gravity Recovery and Climate Experiment (GRACE) \cite{EMISHAW2023104775}. The EGM and astrogeodetic vertical deflections are useful for modelling gravity and geopotential difference \cite{WANG2023}. Processing terrestrial and satellite geodetic data can be employed for solving theoretical issues of geodesy such as altimetry–gravimetry boundary-value problem \cite{Lehmann}. Other examples include integrated use of the satellite-derived data from Cryosat-2 and altimetry with ship-measured gravity data for estimating marine gravity anomalies \cite{NGUYEN2020505}.
 
 %----------- section ----------->
 \section{Conclusions}
 
-The direct surveys of seafloor observation are expensive to generate bathymetric data and require the use of complex costly equipment such as multi-beam echo-sounding systems for data sampling, generating and storage. At the same time , the reality calls for efficient datasets for geovisualisation and analysis. Using high-resolution geophysical datasets provided by NOAA and USGS processed by GMT advanced scripting approach develops a cartographic processing pipeline for fast, automated and accurate mapping of seafloor and makes possible the assembly of such data and extend it not only on Indian Ocean but also towards other regions of the World Ocean. For instance, Pacific Ocean is notable for rich seafloor texture features such as vast abyssal plains, mid-ocean ridges, oceanic trenches, numerous seamounts and continental shelf which provide a tremendous source of information for matching potential correlation between geophysical and magnetic anomalies and bathymetric responses as heterogeneous seafloor pattern. Consequently, the use of GMT applied for seafloor mapping in other regions of the World Ocean makes an ideal case for validating our cartographic scripting approach presented in the above methodological scripting framework. 
+The direct surveys of seafloor observation are expensive to generate bathymetric data and require the use of complex costly equipment such as multi-beam echo-sounding systems for data sampling, generating and storage. At the same time , the reality calls for efficient datasets for geovisualisation and analysis. Using high-resolution geophysical datasets provided by NOAA and USGS processed by GMT advanced scripting approach develops a cartographic processing pipeline for fast, automated and accurate mapping of seafloor\hl{, }and makes possible \hl{data assimilation} and extend it not only on Indian Ocean but also towards other regions of the World Ocean. For instance, Pacific Ocean is notable for rich seafloor texture features such as vast abyssal plains, mid-ocean ridges, oceanic trenches, numerous seamounts and continental shelf which provide a tremendous source of information for matching potential correlation between geophysical and magnetic anomalies and bathymetric responses as heterogeneous seafloor pattern. Consequently, the use of GMT applied for seafloor mapping in other regions of the World Ocean makes an ideal case for validating our cartographic scripting approach presented in the above methodological scripting framework. 
 
-Global surveillance of seafloor using altimeter satellites and gravity enables to reveal geophysical anomalies. Furthermore, integrated data on magnetic field intensity, bathymetry and geodynamics of the deep seafloor enables evaluation of the associations between these processes. Global surveillance of seafloor delivers ever-increasing volumes of high resolution datasets. However, the scientific utilisation of these data in ever-higher spatial resolution and precision requires advanced tools  for their effective automated analysis. GMT scripts toolset has proven to be effective for seafloor bathymetric and geophysical mapping. Diverse seabed features in different scales and resolution can be visualised and mapped for detection of coherency between the magnetic anomalies and geophysical patterns and their relationship with ocean crust geodynamics reflected in present bathymetry. Visualisation of such data provides an extensive near-global coverage of seafloor features. 
+Global surveillance of seafloor using altimeter satellites and gravity enables to reveal geophysical anomalies. Furthermore, integrated data on magnetic field intensity, bathymetry and geodynamics of the deep seafloor enables evaluation of the associations between these processes. Global surveillance of seafloor delivers ever-increasing volumes of high resolution datasets. However, the scientific \hl{application} of these data in ever-higher spatial resolution and precision requires advanced tools  for their effective automated analysis. GMT scripts toolset has proven to be effective for seafloor bathymetric and geophysical mapping. Diverse seabed features in different scales and resolution can be visualised and mapped for detection of coherency between the magnetic anomalies and geophysical patterns and their relationship with ocean crust geodynamics reflected in present bathymetry. Visualisation of such data provides an extensive near-global coverage of seafloor features. 
 
 The above series of maps and comparison of geophysical setting over Kerguelen performed using GMT conclude that scripts techniques outperform the GIS approach in terms of the automation of cartographic workflow and the compactness of the code using GMT syntax which can be reapplied with modified setting. When handling cartographic elements on maps and parameters of projection, the main drawback of GMT is that it needs to tune parameters well in advance while writing the code since it cannot visualise the map prior to executed script as a completely console-based program. Further, GMT cannot discard the redundant features once plotted on a map, and correcting requires running the script anew. In GIS approach, for example, user's setting may change the appearance of map layout so that new color palettes and details of bathymetric plotting with regard to isoline density and consistency may become redundant and be corrected on the fly. In contrast, as a non GUI application, GMT requires modification of these parameters directly in the code lines of the script to handle this problem. 
 
@@ -351,7 +335,6 @@ The following abbreviations are used in this manuscript:\\
 \noindent 
 \begin{tabular}{@{}ll}
 DEM & Digital Elevation Model \\
-EGM2008 & Earth Gravitational Model 2008 \\
 EMAG-2 & Earth Magnetic Anomaly Grid 2 \\
 GRACE & Gravity Recovery and Climate Experiment \\
 GMT & Generic Mapping Tools \\
@@ -765,41 +748,6 @@ gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y12.5c -N -O \
 1.0 3.0 EGM96: 15 arc minute resolution grid based on the gravitational force of the Earth
 EOF
 gmt psconvert Geoid_Ker.ps -A1.6c -E720 -Tj -Z
-\end{lstlisting}
-
-\begin{lstlisting}[language=bash,caption=Mapping geoid anomalies in Kerguelen Plateau by EGM2008,style=mystyle,label={lst12}]
-gmt grdconvert s45e45/w001001.adf geoid_Kerg1.grd
-gmt grdconvert s45e90/w001001.adf geoid_Kerg2.grd
-gmt grdconvert s90e45/w001001.adf geoid_Kerg3.grd
-gmt grdconvert s90e90/w001001.adf geoid_Kerg4.grd
-gdalinfo geoid_Kerg2.grd -stats
-gdalinfo geoid_Kerg1.grd -stats
-gmt makecpt -Cjet.cpt -V -T-50/60 > myocean.cpt
-exec bash
-ps=Geoid_Kgl.ps
-gmt grdimage geoid_Kerg1.grd -Cmyocean.cpt -R45/115/-70/-20 -JQ7.5i -P -I+a15+ne0.75 -Xc -K > $ps
-gmt grdimage geoid_Kerg2.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
-gmt grdimage geoid_Kerg3.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
-gmt grdimage geoid_Kerg4.grd -Cmyocean.cpt -R -J -P -Xc -O -K >> $ps
-gmt grdcontour geoid_Kerg1.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
-gmt grdcontour geoid_Kerg2.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
-gmt grdcontour geoid_Kerg3.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
-gmt grdcontour geoid_Kerg4.grd -R -J -C2 -A10+f10p,25,black -Wthinner,dimgray -O -K >> $ps
-gmt psbasemap -R -J \
-    --MAP_FRAME_AXES=wESN \
-    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
-    -B+t"Geoid gravitational model EGM-2008 over East Antarctic, Kerguelen Plateau and SW Indian Ocean " \
-    -Lx16.0c/-1.3c+c318/-57+w1000k+l"Cylindrical equidistant projection. Scale (km)"+f \
-    -UBL/-5p/-40p -O -K >> $ps
-gmt psscale -Dg38/-70+w14.0c/0.4c+v+ml+e -R -J -Cmyocean.cpt \
-    -Bg10f1a10+l"Color scale: rainbow [R=-30/50, H=0, C=RGB]" \
-    -I0.2 -By+lm -O -K >> $ps
-gmt logo -Dx7.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
-gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y10.5c -N -O \
-    -F+f12p,0,black+jLB >> $ps << EOF
-3.0 6.1 Earth geoid image EGM2008: vertical datum of 2.5 min resolution
-EOF
-gmt psconvert Geoid_Kgl.ps -A1.5c -E720 -Tj -Z
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
