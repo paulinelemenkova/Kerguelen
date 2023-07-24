@@ -217,12 +217,6 @@ A representation of the GlobSed 5-arc-minute total sediment thickness grid is ex
 
 To highlight \hl{the }features and subsurface characteristics not visible from \hl{the geological }data, \hl{the }maps of gravity anomalies were prepared using gravity datasets \hl{in the Lambert Equal-Area Azimuthal Projection for conformity with other maps}. The full scripts for plotting geophysical maps are presented in Appendix in Listing \ref{lst07} for free-air gravity anomalies and Listing \ref{lst08} for vertical gravity gradient. The most essential lines of the code are as follows. For free-air gravity, the module 'img2grd' was first applied to convert the image from \hl{the} .IMG into GRD format. The projection was defined using '-JU43/6.0i' flag in 'grdimage' module and the region extent is clipped by "-R40/110/-70/-20" which passed to the next modules accordingly using '-R -J' flags. The vertical gravity gradient was plotted using the satellite-derived grid originally obtained from \hl{the }altimeters CryoSat-2, Jason-1/2 \cite{Harper} which enables to identify ridge propagation on the seafloor.
 
-\begin{figure}[H]
-\centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_06.jpg}
-\caption{Sediment thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
-\end{figure}
-
 \subsubsection{Mapping magnetic anomalies}
 
 In mapping of the magnetic anomalies, \hl{the }two different grids \hl{were used -- the} WDMAM and the EMAG2. The first was subset from the global grid \hl{embedded in the GMT }using \hl{the following }code: $gmt grdcut @earth_wdmam_03m -R50/100/-70/-30 -Gker_mag.nc$\hl{, }and the second was obtained from the \hl{existing raster file of }EMAG 2-minute resolution grid as follows: $"gmt grdcut EMAG2_V2.grd -R50/100/-70/-30 -Gker_mag.nc"$. \hl{This illustrates that data processing in GMT is flexible and possible using both ways: by handling existing files as stored data, and using embedded grids which are available in the GMT system using remote access to these files. Afterwards, }the images were visualised using \hl{the }'grdimage' module with color palettes adjusted \hl{according} to the range of data distribution over the \hl{Kerguelen} Plateau and \hl{adjacent south-west region of the }Indian Ocean using \hl{the following }code: 'gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt'. The remaining parts of the GMT scripts are presented for both maps visualised using \hl{the }WDMAM and the EMAG2\hl{, respectively,} in Listing \ref{lst09} and \ref{lst10} \hl{in the Appendix}.
@@ -236,19 +230,7 @@ The \hl{map of the} geoid \hl{inundations is} completed \hl{using} the EGM96 \hl
 
 \hl{Automatic matching of topographic and geophysical grids with high accuracy is essential for complex geologic-tectonic investigations. This paper demonstrated the use of }scripting algorithms of GMT \hl{which }were applied for plotting 10 thematic maps \hl{covering the south-west segment of Indian Ocean and East Antarctic} using bathymetric, geodynamic and high-resolution geophysical datasets on gravity (Figure \ref{fig07} and \ref{fig08}). 
 
-\begin{figure}[H]
-\centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_07.jpg}
-\caption{Marine gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig07}}
-\end{figure}
-
 These maps reveal the structure of the seafloor in the Kerguelen Plateau and the surroundings region\hl{. }The results confirm that the dynamics of \hl{the }seafloor development reflected in \hl{the maps of }oceanic crust age, asymmetries, spreading rates of the south-west and southeast Indian ridges are related to major geophysical setting as reflected on the topographic, magnetic and gravity grids. Furthermore, the volcanic activity of the Kerguelen hotspot \hl{makes the} impact \hl{on }the distribution of \hl{the }magnetic anomalies, which supports relevant previous studies \cite{Fanjat,Weissel,Jokat}. Overall, the results demonstrate that \hl{the }GMT scripting is a powerful and stable cartographic method \hl{that performs efficiently }for geophysical and bathymetric seafloor mapping. In the sections below,\hl{ }the \hl{obtained }results \hl{are discussed }on relevant maps with provided comments on the essential features and traits of the seafloor around the Kerguelen Plateau, south-west Indian Ocean and \hl{the }East Antarctic. 
-
-\begin{figure}[H]
-\centering
-	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_08.jpg}
-\caption{Vertical gravity gradient over Kerguelen Plateau. Mapping: GMT. Map source: author. \label{fig08}}
-\end{figure}
 
 %----------- subsection ----------->
 \subsection{Ocean floor formation}
@@ -262,18 +244,36 @@ Gridded map of age of the ocean crust around the Kerguelen Plateau (Figure \ref{
 %----------- subsection ----------->
 \subsection{Sediment thickness}
 
-Mapping sediment thickness using 5-arc-minute GlobSed grid relies on the approximated modelling highlighting the sedimentation trends around Kerguelen, Figure \ref{fig06}. The distribution of sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude as can be seen by comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}, as especially visible in higher values of sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and Kerguelen Plateau (2000-3000 m). Higher level of sediment thickness in these areas may also indicate earlier processes of the subaerial erosion which took place before the subsidence and associated sedimentation. 
+Mapping sediment thickness using \hl{the }5-arc-minute GlobSed grid relies on the approximated modelling \hl{which highlights} the sedimentation trends around \hl{the }Kerguelen \hl{Archipelago}, Figure \ref{fig06}. The distribution of \hl{the }sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude\hl{, which can be noted} by \hl{the }comparison of maps in Figure \ref{fig02} and Figure \ref{fig06}\hl{. Such correspondence is }especially visible \hl{for} higher values of \hl{the }sediment thickness near the shorelines of Antarctic, Amery Ice Shelf (3000-4000 m), Enderby Land (over 4000 m) and \hl{the }Kerguelen Plateau (2000-3000 m). Higher level of sediment thickness in these areas may also indicate earlier processes of the subaerial erosion which took place before the subsidence and associated sedimentation. 
 
-Rifting during the Late Paleogene resulted in changes in Tertiary sediment facies of Kerguelen which are affected by the evolution of the Antarctic environment \cite{Froehlich}. Sediments covering the Kerguelen Plateau include pillow lavas, tuffaceous sediments and marine siltstones which were deposited since late Miocene \cite{Duncan}. They are continued as the thick sequence of the Cenozoic sediments (over 5000 m, bright read areas) within the Enderby Basin to the south-west off the Kerguelen Plateau, Figure \ref{fig06}. 
+Rifting during the Late Paleogene resulted in changes in \hl{the }Tertiary sediment facies of Kerguelen which are affected by the evolution of the Antarctic environment \cite{Froehlich}. Sediments covering the Kerguelen Plateau include pillow lavas, tuffaceous sediments and marine siltstones which were deposited since late Miocene \cite{Duncan}. They are continued as \hl{a} thick sequence of the Cenozoic sediments (over 5000 m\hl{)} within the Enderby Basin to the south-west off the Kerguelen Plateau, Figure \ref{fig06}.
 
-The impact from glacial processes and the turbidity of the ocean current circulation to the increase of the sediment thickness around Kerguelen and adjacent area result in large sediment fields noted on the map as dark yellow to orange colours with values over 3000 m. This results from the formation of Antarctic circumpolar currents which started around the Eocene--Oligocene \cite{Huang,ROBERT200237}. A general orientation of maximal sedimentation areas is coherent to the sediment-filled troughs stretching in NW-SE-direction which are associated with general NW-SE orientation of Kerguelen and axes of the tectonic faults. High values in sediment thickness around the Kerguelen Plateau controured by the ridge isolines its eastern margin is associated with the depositions from the bottom currents directed westwards.
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_06.jpg}
+\caption{Sediment thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
+\end{figure} 
+
+\hl{Other important factors increasing }the \hl{accumulation of the sediments} around \hl{the }Kerguelen and \hl{the }adjacent area \hl{include }glacial processes and the turbidity of the ocean currents\hl{. Hence, intense} circulation results in \hl{the accumulation of the }large sediment fields with values over 3000 m. This results from the \hl{developed} Antarctic circumpolar currents which started \hl{initially }around the Eocene--Oligocene \hl{and continued until present time as the strongest current system in the oceans directed clockwise around the South Pole affecting the adjacent sub-Antarctic regions such as Kerguelen }\cite{Huang,ROBERT200237}. A general orientation of maximal sedimentation areas is coherent to the sediment-filled troughs stretching in NW-SE-direction which are associated with general NW-SE orientation of Kerguelen and axes of the tectonic faults. High values in sediment thickness around the Kerguelen Plateau controured by the ridge isolines its eastern margin is associated with the depositions from the bottom currents directed westwards.
 
 %----------- subsection ----------->
 \subsection{Free-air gravity anomaly and vertical gravity gradients}
 
-Marine gravity field over the Kerguelen Plateau region and adjacent areas of the south-west Indian Ocean are shown in Figure \ref{fig07}. The comparison of gravity roughness with map of the half-spreading rates (Figure \ref{fig04}) and sediment thickness (Figure \ref{fig06}) shows the relationship between the speed of the spreading of mid-ocean ridges and roughness of seafloor basement which is explained by the process of mid-ocean ridge formation.  Other factors includes the associated magma flows, spreading directions in Mesozoic and isochron orientations of age of the oceanic crust which affect current bathymetric and gravity patterms \cite{Whittaker}. Furthermore, the gravity highs on the Kerguelen Plateau and Heard Island correspond to the maximal bathymetric elevations and indicate the seamounts formed of Miocene basalts erupted during volcanic activity in the southern Indian Ocean and resulted in a large igneous province \cite{Weis}.  
+Marine gravity field over the Kerguelen Plateau region and adjacent areas of the south-west Indian Ocean are shown in Figure \ref{fig07}. The comparison of gravity roughness with map of the half-spreading rates (Figure \ref{fig04}) and sediment thickness (Figure \ref{fig06}) shows the relationship between the speed of the spreading of mid-ocean ridges and roughness of seafloor basement which is explained by the process of mid-ocean ridge formation.  Other factors includes the associated magma flows, spreading directions in Mesozoic and isochron orientations of age of the oceanic crust which affect current bathymetric and gravity patterns \cite{Whittaker}. Furthermore, the gravity highs on the Kerguelen Plateau and Heard Island correspond to the maximal bathymetric elevations and indicate the seamounts formed of Miocene basalts erupted during volcanic activity in the southern Indian Ocean and resulted in a large igneous province \cite{Weis}.
+
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_07.jpg}
+\caption{Marine gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig07}}
+\end{figure}  
 
 The analysis of maps shows that free-air gravity over the Kerguelen are higher that in the surroundings and reach up to 80 mGal (dark orange colour, Figure \ref{fig08}). Lower values are associated with bathymetric depressions (-40 to -60 mGal) while the abyssal plain is characterised by medium values of 0-20 mGal (corresponds to light aquamarine colours in Figure \ref{fig08}. This well illustrates the correlation of gravity anomalies with the distribution of topographic highs and depressions since they are strongly influenced by a gravitational effect of the topographic masses. Vertical gravity gradient anomalies identifying variations in gravity with the change in topographic elevations are shown in Figure \ref{fig08}. 
+
+\begin{figure}[H]
+\centering
+	\hspace{100pt}\includegraphics[width=14.0 cm]{Fig_08.jpg}
+\caption{Vertical gravity gradient over Kerguelen Plateau. Mapping: GMT. Map source: author. \label{fig08}}
+\end{figure}
 
 %----------- subsection ----------->
 \subsection{Magnetic anomalies over Kerguelen Plateau}
