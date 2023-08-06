@@ -230,19 +230,21 @@ Since GMT only considers each feature once and processes it using relevant modul
 
 The map of the geoid inundations is completed using the EGM96 dataset using the\hl{ }GMT script where each module defines certain features on a map. To make mapping\hl{ }effective, the scripts are run from the console for \hl{plotting} the geoid and adjusted accordingly to the target \hl{concepts}: projections, grids, colour palettes, raster extent and annotations\hl{. }To this end, these cartographic elements were also defined stepwise on the presented maps of geoid, as \hl{showed} in a script\hl{, see} Listing \ref{lst11}. Such strategy of data visualization\hl{ }ensures high automation of data processing \hl{by GMT }which outperforms the conventional\hl{ }tools.
 
-Strongly relevant features, such as geoid undulation, seafloor isochrons, basement depth isolines, and asymmetries in crustal accretion are associated with the asthenospheric flow from mantle plumes of Kerguelen to spreading Southwest and Southeast Ridges. Mapping such data enables to reveal information about the seafloor attributes and compare it with the geologic structure and geodynamics. Therefore, mapping multi-source topographic and geophysical datasets enables to compare such features using comparable projection. In reality, however, seafloor features are rarely identical due to many factors affecting the bathymetry but may be strongly correlated. To this end, the GMT scripts can be adjusted to other scale and map the features in the enlarged view for detailed order of visualisation. To evaluate the impact of geophysical and geological setting on seafloor structure using the performance of GMT scripts, a number of cartographic trials and re-projections was generated in which each map represented the selected seafloor features with various level of details, colour table for tuned visualisation. The optimal projection was selected as Lambert azimuthal equal-area, which was applied for all the maps for comparability and conformity.
+Strongly relevant features, such as geoid undulation, seafloor isochrons, basement depth isolines, and asymmetries in crustal accretion are associated with the asthenospheric flow from mantle plumes of Kerguelen to spreading Southwest and Southeast Ridges. Mapping such data enables to reveal information about the seafloor attributes and compare it with the geologic structure and geodynamics. Therefore, mapping multi-source topographic and geophysical datasets enables to compare such features using comparable projection. In reality, however, seafloor features are rarely identical due to many factors affecting the bathymetry but may be strongly correlated. To this end, the GMT scripts can be adjusted to other scale and map the features in the enlarged view for detailed\hl{ }visualisation. To evaluate the impact of geophysical and geological setting on seafloor structure using the performance of GMT\hl{, }a number of cartographic\hl{ }re-projections was generated \hl{where} each map represented the selected seafloor features with various level of details\hl{. }The optimal projection was selected as Lambert azimuthal equal-area, which was applied for all the maps for comparability and conformity.
 
 %----------- section ----------->
 \section{Results and Discussion}
 
-Automatic matching of topographic and geophysical grids with high accuracy is essential for complex geologic-tectonic investigations. This paper demonstrated the use of scripting algorithms of GMT which were applied for plotting 10 thematic maps covering the south-west segment of Indian Ocean and East Antarctic using bathymetric, geodynamic and high-resolution geophysical datasets on gravity (Figure \ref{fig07} and \ref{fig08}). 
+Automatic matching of topographic and geophysical grids with high accuracy is essential for complex geologic-tectonic investigations. This paper demonstrated the use of scripting algorithms of GMT which were applied for plotting \hl{eleven} thematic maps covering the south-west segment of Indian Ocean and East Antarctic using bathymetric, geodynamic and high-resolution geophysical datasets on gravity (Figure \ref{fig07} and \ref{fig08}). \hl{Cartographic scripts by GMT, as demonstrated in this research, provide visualised information on geodynamic and geophysical setting of the remotely located areas such as Kerguelen Plateau. During cartographic process and workflow, the scripts enables to save time through the increased speed of mapping due to the high level of automation.} 
 
-These maps reveal the structure of the seafloor in the Kerguelen Plateau and the surroundings region. The results confirm that the dynamics of the seafloor development reflected in the maps of oceanic crust age, asymmetries, spreading rates of the south-west and southeast Indian ridges are related to major geophysical setting as reflected on the topographic, magnetic and gravity grids. Furthermore, the volcanic activity of the Kerguelen hotspot makes the impact on the distribution of the magnetic anomalies, which supports relevant previous studies \cite{Fanjat,Weissel,Jokat}. Overall, the results demonstrate that the GMT scripting is a powerful and stable cartographic method that performs efficiently for geophysical and bathymetric seafloor mapping. In the sections below, the obtained results are discussed on relevant maps with provided comments on the essential features and traits of the seafloor around the Kerguelen Plateau, south-west Indian Ocean and the East Antarctic. 
+\hl{Programming concept of GMT enables to better tune and adjust the layout of the cartographic plots in various scales and focus on a specific area for comparability of maps in a series. Such compatibility helps to evaluate the correlations between various geophysical and bathymetric features that were formed during a long period of the development of Kerguelen Archipelago. Moreover, using the geospatial analysis as a complementary technique, the associations in geodyanmic setting (age, spreading half rates of the ocean crust, asymmetry in crustal accretion on conjugate ridge flanks and other variables) can be compared and analysed. In this way, GMT scripts provide advanced cartographic method to visualise datasets and obtain information through effective data processing and modelling geophysical properties of the seafloor.}
+
+These maps reveal the \hl{details of the }structure of the seafloor in the Kerguelen Plateau\hl{. }The results confirm that the dynamics of the seafloor development reflected in the maps of oceanic crust age, asymmetries, spreading rates of the south-west and southeast Indian ridges are related to major geophysical setting as \hl{showed} on the topographic, magnetic and gravity grids. Furthermore, the volcanic activity of the Kerguelen hotspot makes the impact on the distribution of the magnetic anomalies, which supports\hl{ }previous studies \cite{Fanjat,Weissel,Jokat}. Overall, the results demonstrate that the GMT scripting is a powerful and stable cartographic method that performs efficiently for geophysical and bathymetric seafloor mapping. In the sections below, the obtained results are discussed on relevant maps with\hl{ }comments on the essential features and traits of the seafloor around the Kerguelen Plateau, south-west Indian Ocean and\hl{ }East Antarctic. 
 
 %----------- subsection ----------->
 \subsection{Ocean floor formation}
 
-The general physical-geographic structure of the Kerguelen Plateau is visible in the map of Figure \ref{fig01}. It shows a morphological orientation of the archipelago in the NW-SE direction and a total extent surpassing 2000 km in length. Northern and southern parts of the plateau are asymmetric where less expressed southern part is older and lie in deeper water in the topographically downlifted areas. Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps of the ocean floor formation in southwest Indian Ocean and around the Kerguelen Plateau. The geodynamics setting of the oceanic crust (Figures \ref{fig02}, \ref{fig03}, \ref{fig04} and \ref{fig05}) shows a strong relationship between the Kerguelen Plateau and the two mid-ocean ridges. 
+The general physical-geographic structure of the Kerguelen Plateau is visible in the map of Figure \ref{fig01}. It shows a morphological orientation of the archipelago in\hl{ }NW-SE direction and \hl{an} extent surpassing 2000 km in length. \hl{As can be seen, }northern and southern parts of the plateau are asymmetric where less expressed southern part is older and lie in deeper water in the topographically downlifted areas. Age, spreading rates and spreading symmetry of the ocean crust indicate the evolution steps of the ocean floor formation in southwest Indian Ocean and around the Kerguelen Plateau. The geodynamics setting of the oceanic crust (Figures \ref{fig02}, \ref{fig03}, \ref{fig04} and \ref{fig05}) shows a strong relationship between the Kerguelen Plateau and the two mid-ocean ridges. 
 
 The age of the ocean crust was determined by the interpolation of the adjacent seafloor isochrons oriented towards the direction of seafloor spreading, Figure \ref{fig02}. Such correspondence highlights that unique geophysical setting of the Kerguelen Plateau underlain by the oceanic crust is strongly associated with its tectonic origin associated with volcanic hotspot and geologic history. The formation of the Southwest and the Southeast Indian Ridges is related to the uplift of the Kerguelen Plateau as a remnant of the Mesozoic oceanic basin existing after the separation of Gondwana. The analysis of the bathymetric map with geodynamic maps shows that seafloor heterogeneity around the Kerguelen Archipelago correlates with the seafloor spreading rates where rougher basement is formed in the areas with the low half-spreading rate threshold (30-35 mm/year and lower) which can be revealed by comparison of maps in Figure \ref{fig01} and Figure \ref{fig04}. Thus, the heterogeneity in seafloor patterns varies significantly in various basins of the Indian Ocean depending on the geodynamic setting and the geologic development of the ocean crust.
 
@@ -379,35 +381,36 @@ WDMAM & World Digital Magnetic Anomaly Map\\
 \subsection[\appendixname~\thesubsection]{GMT script for mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection}
 
 \begin{lstlisting}[language=bash,caption=Mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection,style=mystyle,label={lst01}]
-# Subset study area
+# Subset study area by cutting a sub-region from a grid file
 grdcut ETOPO1_Ice_g_gmt4.grd -R-40/150/-70/-20 -Gkgl_relief.nc
 gdalinfo ss_relief.nc -stats
+# Here the actual range is obtained from the 'gdalinfo'
 # Minimum=-8239.000, Maximum=6392.000
-# Color palette
+# Color palette is used to access the master cpt tables and to translate them to fit the actual data range according to the z-values.
 gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt
 # Generate a file
 ps=Bathymetry_Kgl.ps
 gmt grdimage kgl_relief.nc -Cmyocean.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
-# Add shorelines
+# Addiing shorelines by contouring the 2D gridded data sets
 gmt grdcontour kgl_relief.nc -R -J -C1000 -Wthinnest,blue -O -K >> $ps
-# Add grid
+# Adding grid to create a basemap plot
 gmt psbasemap -R -J \
     -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
     -B+t"Topographic map of the Kerguelen Plateau" \
     -Lx15.0c/-1.3c+c318/-57+w2000k+l"Scale (km) at 60\232E 50\232S"+f \
     -UBL/-5p/-40p -O -K >> $ps
-# Texts
+# Texts and various inscriptions on the maps are plotted using the 'pstext' module
 gmt pstext -R -J -X0.0c -Y0.0c -N -O -K \
     -F+jTL+f9p,Helvetica,white+jLB >> $ps << EOF
 66.0 -62.0 Enderby
 66.5 -63.0 Basin
 EOF
 # Other text are added likewise
-# Add legend
+# Adding the legend is done using the 'psscale' module which explained the visualised conventional signs.
 gmt psscale -Dg-27.0/-60+w15.4c/0.4c+v+ml -R -J -Cmyocean.cpt \
     -Bg1000f200a2000+l"Color scale: geo global bathymetry/topography relief [R=-8239/6392, H=0, C=RGB]" \
     -I0.2 -By+lm -O -K >> $ps
-# Add GMT logo
+# Add GMT logo as depicted stamp of the software
 gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
 # Add subtitle
 gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
