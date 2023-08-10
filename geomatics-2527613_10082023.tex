@@ -1,0 +1,1985 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[geomatics,article,accept,pdftex,moreauthors]{Definitions/mdpi} 
+
+% MDPI internal commands
+\firstpage{1} 
+\makeatletter 
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2023}
+\copyrightyear{2023}
+\externaleditor{{Giuseppe Masetti, Ian Church, Anand Hiroji, Ove Andersen} %MDPI: Please add academic editor if available.
+ Editor: Firstname Lastname}
+\datereceived{11 July 2023} 
+\daterevised{6 August 2023} 
+\dateaccepted{8 August 2023} 
+\datepublished{} 
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, lineno, float, amsmath, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, cleveref, amsthm, hyphenat, natbib, hyperref, footmisc, url, geometry, newfloat, caption
+%\usepackage{showframe}
+\graphicspath{{figures/}} % path to folder with figures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{gensymb} % for \textdegree
+\usepackage{tabularx}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepmagenta}{RGB}{195,12,214}
+\definecolor{deepgreen}{RGB}{29,122,30}
+\definecolor{mintgreen}{RGB}{192,249,192}
+\definecolor{codepurple}{RGB}{204, 0, 153}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{GainsboroPurple}{RGB}{247,176,247}
+\definecolor{LightSlateGrey}{RGB}{124,118,118}
+%    
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{LightSlateGrey},
+    keywordstyle=\color{deepgreen}\bfseries,
+    emphstyle=\color{deepred},
+    numberstyle=\tiny\color{deepmagenta},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Seafloor and Ocean Crust Structure of the Kerguelen Plateau from Marine Geophysical and Satellite Altimetry Datasets}
+% Interplay Between Seafloor Spreading, Marine Gravity Roughness and Ocean Crust Structure of the Kerguelen Plateau Analysed from Satellite Altimetry
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Seafloor and Ocean Crust Structure of the Kerguelen Plateau from Marine Geophysical and Satellite Altimetry Datasets}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-5759-1089} % Polina Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{\hl{Polina} %MDPI: Please carefully check the accuracy of names and affiliations.
+ Lemenkova \orcidA{}}
+
+%\longauthorlist{yes}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Polina Lemenkova}
+
+% MDPI internal command: Authors, for citation in the left column
+\AuthorCitation{Lemenkova, P.}
+% If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address [1]{%
+Laboratory of Image Synthesis and Analysis (LISA), École polytechnique de Bruxelles \hl{(Brussels Faculty of Engineering}%MDPI: Please check if this part should be deleted.
+), Université Libre de Bruxelles (ULB), Building L, Campus du Solbosch, ULB---LISA CP165/57, Avenue Franklin D. Roosevelt 50, 1050 Brussels, Belgium; polina.lemenkova@ulb.be; Tel.: +32-471-86-04-59}
+
+% Contact information of the corresponding author
+%\corres{Correspondence: }
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation 3.} 
+
+% Abstract (Do not insert blank lines, i.e. \\) 
+\abstract{The volcanic Kerguelen Islands are formed on one of the world's largest submarine plateaus. Located in the remote segment of the southern Indian Ocean close to Antarctica, the Kerguelen Plateau is notable for a complex tectonic origin and geologic formation related to the Cretaceous history of the continents. This is reflected in the varying age of the oceanic crust adjacent to the plateau and the highly heterogeneous bathymetry of the Kerguelen Plateau, with seafloor structure differing for the southern and northern segments. Remote sensing data derived from marine gravity and satellite radar altimetry surveys serve as an important source of information for mapping complex seafloor features. This study incorporates geospatial information from NOAA, EMAG2, WDMAM, ETOPO1, and EGM96 datasets to refine the extent and distribution of the extracted seafloor features. The cartographic joint analysis of topography, magnetic anomalies, tectonic and gravity grids is based on the integrated mapping performed using the Generic Mapping Tools (GMT) programming suite. Mapping of the submerged features (Broken Ridge, Crozet Islands, seafloor fabric, orientation, and frequency of magnetic anomalies) enables analysis of their correspondence with free-air gravity and magnetic anomalies, geodynamic setting, and seabed structure in the southwest Indian Ocean. The results show that integrating the datasets using advanced cartographic scripting language improves identification and visualization of the seabed objects. The results include 11 new maps of the region covering the Kerguelen Plateau and southwest Indian Ocean. This study contributes to increasing the knowledge of the seafloor structure in the French Southern and Antarctic Lands.} %MDPI: some minor changes made in abstract
+
+\keyword{Antarctic; Southern Ocean; bathymetry; French Southern and Antarctic Lands; \\cartography; satellite altimetry; marine geophysics; sediments; magnetic anomalies; seafloor} 
+
+\PACS{91.10.Da; 91.10.Op; 93.85.Pq; 91.10.Fc; 91.10.Jf; 91.10.Vr}
+\MSC{86A30; 86-05; 86A04; 86A70}
+\JEL{Y91; C83; C88; C90; C00; C60; C61}
+
+\begin{document}
+
+%----------- section ----------->
+\section{Introduction}
+
+%----------- subsection ----------->
+\subsection{Background}
+In cartography and spatial data processing, the task of plotting maps (also known as mapping layouts) is widely used as a common practice. This involves the visualization and representation of spatially defined objects using cartographic techniques \cite{PAPPVARY1989103,ROBINSON198991,GOODCHILD20091}. One of the generally accepted methods for mapping and quantitative and qualitative cartographic visualization is implemented through Geographic Information Systems (GIS), using algorithms for raster and vector data processing embedded within these programs \cite{GOODCHILD2009500,SLOCUM1991167,TAYLOR1994333}. However, the high complexity and time-consuming nature of GIS are not conducive to large-scale mapping applications in various Earth science tasks. To address this, programming and scripting algorithms are proposed as an alternative to the GIS-based approach, aiming to reduce data processing complexity in computer graphics and time costs associated with mapping \cite{10162166}. %MDPI: some changes made in this paragraph; please check
+
+The application of programming methods in cartography has seen extensive development, resulting in the release of several programs that utilize scripts as mapping tools. Programming-based cartographic approaches can be categorized into three general types. First, there are partial uses of scripts, such as plugins or alternative tools in addition to the existing Graphical User Interface (GUI) in classical modes. Examples include ESRI's ModelBuilder \cite{6344536}, modules in the Geographic Resources Analysis Support System (GRASS GIS), processing script editors in QGIS or ArcGIS \cite{OMRAN2016140,NAGHIBI2021101232}, and the Python-based ERDAS Macro Language (EML) used in Erdas Imagine to create spatial models. Second, there are spatial libraries of programming languages, including selected packages in R and Python specifically designed for satellite image processing and geospatial data analysis \cite{ROBERTS2022105192,jimaging8120317,VOS2019104528,app122412554}. Third, there are programs that are completely based on using scripting languages without any Graphical User Interface (GUI), such as the Generic Mapping Tools (GMT). All these examples of using scripts aim to automate cartographic data processing using advanced scripting tools.
+%MDPI: some changes made in this paragraph
+
+The script-based cartographic programs are founded on the principle of utilizing the syntax of a programming language, which includes a number of key commands and recognizable expressions by the system \cite{6057428}. Following the rules of the embedded language, it becomes possible to compose scripts for data modeling and cartographic visualization. In contrast to traditional GUI-based GIS methods, cartographic scripts do not directly generate maps. However, they provide a series of commands that encompass crucial information about the map's appearance, governing specific features on a plotted cartographic layout~\cite{Lemenkova202215}. In fact, scripts and programming commands used in cartography define the elements present on the map produced by the script during execution. Specifically, it is possible to define key map concepts such as mathematical definitions of the map (projections, resolution, grid, coordinate systems, extent, and scale), design of symbols and legends (colors and object sizes, palettes for continuous fields, and transparency), and exposition of the elements (overlay, topology, generalization) \cite{ABER201753}.
+%MDPI: some changes made in this paragraph
+
+\subsection{Problem~Formulation}
+The analysis of the seafloor structure and ocean crust concerns mapping, detecting, and~recognising the bathymetric structures and variations in geophysical fields. Among these problems, the~integrated geophysical interpretation of the satellite altimetry, marine gravimetry, and magnetic anomalies, as well as acoustic and seismic surveys present one of the most active research areas that have attracted research interest in recent decades~\cite{Bascou}. Previous studies~\cite{ESHAGH2021313} provided a broad overview of approaches for analysis of the satellite gravimetry data to model the Earth beneath the sea. Marine geophysical and satellite altimetry data provide information on crustal density and processes in the upper mantle~\cite{KAPAWAR2021106692,PENG2022110823,ZHANG202368}, sediment thickness and basement depth~\cite{Lemenkova202005}. Moreover, the~analysis of the geophysical data enables to reveal key characteristics regarding the lithosphere thickness such as Moho discontinuity and elastic features of the lithosphere~\cite{TESAURO201378}, viscosity and flexural rigidity. Such data are essential for investigations on the Earth's~structure.
+
+In terms of the data-driven analyses, previous works investigating the oceanic seabed can be roughly classified into studies focused on the bathymetric mapping and geophysical analysis. Mapping the seafloor characterizes the bathymetric patterns using data visualization and cartographic methods~\cite{Battista,Lemenkova202105,Lemenkova202012}. Marine geophysical methods investigate the geology of the continental margins using methods of deep-sea drilling~\cite{Schlich1992TheGA,Veevers1991a}, the~analysis of features extracted from seismic survey and remote sensing data~\cite{NEGI2022229330}, investigating the structure of the deep ocean basins~\cite{BENARD2010633,RAMANA2001241,DAVIS201616}, and modelling the mid-ocean ridge \mbox{system~\cite{FREY200073,Sreejith,Lemenkova202112}}. Although~traditional methods of bathymetric survey supply novel information on origin, evolution, structure, stratigraphy, and~tectonic features of the oceanic crust, they require costly hydrographic equipment such as mutlibeam echo sounder systems \cite{Falvey}.
+
+%----------- subsection ----------->
+\subsection{Related~Work}
+
+Seafloor bathymetry and geophysical setting of the oceanic crust are two important topics for modelling lithosphere~\cite{WATSON201697}. However, the~integrated capture and processing of the multi-source data---such as bathymetry, marine geologic data (development on the Earth's crust including age, spreading rates and symmetry) and marine geophysical data (sediment thickness, gravity and magnetic anomalies)---has always been a challenging task, and~few attempts have been made to explore it. Since the variety of data sources is increasing in modern cartography, it results in an exponential growth in the volume of data serving cartographic applications \cite{LEE199121}. Therefore, the use of the remote sensing data, satellite altimetry and gravimetry has proven to be effective in geophysical studies. Numerous examples exist in the literature that focus on estimating the geoid values, evaluating gravity anomalies, analysis of the tectonic and crustal structures, glacial and hydrological modelling and habitat~mapping. 
+
+Satellite altimetry data can be used to jointly represent the patterns of the oceanic currents and to draw conclusions on connectivity between the habitats~\cite{MORI201645}. For~instance, a~study by~\cite{COTTE2022103650} uses the hydrographic and acoustic data for the analysis of the vertical layers of the ocean to identify the community distribution. An example of the tide modelling of bathymetric gradients was presented using the satellite altimetry data~\cite{Maraldi}. The~retreat of glaciers using mass balance measurements was estimated using remote sensing data to analyze spatial distribution of the surface mass balance~\cite{Verfaillie}. Other studies used the Gravity Recovery and Climate Experiment (GRACE) mission for detecting trends and variations in the ice-sheet mass balance by evaluating gravity signals~\cite{YAMAMOTO2008267}. Furthermore, Mathieu~et~al.~\cite{MATHIEU2011206} combine the SRTM DEM, remote sensing data and geological sampling to clarify seafloor structures.
+
+These and similar examples illustrate that a combination of bathymetric and geophysical data for the detailed analysis of Earth's crust structure and topography outperforms their use separately. This suggests that seafloor mapping should be based on the complex analysis of the heterogeneous features of the seabed. Such information can be derived from various Earth observation datasets, as pointed out earlier \cite{COWLEY2004267,Lemenkova202125,1993A234,ABUAMARAH2019868}. Since such methods can be regarded as feature-level combinations of seafloor features showing the local appearance of prominent seabed elements such as fracture zones, ridges, seamounts, deep-sea trenches, canyons, or rifts, the use of a programming approach to merge different integrated geophysical datasets enables matching multi-source data with varying resolutions and origins. Such data can be used for the detailed analysis of seafloor structure and geodynamic processes \cite{Veevers1991b,Lemenkova202104,Hill}.
+
+%----------- subsection ----------->
+\subsection{Objection and~Motivation}
+
+In this study, several bathymetric and marine geophysical datasets were used for the analysis of the Kerguelen Plateau (Figure \ref{fig01}) within the south-western segment of the Indian Ocean to visualize, describe and analyze the structures of the seafloor in the context of the geophysical settings. Ten new maps are presented and described to visualize spatial variations, reveal correlation and matches between the geophysical and topographic setting of the Kerguelen region to continue the existing similar studies \cite{Nougier,Petit,RECQ1989133}. Given the remote location of the Kerguelen Archipelago, one of the most isolated places on Earth, and~associated difficulties and high cost of geological and geophysical sampling, the~integrated use of the satellite-derived data enables to us have better insight into the structure of the Kerguelen Plateau.
+
+\begin{figure}[H]
+	\includegraphics[width=13.0 cm]{Fig_01.jpg}
+\caption{\hl{Map} %MDPI: Figures moved below first citations, please check and confirm.
+%MDPI: Please revise date format if possible, e.g., 23 July 2023. Same in all figures below.
+ of the Kerguelen Plateau region. Mapping: GMT. Map source: author. \label{fig01}}
+\end{figure}
+%----------- section ----------->
+\section{Study~Area}
+
+The Kerguelen Plateau presents a large topographic elevation in the south-west Indian Ocean, extending over 6500 km$^{2}$ \cite{Operto}, Figure \ref{fig01}. The~Kerguelen Archipelago, formed on the plateau, constitutes a shallow submarine plateau. The~structure of the Kerguelen Archipelago is asymmetric with notable variations in the two distinct parts: the northern part (Heard, McDonald and Kerguelen Islands) is more shallow (<1000 m) compared to the southern segment (depths of 1500--2000 m) \cite{Ramsay}. Morphologically, the~plateau is oriented in a NNW direction toward the Antarctic continental margin where it is constrained by Princess Elizabeth Land. On~the northwest, the~archipelago is limited by the Crozet Archipelago, located 1250 km~away \cite{BRETON2013126}. To the north, it is bordered by the African-Antarctic Basins; to the northeast, by the Australian-Antarctic Basin; and to the south, by the Antarctic. Adjacent lands include Enderby Land, Kemp Land, Mac Robertson Land, Princess Elizabeth Land, Wilhelm II Land, and Queen Mary Land, all located in the Antarctic, as shown in Figure \ref{fig02}. %MDPI: many changes made in this paragraph; please check
+
+The origin of the Kerguelen Plateau is related to the hotspot associated with the Gondwana breakup in the Cretaceous period (120--110 Ma), and seafloor spreading between India and Antarctica in the south-western Indian Ocean~\cite{Guglielmi}. The initial surface manifestations of the Kerguelen Plume in the southern region began during the Mesozoic era around 120 Ma \cite{Gaina}. Active submarine volcanism occurring on the aseismic ridge, coupled with sedimentation processes since the Cretaceous, led to the creation of the basaltic basement of the Kerguelen region \cite{Henry}. This volcanic activity persisted within the Kerguelen hotspot until the Tertiary period (<40 Ma) and is evident in the geological and mineralogical composition of the archipelago. The archipelago is covered by up to 85\% basalts originating from the mantle plume of the hotspot. These basalts result from the crystallization of raised and cooled basaltic magma \cite{NICOLAYSEN2000313,Lacroix,Doucet}. Presently, the Kerguelen Plateau stands as one of the largest volcanic plateaus globally, spanning a total length of 2300 km. Remnants of volcanic activity are still visible on the Heard and McDonald Islands \cite{Li}. %MDPI: changes made in this paragraph; please check
+
+\begin{figure}[H]
+	\includegraphics[width=13.0 cm]{Fig_02.jpg}
+\caption{\hl{Age} of the ocean crust in SW Indian Ocean and the Kerguelen Plateau region and east Antarctic. Mapping software: GMT v. 6-1-1. Map source: author. \label{fig02}}
+\end{figure}
+
+  
+
+\textls[-20]{The Kerguelen Plateau belongs to the French Southern and Antarctic Lands, known for its protected environment~\cite{Rue1931,Faivre,Dupouy}. Its high environmental value is explained by the unique wildlife structure, which includes vulnerable species. The~remote location of the archipelago---4000~km from South Africa and Australia~\cite{Rue1932b,fishes8040174}---has created ideal conditions for preserving unique flora and fauna of the Kerguelen Archipelago. The presence of rare Antarctic plant species and high biodiversity is closely linked to the soil developed on the basaltic basement and the specific geological substrate of volcanic origin. Additional factors contributing to this uniqueness include the influence of the Polar climate \cite{Rue1932a,Paulian,Aubert3723}. The~distribution of fish communities and phytoplankton is affected by seasonal changes of the Antarctic circumpolar currents~\cite{Park2009,Damerell,MONGIN2008880,Park,Park2014,POLLARD20071915,Pauthenet,Penna}. Furthermore, the steep bathymetric slopes and the exposure of the Kerguelen plateau amplify the speed and intensity of the ocean currents' circulation~\cite{Rietbroek}. The combination of all these factors makes the ecosystems of the Kerguelen Archipelago unique and deserving of protection as an environmental heritage of the French Southern and Antarctic Lands~\cite{Sombetzkib,Sombetzkia,Naim}.  } %MDPI: many changes made in this paragraph
+
+
+
+
+%----------- section ----------->
+\section{Materials and~Methods}
+
+\textls[-25]{All the maps have been plotted using the scripting toolset Generic Mapping Tools \mbox{version~\hl{6.4.0}}%MDPI: Please cite the website as a reference and provide the access date in following format: "Title. Available online: http://www.alz.org/what-is-dementia.asp (accessed on Day Month Year)".
+, \href{https://www.generic-mapping-tools.org/}{https://www.generic-mapping-tools.org/}. A~key aspect of the GMT algorithms is that they consider each cartographic element by its parameters and add new layers on the map regarding the target location, which can be adjusted using refined flag options in special modules. Thus, a~modular scripting approach of GMT distinguishes it from~GIS. } %MDPI: changes made here; please check
+
+%----------- subsection ----------->
+\subsection{Data}
+
+The materials used  as input cartographic grids include the following datasets. The~marine geological data on age, spreading rates, and~asymmetry of the ocean crust were derived from the NOAA high-resolution dataset~\cite{Mueller}, Figure~\ref{fig03}. The~units of the dataset on spreading asymmetry are expressed as \% of crustal accretion of the seafloor, i.e.,~symmetric spreading results in values of 50\% on conjugate ridge flanks. The~bathymetric mapping was based on the ETOPO Global Relief Model~\cite{NOAA}. The~gravity grids were obtained from the EGM-2008 and EGM96~\cite{Pavlis}. Gravity data are grounded on the concept of gravity anomaly across different Earth surfaces, which correlates with the interplay between topography, mass distribution within local and regional relief structures, marine gravity values, and the establishment of gravitational potential across various Earth locations. %MDPI: some changes made in this paragraph
+
+\begin{figure}[H]
+\includegraphics[width=11 cm]{Fig_03.jpg}
+\caption{\hl{Asymmetry} in crustal accretion on conjugate ridge flanks of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Map source: author. \label{fig03}}
+\end{figure}
+
+The free-air and Bouguer gravity anomaly grids are derived from high-resolution grids \cite{EGU,BRAITENBERG2021706}. Specifically, the gravity field varies significantly over the oceans due to density fluctuations. The most pronounced anomalies emerge from fluctuations in density, such as those occurring at the heterogeneous seafloor or at the crust-mantle interface (Moho discontinuity) \cite{MCNUTT201920}. Such data facilitate the modelling of gravity fields for the analysis of Earth's structure. The latest updates in gravity grids enhance the precision of altimetry-derived gravity anomalies. While gravity grids do not directly indicate topography, they offer crucial insights into the Earth's relief, providing an approximate relationship between topographic and geophysical data and illustrating the correspondence of surface gravity values with local geoid undulations \cite{CONDIE202281}. %MDPI: some changes made in this paragraph; please check
+
+The data on sediment thickness are collected from the GlobSed dataset, which models distribution of the sediment thickness in the World's Oceans~\cite{Straume}. The~magnetic data are derived from the two available information sources compiled originally from satellite and marine magnetic measurements: the Earth Magnetic Anomaly Grid (EMAG2) \cite{Maus}, which has a resolution of two arc minutes, and~the World Digital Magnetic Anomaly Map (WDMAM) with a resolution of three minutes~\cite{Lesur}. The~gravity data were derived from the free-air global gravity grids~\cite{Sandwell}.
+
+The analysis of the geodetic data is useful in such complex terrains since it facilitates the identification of major tectonic structures and topographic patterns. In addition,~the EGM grids, the~identification of lithospheric structure and tectonic blocks can also be performed using satellite gravity data such as World Gravity Model (WGM) and GRACE \cite{EMISHAW2023104775}. Furthermore, the~EGM and astrogeodetic vertical deflections are useful for modelling gravity and geopotential differences~\cite{WANG2023}. Finally, processing terrestrial and satellite geodetic data can be applied to address theoretical geodetic challenges, such as the altimetry–gravimetry boundary-value problem \cite{Lehmann}. Other instances of the implications of geodetic datasets encompass the utilization of satellite-derived data from Cryosat-2 and altimetry in conjunction with ship-measured gravity to estimate marine gravity anomalies \cite{NGUYEN2020505}. %MDPI: some changes made in this paragraph
+
+%----------- subsection ----------->
+\subsection{Methods}
+
+In this study, the~cartographic methodology is based on using the Generic Mapping Tools (GMT) programming suite version 6.4.0~\cite{Wessel} by the developed scripting workflow, explained in detail in earlier works~\cite{Lemenkova202212,Lemenkova202203}. The~most prominent feature of the GMT is a scripting approach that principally distinguishes it from the conventional software due to the embedded programming language~\cite{WesselLuis}. The~traditional GIS-based methods either employ the GUI for mapping with existing standard menu or allow scripting as a complimentary~workflow. 
+
+In contrast, the~GMT is a completely console-based software that operates entirely using scripts. In~this way, it captures the data by running a script written using the embedded syntax that operates similarly to programming. A script consists of a sequence of predefined commands with parameters that control the appearance of cartographic elements and features. The most well-known cartographic tools that employ scripts for data processing are GMT~\cite{Lemenkova202217} and GRASS GIS~\cite{NETELER2012124}. Other software allows scripts as an additional functionality alongside the standard GUI, as seen in ArcGIS or QGIS. While the latter is predominantly used for image processing, cartographic, and ecological studies \cite{ROCCHINI2017166,FRIGERI20111265,Lemenkova202313,SOROKINE2007685}, GMT finds application in geophysical and geological research~\cite{Lee,Lemenkova202206,DeSanto}. %MDPI: changes made in this paragraph; please check
+
+
+\subsubsection{Topographic/Bathymetric~Mapping}
+
+The script for plotting the topographic/bathymetric map is provided in Listing \ref{lst01}. The code's most crucial elements are as follows. The mapping process initiates by selecting the study area from the global ETOPO1 grid using 'grdcut'. Isolines are chosen through 'grdcontour' with a 1,000 m gap. In our case, these lines denote significant locations that offer a high representation estimate for seafloor bathymetry. 'grdimage' is utilized to generate an image plot of the raster grid, colored as defined by the 'makecpt' module, with values -T indicating the extreme (min/max) data for the topographic grid, as extracted by the 'gdalinfo' module. The remaining code details are outlined in Listing \ref{lst01} along with key comments. %MDPI: some changes made in this paragraph
+
+\subsubsection{Mapping Seafloor Age, Spreading Rates, Spreading Asymmetry and Age Uncertainty of the Ocean~Crust}
+
+
+Mapping the age, age uncertainty, spreading rates, and spreading asymmetries of the Kerguelen Plateau is executed using raster grids with a 2-minute resolution, as shown in Figure~\ref{fig04}. These grids are reprojected to the Lambert Azimuthal Equal-Area projection utilizing data from major features within the Indian Ocean basin. The 'psxy' module is employed to add vector lines representing mid-ocean ridges, tectonic plates, and lithospheric plates. This provides a depiction of the borders of the Indian, African, and Australian plates, as seen in Figure~\ref{fig04}. Spreading half rates of the ocean crust are visually presented using the 2-arc-minute netCDF grid v.3.6 from NOAA. Similarly, tectonic slab contours are added via the 'psxy' module of GMT. Multiple grids are combined and displayed as plotted raster grids to illustrate age-depth relationships in the seafloor around the Kerguelen Plateau and southwest Indian Ocean. The complete scripts are available in Appendix \ref{App} of this study, with Listing \ref{lst02} utilized for mapping the age of the oceanic lithosphere over the Kerguelen Plateau, Listing \ref{lst03} for mapping asymmetries in crustal accretion on conjugate ridge flanks over the Kerguelen Plateau, Listing \ref{lst04} for visualizing spreading half rates of the oceanic lithosphere in the Kerguelen Plateau and SW Indian Ocean, and Listing \ref{lst05} for mapping crustal age uncertainty of the oceanic lithosphere over the Kerguelen Plateau, as depicted in Figure~\ref{fig05}.
+
+\begin{figure}[H]
+\includegraphics[width=11 cm]{Fig_04.jpg}
+\caption{\hl{Spreading} %MDPI: Please check if ``yr'' should be replaced with ``year'' in the pucture. Same below.
+ half rates of the ocean crust over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean with added GSFML data. Mapping tool: GMT. Map source: author. \label{fig04}}
+\end{figure}
+\unskip
+
+\begin{figure}[H]
+\hspace{-9pt}\includegraphics[width=11 cm]{Fig_05.jpg}
+\caption{\hl{Age} uncertainty in lithosphere crust (m.y) over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Cartography: GMT, version 6-1-1. Map source: author. \label{fig05}}
+\end{figure}
+
+\subsubsection{Mapping Sediment~Thickness}
+
+A representation of the GlobSed 5-arc-minute total sediment thickness grid is extracted from the global raster grid on a target location of the Kerguelen Archipelago area and surrounding regions using 'grdcut' command, which selects the file. The~amplitude of values is checked using the Geospatial Data Abstraction Library (GDAL) library embedded in GMT using the 'gdalinfo'. Based on the range of the values, the~colour palette table is defined accordingly and presented using the 'psscale' module. This module is configured with parameters specifying the geographic location for each element on the map. The '-Dg' command is employed to define the position of the colour scale on the map using coordinates. Furthermore, grid annotations and graticules are added utilizing the 'psbasemap' GMT module. The remaining part of the script, complete with added comments for concise explanations, is outlined in Listing \ref{lst06} within the Appendix of this study. This particular listing was utilized to create the map featured in Figure~\ref{fig06}. %MDPI: some changes made in this paragraph
+
+\begin{figure}[H]
+\includegraphics[width=13 cm]{Fig_06.jpg}
+\caption{\hl{Sediment} thickness (m) in East Antarctica, South-West Indian Ocean and the Kerguelen Plateau region. Cartography: GMT. Lambert azimuthal equal-area projection. Map source: author. \label{fig06}}
+\end{figure} 
+
+\subsubsection{Geophysical~Mapping}
+
+To emphasize features and subsurface characteristics that might not be apparent from geological data alone, maps of gravity anomalies were generated using gravity datasets projected onto the Lambert Equal-Area Azimuthal Projection for consistency with other maps. The complete scripts for creating these geophysical maps can be found in the Appendix, with Listing \ref{lst07} detailing the process for free-air gravity anomalies and Listing \ref{lst08} for vertical gravity gradient. The crucial lines of code are summarized below.
+
+For free-air gravity anomalies, the 'img2grd' module was initially employed to convert the image from the .IMG format into GRD format. The projection was defined using the '-JU43/6.0i' flag within the 'grdimage' module. The extent of the region was specified using the '-R' command, and this information was subsequently passed to subsequent modules using the '-R -J' flags.
+
+In the case of the vertical gravity gradient map, a satellite-derived grid sourced from altimeters CryoSat-2 and Jason-1/2~\cite{Harper} was used. This dataset facilitated the identification of ridge propagation on the seafloor.
+%MDPI: these last three paragraphs split up from the original one
+
+
+Due to GMT's ability to process each feature only once and utilize relevant modules ('psbasemap', 'grdcontour', 'psscale'), it boasts a high processing speed. This technical advantage empowers GMT to efficiently handle grids encompassing extensive geographic areas in a matter of seconds. With an understanding of the seafloor's geological and geophysical structure, GMT demonstrates rapidity and proficiency in mapping.
+
+By adjusting projection parameters, the algorithm concentrates on key seafloor features within the desired scale and projection. Additionally, the GMT-based framework excels in determining the location, scope, and boundaries of mid-ocean ridges and significant basins. Through cartographic generalization involving the gap in isolines, redundant bathymetric features can be eliminated. This process identifies pertinent and nonrepetitive features, underscores correlations between geophysical settings, gravity, and magnetic anomalies, and facilitates their comparison with geodetic anomalies. Consequently, GMT offers an effective approach to map and visualize seafloor structures. %MDPI: changes made in these last two paragraphs; please check
+
+\subsubsection{Mapping Magnetic~Anomalies}
+
+To map the magnetic anomalies,~two different grids were used---the WDMAM and the EMAG2. The~first was a subset from the global grid embedded in the GMT using the 'grdcut' module, and~the second was obtained from the existing raster file of EMAG 2-minute resolution grid. As a result, GMT offers flexibility in data processing through two approaches: utilizing pre-existing stored files and accessing embedded grids available within the system remotely. Subsequently, the images were rendered using the 'grdimage' module, accompanied by color palettes tailored to the data distribution range across the Kerguelen Plateau and the adjacent southwestern Indian Ocean. The 'makecpt' module was employed for this purpose. For a comprehensive view of the GMT scripts for both maps visualized with WDMAM and EMAG2, refer to Listings \ref{lst09} and \ref{lst10} in the Appendix. %MDPI: some changes made in this paragraph
+
+\subsubsection{Mapping Geoid~Anomalies}
+
+The map of geoid inundations was created using the EGM96 dataset through the GMT script, with each module defining specific elements on the map. To achieve effective mapping, the scripts were executed from the console, tailoring the geoid plotting to target concepts such as projections, grids, colour palettes, raster extents, and annotations. The stepwise definition of these cartographic elements is evident on the geoid maps, as demonstrated in the script provided in Listing \ref{lst11}. This approach to data visualization ensures high levels of automation in data processing through GMT, surpassing conventional tools.
+
+Significant features such as geoid undulations, seafloor isochrons, basement depth isolines, and asymmetries in crustal accretion are influenced by the asthenospheric flow from Kerguelen's mantle plumes to the spreading Southwest and Southeast Ridges. Mapping these data reveals insights into seafloor attributes and enables comparisons with the geological structure and geodynamics. Consequently, mapping multi-source topographic and geophysical datasets allows for the comparison of features using consistent projections. However, it is important to note that real-world seafloor features are seldom identical due to various factors impacting bathymetry, although they may exhibit strong correlations. To address this, GMT scripts can be adapted to different scales to map features in more detailed views. In order to assess the influence of geophysical and geological settings on seafloor structure using GMT's capabilities, numerous cartographic re-projections were generated. Each map represented selected seafloor features at varying levels of detail. The Lambert azimuthal equal-area projection was ultimately chosen as the optimal projection for its applicability across all maps, ensuring comparability and coherence. %MDPI: changes made in the preceding two paragraphs
+
+%----------- section ----------->
+\section{Results and~Discussion}
+
+Automatic matching of topographic and geophysical grids with high accuracy is essential for complex geologic--tectonic investigations. This paper demonstrated the use of scripting algorithms of GMT. These algorithms were applied for plotting eleven thematic maps covering the south-west segment of Indian Ocean and East Antarctic using bathymetric, geodynamic and high-resolution geophysical datasets on gravity (Figures \ref{fig07} and \ref{fig08}). Cartographic scripts by GMT, as~demonstrated in this research, provide visualized information on the geodynamic and geophysical setting of remotely located areas such as Kerguelen Plateau. During~the cartographic process and workflow, the~scripts enable us to save time through the increased speed of mapping due to the high level of automation. 
+
+\begin{figure}[H]
+\includegraphics[width=11 cm]{Fig_07.jpg}
+\caption{\hl{Marine} gravity field over the Kerguelen Plateau region, south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig07}}
+\end{figure} 
+ \vspace{-9pt}
+\begin{figure}[H]
+\includegraphics[width=11 cm]{Fig_08.jpg}
+\caption{\hl{Vertical} gravity gradient over Kerguelen Plateau. Mapping: GMT. Map source: author. \label{fig08}}
+\end{figure}
+
+The programming concept of GMT enables us to better tune and adjust the layout of the cartographic plots in various scales and focus on a specific area for comparability of maps in a series. Such compatibility facilitates the evaluation of correlations among various geophysical and bathymetric features that have developed over the extensive history of the Kerguelen Archipelago. Furthermore, by utilizing geospatial analysis as a complementary technique, it becomes possible to compare and analyze the relationships within the geodynamic setting, such as age, spreading half rates of the ocean crust, asymmetry in crustal accretion on conjugate ridge flanks, and other variables. In this manner, GMT scripts offer an advanced cartographic method for visualizing datasets and extracting information through efficient data processing and modelling of geophysical properties of the seafloor. %MDPI: some changes made in this paragraph; please check
+
+\textls[-5]{These maps reveal the details of the structure of the seafloor in the Kerguelen Plateau. The results confirm that the dynamics of seafloor development, as reflected in the maps of oceanic crust age, asymmetries, and spreading rates of the south-west and southeast Indian ridges, are closely related to the major geophysical setting as depicted on the topographic, magnetic, and gravity grids. Additionally, the volcanic activity of the Kerguelen hotspot has a significant impact on the distribution of magnetic anomalies, which aligns with previous studies~\cite{Fanjat,Weissel,Jokat}. Overall, the results demonstrate that GMT scripting is a powerful and stable cartographic method that efficiently performs geophysical and bathymetric seafloor mapping. In the sections below, we discuss the obtained results on relevant maps, providing comments on the essential features and characteristics of the seafloor around the Kerguelen Plateau, south-west Indian Ocean, and East~Antarctic.} %MDPI: changes made in this paragraph; please check
+
+%----------- subsection ----------->
+\subsection{Ocean Floor~Formation}
+
+The advanced methods of visualization by GMT constitute an important element of the map content through detailed plotting of the depicted objects, which enables us to indicate qualitative and quantitative geophysical specifications for reference and analysis. Thus, the general physical-geographic structure of the Kerguelen Plateau is visible in Figure \ref{fig01}, which shows a morphological orientation of the archipelago in the NW-SE direction and an extent surpassing 2000 km in length. As can be seen, the northern and southern parts of the plateau are asymmetric, where the less expressed southern part is older and lies in deeper water in the topographically downlifted areas. Age, spreading rates, and spreading symmetry of the ocean crust indicate the gradual evolution steps of the ocean floor formation in the southwest Indian Ocean and around the Kerguelen Plateau. The geodynamic setting of the oceanic crust (Figures \ref{fig02}--\ref{fig05}) shows a strong relationship between the Kerguelen Plateau and the two mid-ocean ridges, which can be revealed from the analysis of the relief.
+
+Relief is the main element of the seafloor since it reflects its geological structure and geodynamic history. Accordingly, the relief of the seafloor surface around the Kerguelen Plateau forms a continuously changing field of bathymetric heights. There are also sharp changes in altitude around the archipelago and mid-oceanic ridges. To depict the relief, GMT enables the modeling of isolines using the 'grdcontour' module and adjusted color gradients using methods of qualitative coloring of background and gradients according to the actual heights. At the same time, there are specific benefits of GMT techniques for mapping the hypsometric maps. Thus, the quantitative values of the relief make it possible to obtain absolute heights and elevations from the raster grid; the characteristics of the curvature and steepness of inclination can be obtained using the GMT module 'grdtrack' through cross-sectioning \cite{Lemenkova202213,Lemenkova202018,Lemenkova202017}. Moreover, GMT enables the modeling of the plasticity of the relief, that is, to depict a nonlinearity of the landform irregularities that form a visual image of the submarine terrain. This enables an analysis of the morphological conformity of the relief, which highlights major seafloor features, specific landforms, and their structure. %MDPI: changes made in the foregoing paragraph
+
+The age of the ocean crust was determined by interpolating the adjacent seafloor isochrons oriented towards the direction of seafloor spreading, as shown in Figure \ref{fig02}. This correspondence highlights the unique geophysical setting of the Kerguelen Plateau, underlain by the oceanic crust, which is strongly associated with its tectonic origin associated with volcanic hotspot and geologic history. The formation of the Southwest and the Southeast Indian Ridges is related to the uplift of the Kerguelen Plateau as a remnant of the Mesozoic oceanic basin existing after the separation of Gondwana. The comparison of the bathymetric map with geodynamic maps shows that seafloor heterogeneity around the Kerguelen Archipelago correlates with the seafloor spreading rates, where rougher basement is formed in the areas with the low half-spreading rate threshold (30-35 mm/year and lower). This correlation can be revealed by comparing the maps in Figures \ref{fig01} and \ref{fig04}. Such heterogeneity in seafloor patterns varies significantly in various basins of the Indian Ocean, depending on the geodynamic setting and the geologic development of the oceanic crust. 
+
+The gridded map of age of the ocean crust around the Kerguelen Plateau (Figure \ref{fig02}) shows a correlation with the observed spreading half rates of the lithosphere (Figure \ref{fig04}). Originally formed as a single structure, Kerguelen was then split by the seafloor spreading in the south-west sector of the Indian Ocean which resulted in the formation of the two segments of the archipelago~\cite{BRADLEY1988243} \hl{which are} %MDPI: Please confirm this format.
+ visible on the maps. Furthermore, the difference in volcanic activity between the northern and central parts of the Kerguelen Plateau, underlying Heard Island, indicates that it is located on a hotspot, with various parts of the islands experiencing the effects of the mantle plume on different scales~\cite{Duncan2016,Plenier,HOUTZ197795}. This unstable position has an impact on the geodynamic patterns over the Kerguelen Islands, leading to a higher uncertainty in the age of the oceanic crust (Figure \ref{fig05}) compared to the adjacent areas. Additionally, the structure of the oceanic crust beneath the Kerguelen Plateau is similar to that beneath aseismic ridges such as the Crozet Rise and the Madagascar Ridge, providing evidence that it originates from active volcanism associated with a hot spot \cite{Recq}. %MDPI: some changes made in this last paragraph
+
+
+
+
+
+
+%----------- subsection ----------->
+\subsection{Sediment~Thickness}
+
+Mapping sediment thickness using the 5-arc-minute GlobSed grid relies on the approximated modelling, which highlights the sedimentation trends around the Kerguelen Archipelago, Figure~\ref{fig06}. 
+
+
+
+The analytical map showing sediment thickness (Figure \ref{fig06}) displays patterns and key characteristics of sediment distribution over the seafloor. Using GMT-based techniques of mapping, it is easy to highlight the variations in sediment accumulation in various parts of the ocean using an  adjusted colour table and the actual range in the data on sediment thickness. Hence, the~level of cartographic details depends on the depth of the analysis with regard to the geologic formation of the seafloor and sediment accumulation. The~objects on the map show the main regions of accumulated sediments, the~structure and trends in distribution, and special features and properties compared to the closeness of coastal areas. Thus, the distribution of the sediment thickness correlates with the age of the underlying oceanic lithosphere and its latitude, which can be noted by the comparison of maps in Figures~\ref{fig02} and~\ref{fig06}. Such correspondence is especially visible for higher values of the sediment thickness near the shorelines of the Antarctic, Amery Ice Shelf (3000--4000 m), Enderby Land (over 4000 m) and the Kerguelen Plateau (2000--3000 m). 
+
+\textls[-15]{A higher level of sediment thickness in these areas may also indicate earlier processes of subaerial erosion that occurred before subsidence and associated sedimentation. The rifting process that took place during the Late Paleogene resulted in changes in the Tertiary sediment facies of Kerguelen, which were influenced by the evolution of the Antarctic environment~\cite{Froehlich}. Sediments covering the Kerguelen Plateau include pillow lavas, tuffaceous sediments, and marine siltstones that were deposited since the late Miocene~\cite{Duncan}. These sediments continue as a thick sequence of Cenozoic sediments (over 5000 m) within the Enderby Basin to the southwest of the Kerguelen Plateau (Figure~\ref{fig06}).
+
+The correlations observed between sediment thickness (Figure \ref{fig06}) and the age of the oceanic lithosphere (Figure \ref{fig02}) demonstrate the role of ocean floor formation in influencing the pattern of distribution and accumulation of sediments.} %MDPI: some changes made in the last two paragraphs
+
+Moreover, the analytical map of sediment thickness reflects smaller features and details compared to the bathymetry of the southwest Indian Ocean. Hence, comparing the map of sediment thickness with the bathymetry enables us to detect associations, for~example, high values of sediment thickness in the region of  Dronning maud Land in the Antarctic, which can be associated with the effects from the processes of weathering and coastal erosion, factors of higher curvature in slopes and topographic variations in heights in the coastal areas. Other important factors increasing the accumulation of the sediments around the Kerguelen and the adjacent area include glacial processes and the turbidity of the ocean currents. Hence, intense circulation results in the accumulation of the large sediment fields with values over 3000~m. 
+
+These effects can be attributed to the Antarctic circumpolar currents that started around the Eocene-Oligocene periods and have continued until the present time. These currents constitute the strongest current system in the oceans, directed clockwise around the South Pole, and they significantly influence the adjacent sub-Antarctic regions, such as Kerguelen~\cite{Huang,ROBERT200237}.
+
+The general orientation of areas with maximal sedimentation is consistent with the sediment-filled troughs stretching in a NW-SE direction. These troughs are associated with the overall NW-SE orientation of Kerguelen and the axes of tectonic faults. The high values in sediment thickness around the Kerguelen Plateau, particularly contoured by the ridge isolines along its eastern margin, are associated with depositions resulting from bottom currents directed westwards. %MDPI: changes made to these last two paragraphs
+
+%----------- subsection ----------->
+\subsection{Free-Air Gravity Anomaly and Vertical Gravity~Gradients}
+
+The visualized marine gravity field over the Kerguelen Plateau region and the adjacent areas of the south-west Indian Ocean are shown in Figure~\ref{fig07}. The~comparison of the gravity roughness with the map of the half-spreading rates (Figure \ref{fig04}) and sediment thickness (Figure \ref{fig06}) shows the relationship between the speed of the spreading of mid-ocean ridges and roughness of the seafloor basement. Such phenomena are explained by the effects from the process of mid-ocean ridge formation. Other factors include the associated magma flows, spreading directions in Mesozoic and isochron orientations of the age of the oceanic crust, which affect current bathymetric and gravity patterns~\cite{Whittaker}. Furthermore, the gravity highs around the Kerguelen Plateau and Heard Island correspond to the maximal bathymetric elevations. These gravity highs indicate the presence of seamounts formed by Miocene basalts erupted during volcanic activity in the southern Indian Ocean. This volcanic activity contributed to the formation of a large igneous province~\cite{Weis}.
+
+
+The GMT-based geophysical maps enable us to determine the location and spatio-temporal structure of gravity phenomena that indicate on geological processes, their mutual relationships, and connections with topography. Such analysis supports the identification of trends and dynamics in seafloor development. It helps obtain quantitative characteristics from geophysical data and estimate both the highest and lowest values in gravity grids. In~turn, zoning and classification of gravity variations helps to forecast changes in gravity anomalies over the seafloor of the Indian Ocean. Hence, the analysis of maps shows that the values of the free-air gravity over the Kerguelen are higher than in the surrounding areas and reach up to 80 mGal (Figure \ref{fig08}). In~contrast, lower values are associated with the bathymetric depressions and have values of $-$40 to $-$60 mGal. Furthermore, the~abyssal plain is characterized by the medium values of 0--20 mGal, Figure~\ref{fig08}. This well illustrates the existing correlation of the free-air gravity anomalies with the distribution of topographic highs and depressions on the seafloor since they are strongly influenced by a gravitational effect of the distributed topographic masses that are caused by the differences in elevation. 
+
+Figure~\ref{fig08} displays the mapping outputs for the vertical gradient over the Kerguelen and the southwest Indian Ocean, showcasing the effects of different locations. The visualized map demonstrates a crucial property of gravitational systems, such as free-air gravity, which is not only subject to the effects of geographic location and the latitude of the selected measurement regions but also the altitude of the Earth's surface. This is because greater altitude implies a greater distance from the Earth's center, which in turn affects gravity values. Moreover, the vertical gravity gradient identifies variations in gravity with changes in topographic elevations, as depicted in Figure~\ref{fig08}. The comparison of gravity datasets provides additional information on the distribution of major geological and seafloor structures, considering the variations of geophysical fields.
+
+
+
+\textls[-45]{Furthremore, the~comparison of the vertical gradient and free-air gravity map (\mbox{Figures \ref{fig07} and~\ref{fig08})} with the topographic map (Figure \ref{fig01}) illustrates the effects of seafloor structure and the distribution of the oceanic bed on gravity, which shows that the highest values correspond to the Kerguelen Plateau and other rises, while lower values are generally associated with topographic depressions.}
+
+%----------- subsection ----------->
+\subsection{Magnetic Anomalies over Kerguelen~Plateau}
+
+The anomaly of the magnetic intensity at an altitude of 5 km above mean sea level over the Kerguelen Plateau is shown in Figure~\ref{fig09}. Here, high heterogeneity in the geophysical data is related to the past volcanism over the Kerguelen Plateau, including the voluminous basaltic flooding originated from a deep hot spot as an asthenospheric source of mantle plume product. This resulted from the processes of slab dynamics and tectonic plate movements in the southwestern segment of the Indian Ocean. In~this regard, combining the data from the WDMAM and EMAG2 (Figures \ref{fig09} and~\ref{fig10}) data on terrestrial gravity fields (Figures \ref{fig07} and~\ref{fig08}) for comparison with maps on oceanic crust development (Figures \ref{fig02}--\ref{fig05}) presents an integrated GMT-based geophysical~analysis. 
+
+\begin{figure}[H]
+\includegraphics[width=13.0 cm]{Fig_09.jpg}
+\caption{\hl{Patterns} of the marine and terrestrial airborne magnetic anomaly over the Kerguelen Plateau on a three-minute resolution grid of WDMAM, south-west Indian Ocean. Map source: author. \label{fig09}}
+\end{figure}
+
+\textls[-5]{Crustal volume contributes to the decreased amplitude of the magnetic anomaly around the Kerguelen, as~can be seen in Figure~\ref{fig10}, with lower values of around $-$500 mGal. The~analysis of the magnetic anomaly patterns in the SW Indian Ocean supports the hypothesis of the spreading seafloor with variations in the oceanic crustal block movements, as~reported earlier~\cite{LePichon}. This phenomenon is evident from the different magnetic patterns observed over the mid-ocean ridge. Moreover, the~comparison of Figure~\ref{fig10} with Figure~\ref{fig05} reveals that  seafloor age uncertainties for grid cells coincide with the marine magnetic anomaly identified around the Kerguelen Islands. This correlation is also observed for the conjugate ridge flanks (Figures \ref{fig03} and~\ref{fig10}).} %MDPI: changes made in this paragraph
+
+
+\begin{figure}[H]
+\includegraphics[width=13.0 cm]{Fig_10.jpg}
+\caption{\hl{Marine} and Earth airborne magnetic anomaly grid based on EMAG-2 over the Kerguelen Plateau region. Black areas signify "no data" in the original grid. Map source: author. \label{fig10}}
+\end{figure}
+
+
+
+
+The Earth Magnetic Anomaly Grid (EMAG2) offers the opportunity to assess magnetic-gravity field relationships as descriptors, going beyond the traditional analysis of gravity and magnetic anomalies. Magnetic anomalies arise from geological and topographic features that alter local magnetic fields, making it crucial to comprehend their correlation with geophysical phenomena and topography. For instance, scrutinizing local magnetic anomaly patterns in the southwest Indian Ocean reveals associations with oceanic crust formation, seafloor spreading, and subduction zones. Moreover, the age of oceanic crust and spreading rates, resulting from land accretion and extensive volcanism of the Kerguelen Plateau, are linked to the historical geological development of the region, as mentioned previously~\cite{Maus2009}.
+
+The EMAG-2 and WDMAM grids employed for plotting magnetic anomalies exhibit varying levels of grid detail, allowing insight into the subsurface structure of the seafloor around the Kerguelen Plateau and the composition of the Earth's crust in the southwest Indian Ocean. The magnetic fabric data correlate with hotspot activities and active volcanism, particularly prominent over the central and northern sectors of the archipelago~\cite{HENRY2003153,Xu,Pettersen}. Furthermore, intermediate crustal thickness values within the oceanic crust beneath the Kerguelen Plateau and large-amplitude magnetic anomalies across the archipelago point to the plateau's oceanic origin, attributed to plate volcanism resulting from tectonic plate activity, as previously reported~\cite{Direen,Charvis1995}. Therefore, the distinctive magnetic patterns evident in Figure~\ref{fig10} maps correspond to heightened hotspot activity and the associated lava flows. %MDPI: changes made in the last two paragraphs
+
+
+
+Deeper masses, asthenospheric upwelling, and mantle plume-driven convection are geodynamic processes that influence the magnetic properties of the Earth's surface. Moreover, through data analysis, a deeper understanding of the impact of geophysical settings on the distribution of positive and negative magnetic undulations emerges, with the former situated over the Kerguelen Islands and the latter in the eastern regions and southwest of Australia. This analysis enables the assessment of variations in geophysical grids through comparative map analysis. Thus, the cartographic depiction of geophysical and magnetic datasets offers advanced methods for extracting information about seafloor formation and interconnected geophysical~processes. %MDPI: changes made in this paragraph
+
+%----------- subsection ----------->
+\subsection{Geoid~Models}
+The geopotential model over the Kerguelen, based on the EGM96 dataset, is illustrated in Figure~\ref{fig11}. The variations in the geoid across the Kerguelen Plateau highlight the ongoing isostatic compensation of the archipelago due to its low-density mantle. Consequently, the high anomalies in the geoid level above the Kerguelen Plateau can be attributed to the significant volcanic activity associated with the formation of ridges on the hot lithosphere. This volcanic activity is reflected in the exceptionally thick crust beneath the Kerguelen, resulting in geoid values exceeding 40 meters (Figure \ref{fig11}), surpassing the normal thickness of the oceanic crust. These findings corroborate previous studies investigating the geoid in the Kerguelen Archipelago, which documented anomalous thickness in this region~\cite{RECQ1987301}. This isostatic compensation, linked to anomalously high geoid values, corresponds to the rugged elevated terrain in regions experiencing active tectonic uplift. These observations shed light on processes occurring in the upper mantle~\cite{Coblentz}. %MDPI: changes made in this paragraph
+
+\begin{figure}[H]
+\includegraphics[width=13.0 cm]{Fig_11.jpg}
+\caption{\hl{Geoid} model based on EGM-96 over the Kerguelen Plateau region, east Antarctic and south-west Indian Ocean. Mapping: GMT. Map source: author. \label{fig11}}
+\end{figure}
+
+A comparison of the geoid map with topography (sf. Figures~\ref{fig01} and \ref{fig11}) implies an existing correlation between the continued geodynamic processes in the south-west Indian Ocean and the topographic structure of the Kerguelen Archipelago. Moreover, this proves a high positive correlation between the geoid height and deep structure of the seafloor topography, as also noted earlier for the regions of large plateaus and swells~\cite{SandwellMacKenzie}. 
+
+%----------- section ----------->
+\section{Conclusions}
+
+As demonstrated in this study, the GMT-based mapping approach offers a wide range of cartographic functions for comprehensive spatio-temporal modelling and data visualization through an automated scripting approach. Utilizing GMT for cartographic tasks provides various modules and methods for representing different types of data, making it applicable in diverse fields of geomatics. The advantages of employing GMT in cartographic workflows are manifold. It enables highly automated plotting, facilitating rapid visualization of complex elements and features such as geographical, geological, oceanological, and geomorphological characteristics.
+
+Furthermore, GMT supports multiple formats, encompassing both raster and vector data, and accommodating various classes and types of information. Leveraging the technical capabilities of GMT within cartographic workflows allows for common modelling and basic statistical analysis of spatial data, enhancing the understanding of their properties.
+
+Analyzing a multitude of maps generated using GMT scripts reveals the consistency in depicted objects, facilitating their recognition and interpretation. The broad spectrum of GMT modules integrates scientific and technical methodologies for cartographic visualization and geospatial analysis. This unification aids in feature detection, recognition, and related research support.
+
+Consequently, GMT-based mapping enables the amalgamation of maps for spatial analysis of intricate processes, objects, and phenomena, such as seafloor structures. This approach proves invaluable in addressing scientific and practical challenges within the realms of geophysics and geodynamics. The flexibility of GMT's syntax, the quality of its cartographic outputs, and its compatibility with various operating systems and computing devices all contribute to its effectiveness.
+
+Given the success and applicability showcased in the executed GMT scripts – characterized by syntax flexibility, high-quality cartographic outputs, and compatibility across different platforms – it is foreseeable that this GMT-based cartographic method can be extended to study seafloor structures in other oceanic regions, considering varying geologic conditions and geodynamic evolutions.
+
+Global surveillance of the seafloor through the use of altimeter satellites and gravity measurements has unveiled significant geophysical anomalies. Integrating data on magnetic field intensity, bathymetry, and deep seafloor geodynamics allows for an evaluation of the interrelations among these processes. This ongoing global surveillance continues to generate extensive high-resolution datasets. However, effectively analyzing these datasets in ever-higher spatial resolutions demands advanced tools for automated analysis. The toolset of GMT scripts has demonstrated its effectiveness in the realm of seafloor bathymetric and geophysical mapping. This approach facilitates the visualization and mapping of diverse seabed features across varying scales and resolutions, aiming to detect correlations between magnetic anomalies, geophysical patterns, and their connections to present bathymetry. Such visualization offers comprehensive coverage of seafloor features across the near-global~scale.
+
+Direct seafloor surveys for observations are resource-intensive, involving the use of complex and costly equipment, such as multi-beam echo-sounding systems, for data collection, generation, and storage. Yet, the need persists for efficient datasets that can be readily visualized and analyzed. Utilizing high-resolution geophysical datasets provided by NOAA and USGS, processed through the advanced scripting capabilities of GMT, establishes a cartographic processing pipeline for swift, automated, and accurate seafloor mapping. Notably, GMT's flexibility plays a pivotal role. A variety of GMT modules can be harnessed to process diverse geospatial data types, catering to different cartographic tasks. This flexibility allows for the adaptation and expansion of the proposed cartographic workflow, addressing larger-scale or smaller-scale mapping needs. The equilibrium between topographic gradients and geophysical grids vividly illustrates the links between seafloor patterns, the structure of the oceanic crust, and the processes within the lithospheric~mantle.
+
+From a cartographic perspective, this study underscores that the effective analysis of geologic-geophysical datasets within Earth sciences extends beyond utilizing isolated parameters (e.g., topographic maps) to encompass the selection of multiple datasets. The deep mantle processes, as reflected in geophysical data, intricately shape the seafloor formation. The methodology showcased in this study demonstrates how data from diverse sources (geophysical, topographic, geodetic, geodynamic) can be harnessed for comprehensive cartographic analysis using standardized workflows supported by scripts. This approach unveils additional insights into seafloor variability and the factors influencing ocean crust formation, strongly correlated with topographic~patterns.
+
+The cartographic approach exhibited here enables data assimilation and extension, not only across the Indian Ocean but also to other regions of the global ocean. For example, the Pacific Ocean boasts a rich tapestry of seafloor features, including vast abyssal plains, mid-ocean ridges, oceanic trenches, numerous seamounts, and continental shelves. These features present a fertile ground for investigating potential correlations between geophysical and magnetic anomalies and the heterogeneous seafloor patterns. In this context, the application of GMT for seafloor mapping in diverse oceanic regions serves as an ideal scenario for validating the cartographic scripting approach outlined in the methodological~framework.
+
+The series of maps presented, along with the comparison of the geophysical settings over the Kerguelen Plateau, underscores the superiority of script techniques over the GIS approach in terms of cartographic workflow automation. The compactness of GMT's syntax allows for code reusability with modifications. However, there are limitations to consider. GMT necessitates parameter tuning in advance when handling map elements and adjusting projection parameters, as it lacks the ability to preview maps before script execution, being a console-based program. Furthermore, GMT cannot remove redundant features once plotted, requiring the script to be run again for corrections. In contrast, the GIS approach permits real-time adjustments to map layouts, enabling the correction of colour palettes and bathymetric details on the fly. GMT's console-based nature mandates direct modifications to the script's code to address cartographic~challenges. %MDPI: some changes made in conclusion
+
+%----------- section ----------->
+
+\funding{The publication was funded by the Editorial Office of \emph{Geomatics}, Multidisciplinary Digital Publishing Institute (MDPI), by~providing 100\% discount for the APC of this manuscript.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{Not applicable} 
+
+\acknowledgments{The author sincerely thanks the two anonymous reviewers for critically reviewing this paper and for their constructive comments and useful suggestions, which have improved upon the initial version of this manuscript. The~author is grateful to the Editorial Office of the Geomatics MDPI for support of this~publication.}
+
+\conflictsofinterest{The authors declare no conflict of~interest.} 
+
+\abbreviations{Abbreviations}{
+The following abbreviations are used in this manuscript:\\
+
+\noindent 
+\begin{tabular}{@{}ll}
+DEM & Digital Elevation Model \\
+EMAG-2 & Earth Magnetic Anomaly Grid 2 \\
+EML & ERDAS Macro Language \\
+ESRI & Environmental Systems Research Institute \\
+GDAL & Geospatial Data Abstraction Library \\
+GRACE & Gravity Recovery and Climate Experiment \\
+GMT & Generic Mapping Tools \\
+GRASS GIS & Geographic Resources Analysis Support System \\
+GUI & Graphical User Interface \\
+NOAA & National Oceanic and Atmospheric Administration \\
+\end{tabular}
+
+\noindent 
+\begin{tabular}{@{}ll}
+
+
+SRTM & ~~Shuttle Radar Topography Mission \\
+USGS & ~~United States Geological Survey \\
+UTM & ~~Universal Transverse Mercator \\
+WGM & ~~World Gravity Model \\
+WDMAM & ~~World Digital Magnetic Anomaly Map\\
+\end{tabular}
+}
+
+\appendixtitles{yes} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If~the appendix sections contain a heading then change the argument to "yes".
+\appendixstart
+\appendix
+\section[\appendixname~\thesection]{GMT Scripts}\label{App}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Mapping Topography of the Kerguelen Region in Lambert Azimuthal Equal-Area Projection}
+
+\renewcommand{\thelisting}{A\arabic{listing}}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{\textls[-10]{Mapping topography of the Kerguelen region in Lambert Azimuthal Equal-Area projection}.}
+\label{lst01}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt , language=bash,caption={}]
+# Subset study area by cutting a sub-region from a grid file
+grdcut ETOPO1_Ice_g_gmt4.grd -R-40/150/-70/-20 -Gkgl_relief.nc
+gdalinfo ss_relief.nc -stats
+# Here the actual range is obtained from the 'gdalinfo'
+# Minimum=-8239.000, Maximum=6392.000
+# Color palette is used to access the master cpt tables and to translate them to fit the actual data range according to the z-values.
+gmt makecpt -Cgray.cpt -V -T-8239/6392 > myocean.cpt
+# Generate a file
+ps=Bathymetry_Kgl.ps
+gmt grdimage kgl_relief.nc -Cmyocean.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Addiing shorelines by contouring the 2D gridded data sets
+gmt grdcontour kgl_relief.nc -R -J -C1000 -Wthinnest,blue -O -K >> $ps
+# Adding grid to create a basemap plot
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Topographic map of the Kerguelen Plateau" \
+    -Lx15.0c/-1.3c+c318/-57+w2000k+l"Scale (km) at 60\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# Texts and various inscriptions on the maps are plotted using the 'pstext' module
+gmt pstext -R -J -X0.0c -Y0.0c -N -O -K \
+    -F+jTL+f9p,Helvetica,white+jLB >> $ps << EOF
+66.0 -62.0 Enderby
+66.5 -63.0 Basin
+EOF
+# Other text are added likewise
+# Adding the legend is done using the 'psscale' module which explained the visualised conventional signs.
+gmt psscale -Dg-27.0/-60+w15.4c/0.4c+v+ml -R -J -Cmyocean.cpt \
+    -Bg1000f200a2000+l"Color scale: geo global bathymetry/topography relief [R=-8239/6392, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+# Add GMT logo as depicted stamp of the software
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f10p,Palatino-Roman,black+jLB >> $ps << EOF
+4.0 6.1 ETOPO1 global terrain model, 1 arc min resolution grid
+2.0 5.5 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Bathymetry_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Mapping Age, Spreading Rates, Spreading Asymmetry and Age Uncertainty of the Ocean Crust}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping age of the oceanic lithosphere over Kerguelen Plateau and SW Indian Ocean.}
+\label{lst02}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt,language=bash,caption={}]
+gmt grdcut age.3.2.nc -R-40/150/-70/-10 -Gker_age.tif
+gdalinfo ker_age.tif -stats
+# Minimum=0.000, Maximum=16001.000, Mean=5895.761, StdDev=4042.817
+# Color palette
+# gmt makecpt -Cjet -T14/16000.000 > age.cpt
+gmt makecpt -Cwysiwyg -T14/16000.000 > age.cpt
+#gmt makecpt --help
+# Generate a file
+ps=Ker_age.ps
+gmt grdimage ker_age.tif -Cage.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# add grid
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Age of Oceanic Lithosphere: Kerguelen Plateau and SW Indian Ocean" -O -K >> $ps
+# Legend
+gmt psscale -Dg-30/-58+w15.4c/0.4c+v+ml+e -R -J -Cage.cpt \
+    -Bg1000f200a1000+l"Color scale: 'wysiwyg' [R=0/6000, H=0, C=RGB]" \
+    -I0.2 -By+l"M.Y." -O -K >> $ps   
+# Scale, directional rose
+gmt psbasemap -R -J \
+    -Tdx0.8c/10.3c+w0.3i+f2+l+o0.15i \
+    -Lx16.0c/-1.6c+c318/-57+w2000k+l"Scale (km) at 55\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+0.0 5.9 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+0.0. 6.6 Age of the ocean crust, 2 arc min netCDF grid v.3., according to adjacent seafloor isochrons
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Ker_age.ps -A1.7c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Mapping Asymmetries in Crustal Accretion on Conjugate Ridge Flanks: Kerguelen Plateau and SW Indian Ocean}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping asymmetries in crustal accretion on conjugate ridge flanks: Kerguelen Plateau and SW Indian Ocean.}
+\label{lst03}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt,language=bash,caption={}]
+exec bash
+# Cut off raster image
+gmt grdcut asym.3.2.nc -R-40/150/-70/-10 -Gker_asym.tif
+gdalinfo ker_asym.tif -stats
+# Minimum=14.000, Maximum=10000.000, Mean=5491.073, StdDev=1628.733
+# Make color palette
+gmt makecpt -Cturbo -T14/10000.000 > asym.cpt
+# Generate a file
+ps=Ker_asym.ps
+gmt grdimage ker_asym.tif -Casym.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Grid
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Asymmetries in crustal accretion (%) on conjugate ridge flanks: Kerguelen Plateau and SW Indian Ocean" -O -K >> $ps
+# Legend
+gmt psscale -Dg-30/-58+w15.4c/0.4c+v+ml+e -R -J -Casym.cpt \
+    -Bg1000f200a1000+l"Color scale: 'no_green' [R=0/6000, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+# Scale, directional rose
+gmt psbasemap -R -J \
+    -Tdx0.8c/10.3c+w0.3i+f2+l+o0.15i \
+    -Lx16.0c/-1.6c+c318/-57+w2000k+l"Scale (km) at 55\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+0.0 5.9 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+0.0. 6.6 Age, spreading rates and spreading asymmetry of the ocean crust, 2 arc min netCDF grid v.3
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Ker_asym.ps -A1.7c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Mapping Spreading Half Rates of the Oceanic Lithosphere in Kerguelen Plateau and SW Indian Ocean}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping spreading half rates of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean.}
+\label{lst04}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+# GMT set up
+gmt set FORMAT_GEO_MAP=dddF \
+    MAP_FRAME_PEN=dimgray \
+    MAP_FRAME_WIDTH=0.1c \
+    MAP_TITLE_OFFSET=0.5c \
+    MAP_ANNOT_OFFSET=0.1c \
+    MAP_TICK_PEN_PRIMARY=thinner,dimgray \
+    MAP_GRID_PEN_PRIMARY=thin,white \
+    MAP_GRID_PEN_SECONDARY=thinnest,white \
+    FONT_TITLE=12p,0,black \
+    FONT_ANNOT_PRIMARY=7p,0,dimgray \
+    FONT_LABEL=7p,0,dimgray
+#Overwrite defaults of GMT
+gmtdefaults -D > .gmtdefaults
+exec bash
+# Cut off raster image
+gmt grdcut rate.3.6.nc -R-40/150/-70/-10 -Gker_rate.tif
+gdalinfo ker_rate.tif -stats
+# Minimum=0.000, Maximum=15000.000, Mean=3175.093, StdDev=2125.065
+# Make color palette
+gmt makecpt -Cf-30-31-32.cpt -T0/15000/250 -N -Iz > age.cpt
+# Generate a file
+ps=Ker_rate.ps
+gmt grdimage ker_rate.tif -Cage.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Add grid
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Spreading Half Rates of the Oceanic Lithosphere in Kerguelen Plateau and SW Indian Ocean" -O -K >> $ps
+gmt psxy -R -J ridge.gmt -Sf0.5c/0.15c+l+t -Wthin,yellow -Gpurple -O -K >> $ps
+gmt psxy -R -J TP_Indian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_Australian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_African.txt -L -Wthickest,red -O -K >> $ps
+# tectonic slab contours
+gmt psxy -R -J GSFML_SF_FZ_KM.gmt -Wthick,cyan2 -O -K >> $ps
+gmt psxy -R -J GSFML_SF_FZ_RM.gmt -Wthick,cyan2 -O -K >> $ps
+# transform faults
+gmt psxy -R -J transform.gmt -Sc0.05c -Ggreen -Wthick,deeppink1 -O -K >> $ps 
+# Add legend
+gmt psscale -Dg-30/-58+w15.4c/0.4c+v+ml+e -R -J -Cage.cpt \
+    -Bg1000f200a1000+l"Color scale: 'f-30-31-32.cpt' from Gnuplot [R=0/15000, H=0, C=RGB]" \
+    -I0.2 -By+l"mm/yr." -O -K >> $ps 
+# Add scale, directional rose
+gmt psbasemap -R -J \
+    -Tdx0.8c/10.3c+w0.3i+f2+l+o0.15i \
+    -Lx16.0c/-1.6c+c318/-57+w2000k+l"Scale (km) at 55\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# Add GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+0.0 5.9 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+0.0. 6.6 Global Seafloor Fabric and Magnetic Lineation Data (GSFML) are shown by cyan lines
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Ker_rate.ps -A1.7c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Mapping Crustal Age Uncertainty of the Oceanic Lithosphere in Kerguelen Plateau and SW Indian Ocean}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping crustal age uncertainty of the oceanic lithosphere in Kerguelen Plateau and SW Indian Ocean.}
+\label{lst05}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+#!/bin/sh
+# Age, spreading rates and spreading asymmetry of the ocean crust, 2 arc min netCDF grid v 3
+# GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, gmtlogo, psconvert
+exec bash
+# Cut off raster image
+gmt grdcut ageerror.3.2.nc -R-40/150/-70/-10 -Gker_error.tif
+gdalinfo ker_error.tif -stats
+# Minimum=8.000, Maximum=1313.000, Mean=196.616, StdDev=156.744
+# Color palette
+gmt makecpt -Ccyan-magenta-yellow-white.cpt -T8/800.000 -N > age.cpt
+# Generate a file
+ps=Ker_error.ps
+gmt grdimage ker_error.tif -Cage.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Add grid
+gmt psbasemap -R -J -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Crustal Age Uncertainty of the Oceanic Lithosphere in Kerguelen Plateau and SW Indian Ocean" -O -K >> $ps
+# gmt psxy -R -J ridge.gmt -Sf0.5c/0.15c+l+t -Wthin,yellow -Gpurple -O -K >> $ps
+gmt psxy -R -J TP_Indian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_Australian.txt -L -Wthickest,red -O -K >> $ps
+gmt psxy -R -J TP_African.txt -L -Wthickest,red -O -K >> $ps
+# tectonic slab contours
+# gmt psxy -R -J GSFML_SF_FZ_KM.gmt -Wthick,slateblue3 -O -K >> $ps
+gmt psxy -R -J GSFML_SF_FZ_KM.gmt -Wthick,darkmagenta -O -K >> $ps
+gmt psxy -R -J GSFML_SF_FZ_RM.gmt -Wthick,darkmagenta -O -K >> $ps
+# transform faults
+gmt psxy -R -J transform.gmt -Sc0.05c -Ggreen -Wthick,deeppink1 -O -K >> $ps  
+# Legend
+gmt psscale -Dg-30/-58+w15.4c/0.4c+v+ml+e -R -J -Cage.cpt \
+    --FONT_LABEL=10p,0,dimgray --FONT_ANNOT_PRIMARY=10p,0,black \
+    -Bg100f20a100+l"Color scale: 'jet' [R=0/15000, H=0, C=RGB]" \
+    -I0.2 -By+l"m/yr." -O -K >> $ps
+# Scale, directional rose
+gmt psbasemap -R -J \
+    --FONT=10p,0,black --MAP_TITLE_OFFSET=0.3c \
+    -Tdx0.8c/10.3c+w0.3i+f2+l+o0.15i \
+    -Lx16.0c/-1.6c+c318/-57+w2000k+l"Scale (km) at 55\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+0.0 5.9 Lambert Azimuthal Equal-Area projection. Central meridian 55\232E, standard parallel 50\232S
+0.0. 6.6 Global Seafloor Fabric and Magnetic Lineation Data (GSFML) are shown by cyan lines
+EOF
+# Convert to image file using GhostScript
+gmt psconvert Ker_error.ps -A1.7c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Script for Sediment Thickness over the Kerguelen Plateau and SW Indian~Ocean}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping sediment thickness over the Kerguelen Plateau and SW Indian Ocean.}
+\label{lst06}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+#gmt grdcut GlobSed-v2.nc -R-25/-65/101/-10r -Gker_sed.nc
+gmt grdcut GlobSed-v2.nc -R-40/150/-70/-10 -Gker_sed.nc
+gdalinfo ker_sed.nc -stats
+# Minimum=0.000, Maximum=8116.000, Mean=530.333, StdDev=728.622
+# Make color palette
+gmt makecpt -Cno_green.cpt -V -T0/6000 > myocean.cpt
+# gmt makecpt --help
+# Generate a file
+ps=SedThick_Kgl.ps
+gmt grdimage ker_sed.nc -Cmyocean.cpt -R-25/-65/101/-10r -JA55/-50/7.5i -P -I+a15+ne0.75 -Xc -K > $ps
+# Add shorelines
+gmt grdcontour ker_sed.nc -R -J -C200 -A200+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+# Add grid
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Sediment thickness over East Antarctic, Kerguelen Plateau and SW Indian Ocean" \
+    -Lx15.0c/-1.5c+c318/-57+w2000k+l"Scale (km) at 60\232E 50\232S"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+# Texts
+# Add legend
+gmt psscale -Dg-33/-59+w15.4c/0.4c+v+ml+e -R -J -Cmyocean.cpt \
+    -Bg1000f50a1000+l"Color scale: 'no_green' [R=0/6000, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+# Add GMT logo
+gmt logo -Dx5.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+3.0 6.1 GlobSed: Total Sediment Thickness Version 3, 5 arc minute grid
+EOF
+# Convert to image file using GhostScript
+gmt psconvert SedThick_Kgl.ps -A1.5c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Scripts for Geophysical Mapping over the Kerguelen Plateau}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping free-air gravity anomalies over Kerguelen Plateau and SW Indian Ocean.}
+\label{lst07}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+gmt img2grd grav_27.1.img -R40/110/-70/-20 -Ggrav_Ker.grd -T1 -I1 -E -S0.1 -V
+gdalinfo grav_Ker.grd -stats
+gmt makecpt -Chaxby -V -T-100/150 > myocean.cpt
+ps=Gravity_Kgl.ps
+gmt grdimage grav_Ker.grd -Cmyocean.cpt -R40/110/-70/-20 -JU43/6.0i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour grav_Ker.grd -R -J -C50 -A50 -Wthinner -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Free-air gravity anomaly on Kerguelen Plateau" \
+    -Lx7.5c/-1.3c+c318/-57+w2000k+l"UTM projection, Zone 43. Scale (km)"+f \
+    -UBL/10p/-40p -O -K >> $ps
+gmt psscale -Dg41/-12.5+w15.4c/0.4c+ml+h+e -R -J -Cmyocean.cpt \
+    -Bg20f2a20+l"Color scale: haxby [R=-100/547, H=0, C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+gmt logo -Dx7.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f10p,0,black+jLB >> $ps << EOF
+1.0 1.3 Global gravity grid from CryoSat-2 and Jason-1, 1 min resolution, SIO, NOAA, NGA
+EOF
+gmt psconvert Gravity_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+\vspace{-18pt}
+\begin{listing}[H]
+\caption{Mapping vertical gravity gradient over Kerguelen Plateau and SW Indian Ocean.}
+\label{lst08}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+gmt img2grd curv_27.1.img -R40/110/-70/-20 -Ggravvert_Ker.grd -T1 -I1 -E -S0.1 -V
+gdalinfo gravvert_Ker.grd -stats
+gmt makecpt -Cmag.cpt -T-40/40 > colors.cpt
+ps=Gravity_Kgl_vert.ps
+gmt grdimage gravvert_Ker.grd -Ccolors.cpt -R40/110/-70/-20 -JU43/6.0i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour gravvert_Ker.grd -R -J -C100 -A100 -Wthinner -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Vertical gravity gradient over Kerguelen Plateau" \
+    -Lx7.5c/-1.3c+c318/-57+w2000k+l"UTM projection, Zone 43. Scale (km)"+f \
+    -UBL/10p/-40p -O -K >> $ps
+gmt psscale -Dg41/-12.5+w15.4c/0.4c+ml+h+e -R -J -Ccolors.cpt \
+    -Bg20f2a20+l"Color scale: mag [R=-40/40, H=0, C=RGB]" \
+    -I0.2 -By+l"mGal/m" -O -K >> $ps
+gmt logo -Dx7.5/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+# Add subtitle
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f10p,0,black+jLB >> $ps << EOF
+1.0 1.3 Global gravity grid derived from satellite altimetry (CryoSat-2 and Jason-1: NOAA, NGA)
+EOF
+gmt psconvert Gravity_Kgl_vert.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+\subsection[\appendixname~\thesubsection]{GMT Scripts for Mapping Magnetic Anomalies over the Kerguelen Plateau}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping magnetic anomalies by WDMAM over Kerguelen Plateau.}
+\label{lst09}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+gmt grdcut @earth_wdmam_03m -R50/100/-70/-30 -Gker_mag.nc
+gdalinfo ker_mag.nc -stats
+gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt
+ps=Magnet_Kgl.ps
+gmt grdimage ker_mag.nc -Cmyocean.cpt -R50/100/-70/-30 -JM6.5i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour ker_mag.nc -R -J -C200 -A1+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Marine and Earth airborne Magnetic Anomaly Grid on Kerguelen Plateau" \
+    -Lx14.0c/-3.0c+c318/-57+w1000k+l"Mercator projection. Scale (km)"+f \
+    -UBL/-5p/-80p -O -K >> $ps
+gmt psscale -Dg50/-71.5+w16.0c/0.4c+h+ml+e -R -J -Cmyocean.cpt \
+    -Bg100f10a50+l"Color scale: mag (Colors for magnetic anomaly maps), [C=RGB]" \
+    -I0.2 -By+l"nT" -O -K >> $ps
+gmt logo -Dx6.5/-3.8+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f11p,0,black+jLB >> $ps << EOF
+1.2 15.8 WDMAM (World Digital Magnetic Anomaly Map), 3 arc min resolution grid
+EOF
+gmt psconvert Magnet_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+\vspace{-18pt}
+\begin{listing}[H]
+\caption{Mapping magnetic anomalies by EMAG2 over Kerguelen Plateau.}
+\label{lst10}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+gmt grdcut EMAG2_V2.grd -R50/100/-70/-30 -Gker_mag.nc
+gdalinfo ker_mag.nc -stats
+gmt makecpt -Cmag.cpt -V -T-500/500 > myocean.cpt
+ps=Magnet_Kgl.ps
+gmt grdimage ker_mag.nc -Cmyocean.cpt -R50/100/-70/-30 -JM6.5i -P -I+a15+ne0.75 -Xc -K > $ps
+gmt grdcontour ker_mag.nc -R -J -C200 -A1+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a5 -Bpyg10f5a5 -Bsxg5 -Bsyg5 \
+    -B+t"Detailed marine and Earth EMAG-2 airborne Magnetic Anomaly Grid on Kerguelen Plateau" \
+    -Lx14.0c/-3.0c+c318/-57+w1000k+l"Mercator projection. Scale (km)"+f \
+    -UBL/-5p/-80p -O -K >> $ps
+gmt psscale -Dg50/-71.5+w16.0c/0.4c+h+ml+e -R -J -Cmyocean.cpt \
+    -Bg100f10a50+l"Color scale: mag (Colors for magnetic anomaly maps), [C=RGB]" \
+    -I0.2 -By+l"nT" -O -K >> $ps
+gmt logo -Dx6.5/-3.8+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y13.0c -N -O \
+    -F+f11p,0,black+jLB >> $ps << EOF
+1.2 15.8 EMAG-2 (Earth Magnetic Anomaly Grid, 2 arc min resolution)
+EOF
+gmt psconvert Magnet_Kgl.ps -A1.0c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+
+\subsection[\appendixname~\thesubsection]{GMT Scripts for Mapping Geoid Anomalies over the Kerguelen Plateau}
+\vspace{-9pt}
+\begin{listing}[H]
+\caption{Mapping geoid anomalies in Kerguelen Plateau by EGM96.}
+\label{lst11}
+\begin{lstlisting}[xleftmargin=10pt,xrightmargin=3.5pt ,language=bash,caption={}]
+exec bash
+gdalinfo geoid.egm96.grd -stats
+gmt grd2cpt geoid.egm96.grd -Cjet > geoid.cpt
+ps=Geoid_Ker.ps
+gmt grdimage geoid.egm96.grd -I+a45+nt1 -R40/110/-70/-20 -JQ7.5i -Cgeoid.cpt -P -K > $ps
+gmt grdcontour geoid.egm96.grd -R -J -C2 -A4+f10p,25,black -Wthinner,dimgray -O -K >> $ps
+gmt psbasemap -R -J \
+    -Bpxg10f5a10 -Bpyg10f5a10 -Bsxg5 -Bsyg5 \
+    -B+t"Geoid gravitational model EGM96 over East Antarctic, Kerguelen Plateau and SW Indian Ocean" \
+    -Lx16.0c/-1.5c+c318/-57+w1000k+l"Cylindrical equidistant projection. Scale (km)"+f \
+    -UBL/-5p/-40p -O -K >> $ps
+gmt psscale -Dg33/-70+w13.4c/0.4c+v+ml+e -R -J -Cgeoid.cpt \
+    -Bg10f1a10+l"Color scale: jet [C=RGB]" \
+    -I0.2 -By+lm -O -K >> $ps
+gmt logo -Dx7.0/-2.2+o0.1i/0.1i+w2c -O -K >> $ps
+gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y12.5c -N -O \
+    -F+f12p,0,black+jLB >> $ps << EOF
+1.0 3.0 EGM96: 15 arc minute resolution grid based on the gravitational force of the Earth
+EOF
+gmt psconvert Geoid_Ker.ps -A1.6c -E720 -Tj -Z
+\end{lstlisting}
+\end{listing}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+\reftitle{References}
+%\nocite{*}
+
+%=====================================
+% References, variant A: external bibliography
+%=====================================
+%\bibliography{Kerguelen.bib}
+\begin{thebibliography}{999}
+
+\bibitem[Árpád Papp-Váry(1989)]{PAPPVARY1989103}
+Papp-Váry, Á.
+\newblock The Science of Cartography. In {\em Cartography Past, Present and
+  Future}; Rhind, D., Taylor, D., Eds.; International Cartographic Association,
+  Pergamon: Amsterdam,  The Netherlands, 1989; pp. 103--109.
+\newblock {\url{https://doi.org/10.1016/B978-1-85166-336-1.50014-X}}.
+
+\bibitem[Robinson(1989)]{ROBINSON198991}
+Robinson, A.H.
+\newblock Cartography as an art. In {\em Cartography Past, Present and Future};
+  Rhind, D., Taylor, D., Eds.; International Cartographic Association,
+  Pergamon: Amsterdam,  The Netherlands, 1989; pp. 91--102.
+\newblock {\url{https://doi.org/10.1016/B978-1-85166-336-1.50013-8}}.
+
+\bibitem[Goodchild(2009{\natexlab{a}})]{GOODCHILD20091}
+Goodchild, M.F.
+\newblock Geographic Information Systems and Cartography. In {\em International
+  Encyclopedia of Human Geography}, 2nd ed.;
+  Kobayashi, A., Ed.; Elsevier: Oxford,  UK, 2009; pp. 1--6.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-102295-5.10553-0}}.
+
+\bibitem[Goodchild(2009{\natexlab{b}})]{GOODCHILD2009500}
+Goodchild, M.
+\newblock GIS and Cartography. In {\em International Encyclopedia of Human
+  Geography}; Kitchin, R., Thrift, N., Eds.; Elsevier: Oxford,  UK, 2009; pp.
+  500--505.
+\newblock {\url{https://doi.org/10.1016/B978-008044910-4.00034-1}}.
+
+\bibitem[Slocum and Egbert(1991)]{SLOCUM1991167}
+Slocum, T.A.; Egbert, S.L.
+\newblock Cartographic Data Display. In {\em Geographic Information
+  Systems}; Taylor, F., Ed.; Modern
+  Cartography Series; Academic Press: \hl{Cambridge, MA, USA,} %newly added information, please confirm
+1991; Chapter 9, Volume~1, pp. 167--199.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-040277-2.50017-9}}.
+
+\bibitem[TAYLOR(1994)]{TAYLOR1994333}
+Taylor, D.F.
+\newblock Perspectives on Visualization and Modern Cartography. In
+  {\em Visualization in Modern Cartography}; Maceachren, A.M., Taylor, D.F.,
+  Eds.; Modern Cartography Series; Academic Press:  \hl{Cambridge, MA, USA,} 1994; Chapter 17, Volume 2, pp. 333--341.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-042415-6.50024-7}}.
+
+\bibitem[Toms et~al.(2022)Toms, Parker, Tucker, and Rubalcava]{10162166}
+Toms, S.; Parker, B.; Tucker, D.C.; Rubalcava, R.
+\newblock {\em Python for ArcGIS Pro: Automate Cartography and Data Analysis
+  Using ArcPy, ArcGIS API for Python, Notebooks, and Pandas}; Packt Publishing: \hl{Birmingham, UK}, 2022.
+
+\bibitem[Dobesova and Dobes(2012)]{6344536}
+Dobesova, Z.; Dobes, P.
+\newblock Comparison of visual languages in Geographic Information Systems.
+\newblock In Proceedings of the 2012 IEEE Symposium on Visual Languages and
+  Human-Centric Computing (VL/HCC), \hl{Innsbruck, Austria, 30 September--4 October} 2012; pp. 245--246.
+\newblock {\url{https://doi.org/10.1109/VLHCC.2012.6344536}}.
+
+\bibitem[Omran et~al.(2016)Omran, Dietrich, Abouelmagd, and
+  Michael]{OMRAN2016140}
+Omran, A.; Dietrich, S.; Abouelmagd, A.; Michael, M.
+\newblock New ArcGIS tools developed for stream network extraction and basin
+  delineations using Python and java script.
+\newblock {\em Comput. Geosci.} {\bf 2016}, {\em 94},~140--149.
+\newblock {\url{https://doi.org/10.1016/j.cageo.2016.06.012}}.
+
+\bibitem[Naghibi et~al.(2021)Naghibi, Hashemi, and Pradhan]{NAGHIBI2021101232}
+Naghibi, S.A.; Hashemi, H.; Pradhan, B.
+\newblock APG: A novel python-based ArcGIS toolbox to generate absence-datasets
+  for geospatial studies.
+\newblock {\em Geosci. Front.} {\bf 2021}, {\em 12},~101232.
+\newblock {\url{https://doi.org/10.1016/j.gsf.2021.101232}}.
+
+\bibitem[Roberts et~al.(2022)Roberts, Mwangi, Mukabi, Njui, Nzioka, Ndambiri,
+  Bispo, Espirito-Santo, Gou, Johnson, Louis, Pacheco-Pascagaza,
+  Rodriguez-Veiga, Tansey, Upton, Robb, and Balzter]{ROBERTS2022105192}
+Roberts, J.; Mwangi, R.; Mukabi, F.; Njui, J.; Nzioka, K.; Ndambiri, J.; Bispo,
+  P.; Espirito-Santo, F.; Gou, Y.; Johnson, S.;  et~al.
+\newblock Pyeo: A Python package for near-real-time forest cover change
+  detection from Earth observation using machine learning.
+\newblock {\em Comput. Geosci.} {\bf 2022}, {\em 167},~105192.
+\newblock {\url{https://doi.org/10.1016/j.cageo.2022.105192}}.
+
+\bibitem[Lemenkova and Debeir(2022)]{jimaging8120317}
+Lemenkova, P.; Debeir, O.
+\newblock Satellite Image Processing by Python and R Using Landsat 9 OLI/TIRS
+  and SRTM DEM Data on Côte d'Ivoire, West Africa.
+\newblock {\em J. Imaging} {\bf 2022}, {\em 8}, \hl{317}.
+\newblock {\url{https://doi.org/10.3390/jimaging8120317}}.
+
+\bibitem[Vos et~al.(2019)Vos, Splinter, Harley, Simmons, and
+  Turner]{VOS2019104528}
+Vos, K.; Splinter, K.D.; Harley, M.D.; Simmons, J.A.; Turner, I.L.
+\newblock CoastSat: A Google Earth Engine-enabled Python toolkit to extract
+  shorelines from publicly available satellite imagery.
+\newblock {\em Environ. Model. Softw.} {\bf 2019}, {\em
+  122},~104528.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2019.104528}}.
+
+\bibitem[Lemenkova and Debeir(2022)]{app122412554}
+Lemenkova, P.; Debeir, O.
+\newblock R Libraries for Remote Sensing Data Classification by K-Means
+  Clustering and NDVI Computation in Congo River Basin, DRC.
+\newblock {\em Appl. Sci.} {\bf 2022}, {\em 12}, \hl{12554}.
+\newblock {\url{https://doi.org/10.3390/app122412554}}.
+
+\bibitem[Dobesova(2011)]{6057428}
+Dobesova, Z.
+\newblock Programming language Python for data processing.
+\newblock In Proceedings of the 2011 International Conference on Electrical and
+  Control Engineering, \hl{Yichang, China, 16--18 September} 2011; pp. 4866--4869.
+\newblock {\url{https://doi.org/10.1109/ICECENG.2011.6057428}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202215}
+Lemenkova, P.
+\newblock {Cartographic scripts for seismic and geophysical mapping of
+  Ecuador}.
+\newblock {\em Geografie} {\bf 2022}, {\em 127},~195--218.
+\linebreak {\url{https://doi.org/10.37040/geografie.2022.006}}.
+
+\bibitem[Aber and Aber(2017)]{ABER201753}
+Aber, S.E.W.; Aber, J.W.
+\newblock Basic Map Concepts—The Science of Cartography. In {\em
+  Map Librarianship}; Aber, S.E.W., Aber, J.W., Eds.; Chandos Information
+  Professional Series; Chandos Publishing: Oxford,  UK, 2017; Chapter 3, pp. 53--70.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-100021-2.00003-1}}.
+
+\bibitem[Bascou et~al.(2008)Bascou, Delpech, Vauchez, Moine, Cottin, and
+  Barruol]{Bascou}
+Bascou, J.; Delpech, G.; Vauchez, A.; Moine, B.N.; Cottin, J.Y.; Barruol, G.
+\newblock An integrated study of microstructural, geochemical, and seismic
+  properties of the lithospheric mantle above the Kerguelen plume (Indian
+  Ocean).
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2008}, \emph{\hl{9} %MDPI: Please add pagination if available. Same in all highlighted references below.
+}.
+\newblock {\url{https://doi.org/https://doi.org/10.1029/2007GC001879}}.
+
+\bibitem[Eshagh(2021)]{ESHAGH2021313}
+Eshagh, M.
+\newblock Satellite gravimetry and isostasy. In {\em Satellite
+  Gravimetry and the Solid Earth}; Eshagh, M., Ed.; Elsevier: \hl{Amsterdam, The~Netherlands,} %newly added information, please confirm
+  2021; Chapter 7, pp.
+  313--373.
+\newblock {\url{https://doi.org/10.1016/B978-0-12-816936-0.00007-4}}.
+
+\bibitem[Kapawar et~al.(2021)Kapawar, Mamilla, and Sangode]{KAPAWAR2021106692}
+Kapawar, M.; Mamilla, V.; Sangode, S.
+\newblock Anisotropy of magnetic susceptibility study to locate the feeder zone
+  and lava flow directions of the Rajmahal Traps (India): Implications to
+  Kerguelen mantle plume interaction with Indian Plate.
+\newblock {\em Phys. Earth Planet. Inter.} {\bf 2021}, {\em
+  313},~106692.
+\newblock {\url{https://doi.org/10.1016/j.pepi.2021.106692}}.
+
+\bibitem[Peng et~al.(2022)Peng, Yang, Shi, Bian, Ma, Wang, Jiao, Ma, Kang,
+  Zhang, Wu, and Li]{PENG2022110823}
+Peng, W.; Yang, T.; Shi, Y.; Bian, W.; Ma, Y.; Wang, S.; Jiao, X.; Ma, J.;
+  Kang, Y.; Zhang, S.;  et~al.
+\newblock Role of the Kerguelen mantle plume in breakup of eastern Gondwana:
+  Evidence from early cretaceous volcanic rocks in the eastern Tethyan
+  Himalaya.
+\newblock {\em Palaeogeogr. Palaeoclimatol. Palaeoecol.} {\bf 2022},
+  {\em 588},~110823.
+\newblock {\url{https://doi.org/10.1016/j.palaeo.2021.110823}}.
+
+\bibitem[Zhang et~al.(2023)Zhang, Li, He, Zhang, Dong, Qing, Liang, and
+  Han]{ZHANG202368}
+Zhang, Z.; Li, G.; He, X.; Zhang, L.; Dong, S.; Qing, C.; Liang, W.; Han, S.
+\newblock The evolution of Kerguelen mantle plume and breakup of eastern
+  Gondwana: New insights from multistage Cretaceous magmatism in the Tethyan
+  Himalaya.
+\newblock {\em Gondwana Res.} {\bf 2023}, {\em 119},~68--85.
+\newblock {\url{https://doi.org/10.1016/j.gr.2023.03.009}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202005}
+Lemenkova, P.
+\newblock {Variations in the bathymetry and bottom morphology of the Izu-Bonin
+  Trench modelled by GMT}.
+\newblock {\em Bull. Geography. Phys. Geogr. Ser.} {\bf 2020},
+  {\em 18},~41--60.
+\newblock {\url{https://doi.org/10.2478/bgeo-2020-0004}}.
+
+\bibitem[Tesauro et~al.(2013)Tesauro, Kaban, and Cloetingh]{TESAURO201378}
+Tesauro, M.; Kaban, M.K.; Cloetingh, S.A.
+\newblock Global model for the lithospheric strength and effective elastic
+  thickness.
+\newblock {\em Tectonophysics} {\bf 2013}, {\em 602},~78--86.
+\newblock {\url{https://doi.org/10.1016/j.tecto.2013.01.006}}. \hl{TOPO-EUROPE III.} %MDPI: Please check if this should be deleted.
+
+
+\bibitem[Battista and O’Brien(2015)]{Battista}
+Battista, T.; O’Brien, K.
+\newblock Spatially Prioritizing Seafloor Mapping for Coastal and Marine
+  Planning.
+\newblock {\em Coast. Manag.} {\bf 2015}, {\em 43},~35--51.
+\newblock {\url{https://doi.org/10.1080/08920753.2014.985177}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202105}
+Lemenkova, P.
+\newblock {The visualization of geophysical and geomorphologic data from the
+  area of Weddell Sea by the Generic Mapping Tools}.
+\newblock {\em Stud. Quat.} {\bf 2021}, {\em 38},~19--32.
+\newblock {\url{https://doi.org/10.24425/sq.2020.133759}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202012}
+Lemenkova, P.
+\newblock {GEBCO Gridded Bathymetric Datasets for Mapping Japan Trench
+  Geomorphology by Means of GMT Scripting Toolset}.
+\newblock {\em Geod. Cartogr.} {\bf 2020}, {\em 46},~98--112.
+\newblock {\url{https://doi.org/10.3846/gac.2020.11524}}.
+
+\bibitem[Schlich and Wise(1992)]{Schlich1992TheGA}
+Schlich, R.; Wise, S.W.
+\newblock The Geologic and Tectonic Evolution of the Kerguelen Plateau: An
+  Introduction to the Scientific Results of Leg 120.
+\newblock \emph{\hl{Proc}%MDPI: Formatted as a journal, please confirm.
+. Ocean. Drill. Program Sci. Results} \textbf{1992}, \emph{120}, 4.
+
+\bibitem[Veevers and LI(1991)]{Veevers1991a}
+Veevers, J.J.; LI, Z.X.
+\newblock Review of seafloor spreading around Australia. II. Marine magnetic
+  anomaly modelling.
+\newblock {\em Aust. J. Earth Sci.} {\bf 1991}, {\em
+  38},~391--408.
+\newblock {\url{https://doi.org/10.1080/08120099108727980}}.
+
+\bibitem[Negi et~al.(2022)Negi, Kumar, Ningthoujam, and Pandey]{NEGI2022229330}
+Negi, S.S.; Kumar, A.; Ningthoujam, L.S.; Pandey, D.K.
+\newblock Mapping the mantle transition zone beneath the Indian Ocean geoid low
+  from Ps receiver functions.
+\newblock {\em Tectonophysics} {\bf 2022}, {\em 831},~229330.
+\newblock {\url{https://doi.org/10.1016/j.tecto.2022.229330}}.
+
+\bibitem[Bénard et~al.(2010)Bénard, Callot, Vially, Schmitz, Roest, Patriat,
+  and Loubrieu]{BENARD2010633}
+Bénard, F.; Callot, J.P.; Vially, R.; Schmitz, J.; Roest, W.; Patriat, M.;
+  Loubrieu, B.
+\newblock The Kerguelen plateau: Records from a long-living/composite
+  microcontinent.
+\newblock {\em Mar. Pet. Geol.} {\bf 2010}, {\em 27},~633--649.
+\newblock {\url{https://doi.org/10.1016/j.marpetgeo.2009.08.011}}. \hl{The link between shallow and deep processes in sedimentary basins.} %MDPI: Please check if this should be deleted or formatted as a new reference. Same below.
+
+\bibitem[Ramana et~al.(2001)Ramana, Ramprasad, and Desa]{RAMANA2001241}
+Ramana, M.V.; Ramprasad, T.; Desa, M.
+\newblock Seafloor spreading magnetic anomalies in the Enderby Basin, East
+  Antarctica.
+\newblock {\em Earth Planet. Sci. Lett.} {\bf 2001}, {\em
+  191},~241--255.
+\newblock {\url{https://doi.org/10.1016/S0012-821X(01)00413-7}}.
+
+\bibitem[Davis et~al.(2016)Davis, Lawver, Norton, and Gahagan]{DAVIS201616}
+Davis, J.K.; Lawver, L.A.; Norton, I.O.; Gahagan, L.M.
+\newblock New Somali Basin magnetic anomalies and a plate model for the early
+  Indian Ocean.
+\newblock {\em Gondwana Res.} {\bf 2016}, {\em 34},~16--28.
+\newblock {\url{https://doi.org/10.1016/j.gr.2016.02.010}}.
+
+\bibitem[Frey et~al.(2000)Frey, Coffin, Wallace, Weis, Zhao, Wise, Wähnert,
+  Teagle, Saccocia, Reusch, Pringle, Nicolaysen, Neal, Müller, Moore, Mahoney,
+  Keszthelyi, Inokuchi, Duncan, Delius, Damuth, Damasceno, Coxall, Borre,
+  Boehm, Barling, Arndt, and Antretter]{FREY200073}
+Frey, F.; Coffin, M.; Wallace, P.; Weis, D.; Zhao, X.; Wise, S.; Wähnert, V.;
+  Teagle, D.; Saccocia, P.; Reusch, D.;  et~al.
+\newblock Origin and evolution of a submarine large igneous province: The
+  Kerguelen Plateau and Broken Ridge, southern Indian Ocean.
+\newblock {\em Earth Planet. Sci. Lett.} {\bf 2000}, {\em
+  176},~73--89.
+\newblock {\url{https://doi.org/10.1016/S0012-821X(99)00315-5}}.
+
+\bibitem[Sreejith and Krishna(2015)]{Sreejith}
+Sreejith, K.M.; Krishna, K.S.
+\newblock Magma production rate along the Ninetyeast Ridge and its relationship
+  to Indian plate motion and Kerguelen hot spot activity.
+\newblock {\em Geophys. Res. Lett.} {\bf 2015}, {\em 42},~1105--1112.
+\newblock {\url{https://doi.org/10.1002/2014GL062993}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202112}
+Lemenkova, P.
+\newblock {Topography of the Aleutian Trench south-east off Bowers Ridge,
+  Bering Sea, in the context of the geological development of North Pacific
+  Ocean}.
+\newblock {\em Baltica} {\bf 2021}, {\em 34},~27--46.
+\newblock {\url{https://doi.org/10.5200/baltica.2021.1.3}}.
+
+\bibitem[Falvey(1985)]{Falvey}
+Falvey, D.A.
+\newblock Kerguelen Plateau Research Cruise.
+\newblock {\em Eos Trans. Am. Geophys. Union} {\bf 1985}, {\em
+  66},~641--641.
+\newblock {\url{https://doi.org/10.1029/EO066i037p00641-01}}.
+
+\bibitem[Watson et~al.(2016)Watson, Whittaker, Halpin, Williams, Milan, Daczko,
+  and Wyman]{WATSON201697}
+Watson, S.; Whittaker, J.; Halpin, J.; Williams, S.; Milan, L.; Daczko, N.;
+  Wyman, D.
+\newblock Tectonic drivers and the influence of the Kerguelen plume on seafloor
+  spreading during formation of the early Indian Ocean.
+\newblock {\em Gondwana Res.} {\bf 2016}, {\em 35},~97--114.
+\newblock {\url{https://doi.org/10.1016/j.gr.2016.03.009}}.
+
+\bibitem[LEE(1991)]{LEE199121}
+\textls[-10]{Lee, Y.
+\newblock Cartographic Data Capture and Storage. In {\em Geographic
+  Information Systems}; Taylor, F., Ed.; Modern Cartography Series; Academic Press:  \hl{Cambridge, MA, USA,} %newly added information, please confirm
+  1991; Chapter 2, Volume 1, pp. 21--38.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-040277-2.50010-6}}.}
+
+\bibitem[Mori et~al.(2016)Mori, Corney, Melbourne-Thomas, Welsford, Klocker,
+  and Ziegler]{MORI201645}
+Mori, M.; Corney, S.P.; Melbourne-Thomas, J.; Welsford, D.C.; Klocker, A.;
+  Ziegler, P.E.
+\newblock Using satellite altimetry to inform hypotheses of transport of early
+  life stage of Patagonian toothfish on the Kerguelen Plateau.
+\newblock {\em Ecol. Model.} {\bf 2016}, {\em 340},~45--56.
+\newblock {\url{https://doi.org/10.1016/j.ecolmodel.2016.08.013}}.
+
+\bibitem[Cotté et~al.(2022)Cotté, Ariza, Berne, Habasque, Lebourges-Dhaussy,
+  Roudaut, Espinasse, Hunt, Pakhomov, Henschke, Péron, Conchon, Koedooder,
+  Izard, and Cherel]{COTTE2022103650}
+Cotté, C.; Ariza, A.; Berne, A.; Habasque, J.; Lebourges-Dhaussy, A.; Roudaut,
+  G.; Espinasse, B.; Hunt, B.; Pakhomov, E.; Henschke, N.;  et~al.
+\newblock Macrozooplankton and micronekton diversity and associated carbon
+  vertical patterns and fluxes under distinct productive conditions around the
+  Kerguelen Islands.
+\newblock {\em J. Mar. Syst.} {\bf 2022}, {\em 226},~103650.
+\newblock {\url{https://doi.org/10.1016/j.jmarsys.2021.103650}}.
+
+\bibitem[Maraldi et~al.(2011)Maraldi, Lyard, Testut, and Coleman]{Maraldi}
+Maraldi, C.; Lyard, F.; Testut, L.; Coleman, R.
+\newblock Energetics of internal tides around the Kerguelen Plateau from
+  modeling and altimetry.
+\newblock {\em J. Geophys. Res. Ocean.} {\bf 2011}, \emph{\hl{116}}.
+\newblock {\url{https://doi.org/10.1029/2010JC006515}}.
+
+\bibitem[Verfaillie et~al.(2015)Verfaillie, Favier, Dumont, Jomelli, Gilbert,
+  Brunstein, Gallée, Rinterknecht, Menegoz, and Frenot]{Verfaillie}
+Verfaillie, D.; Favier, V.; Dumont, M.; Jomelli, V.; Gilbert, A.; Brunstein,
+  D.; Gallée, H.; Rinterknecht, V.; Menegoz, M.; Frenot, Y.
+\newblock Recent glacier decline in the Kerguelen Islands (49°S, 69°E)
+  derived from modeling, field observations, and satellite data.
+\newblock {\em J. Geophys. Res. Earth Surf.} {\bf 2015}, {\em
+  120},~637--654.
+\newblock {\url{https://doi.org/10.1002/2014JF003329}}.
+
+\bibitem[Yamamoto et~al.(2008)Yamamoto, Fukuda, Doi, and
+  Motoyama]{YAMAMOTO2008267}
+Yamamoto, K.; Fukuda, Y.; Doi, K.; Motoyama, H.
+\newblock Interpretation of the GRACE-derived mass trend in Enderby Land,
+  Antarctica.
+\newblock {\em Polar Sci.} {\bf 2008}, {\em 2},~267--276.
+\newblock {\url{https://doi.org/10.1016/j.polar.2008.10.001}}.
+
+\bibitem[Mathieu et~al.(2011)Mathieu, Byrne, Guillaume, {van Wyk de Vries}, and
+  Moine]{MATHIEU2011206}
+\textls[-10]{Mathieu, L.; Byrne, P.; Guillaume, D.; {van Wyk de Vries}, B.; Moine, B.
+\newblock The field and remote sensing analysis of the Kerguelen Archipelago
+  structure, Indian Ocean.
+\newblock {\em J. Volcanol. Geotherm. Res.} {\bf 2011}, {\em
+  199},~206--215.
+\newblock {\url{https://doi.org/10.1016/j.jvolgeores.2010.11.013}}.}
+
+\bibitem[Cowley et~al.(2004)Cowley, Mann, Coffin, and Shipley]{COWLEY2004267}
+Cowley, S.; Mann, P.; Coffin, M.; Shipley, T.H.
+\newblock Oligocene to Recent tectonic history of the Central Solomon intra-arc
+  basin as determined from marine seismic reflection data and compilation of
+  onland geology.
+\newblock {\em Tectonophysics} {\bf 2004}, {\em 389},~267--307.
+\newblock  {\url{https://doi.org/10.1016/j.tecto.2004.01.008}}. \hl{Tectonics, Seismicity and Crustal Structure of the Ontong Java
+  Plateau: Solomon Island Arc Convergent Zone, Southwest Pacific Ocean.}
+
+\bibitem[Lemenkova(2021)]{Lemenkova202125}
+Lemenkova, P.
+\newblock {Dataset compilation by GRASS GIS for thematic mapping of Antarctica:
+  Topographic surface, ice thickness, subglacial bed elevation and sediment
+  thickness}.
+\newblock {\em Czech Polar Rep.} {\bf 2021}, {\em 11},~67--85.
+\newblock {\url{https://doi.org/10.5817/CPR2021-1-6}}.
+
+\bibitem[Kovalevsky and Kharchenko(1993)]{1993A234}
+Kovalevsky, E.V.; Kharchenko, V.I.
+\newblock Integrated interpretation of marine engineering geological and
+  geophysical data on the principles of expert system technology: Kovalevsky, E
+  V; Kharchenko, V I Geophys ProspectV40, N8, Nov 1992, P909–923.
+\newblock {\em Int. J. Rock Mech. Min. Sci. Geomech. Abstr.} {\bf 1993}, {\em 30},~A234.
+\newblock {\url{https://doi.org/10.1016/0148-9062(93)91948-I}}.
+
+\bibitem[Abuamarah et~al.(2019)Abuamarah, Nabawy, Shehata, Kassem, and
+  Ghrefat]{ABUAMARAH2019868}
+Abuamarah, B.A.; Nabawy, B.S.; Shehata, A.M.; Kassem, O.M.; Ghrefat, H.
+\newblock Integrated geological and petrophysical characterization of oligocene
+  deep marine unconventional poor to tight sandstone gas reservoir.
+\newblock {\em Mar. Pet. Geol.} {\bf 2019}, {\em 109},~868--885.
+\newblock {\url{https://doi.org/10.1016/j.marpetgeo.2019.06.037}}.
+
+\bibitem[Veevers et~al.(1991)Veevers, Powell, and Roots]{Veevers1991b}
+Veevers, J.J.; Powell, C.M.; Roots, S.R.
+\newblock Review of seafloor spreading around Australia. I. synthesis of the
+  patterns of spreading.
+\newblock {\em Aust. J. Earth Sci.} {\bf 1991}, {\em
+  38},~373--389.
+\newblock {\url{https://doi.org/10.1080/08120099108727979}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202104}
+Lemenkova, P.
+\newblock {Geodynamic setting of Scotia Sea and its effects on geomorphology of
+  South Sandwich Trench, Southern Ocean}.
+\newblock {\em Pol. Polar Res.} {\bf 2021}, {\em 42},~1--23.
+\newblock {\url{https://doi.org/10.24425/ppr.2021.136510}}.
+
+\bibitem[Hill(1986)]{Hill}
+Hill, P.J.
+\newblock Seafloor Magnetic Patterns: Seafloor Spreading and Magnetization in
+  the Southern Ocean.
+\newblock {\em Explor. Geophys.} {\bf 1986}, {\em 17},~40--42.
+\newblock {\url{https://doi.org/10.1071/EG986040}}.
+
+\bibitem[Nougier(1968)]{Nougier}
+Nougier, J.
+\newblock {\em Bibliographie Cartographique des Iles Kerguelen/par Jacques
+  Nougier}; Institut Geographique National: Paris, France, 1968; \hl{p. 55}. %MDPI: Please confirm pagination.
+ Available online:  \url{https://catalogue.nla.gov.au/Record/2259953}  (\hl{accessed on}). %MDPI: Please add access date.
+
+
+\bibitem[Petit and Petit(1933)]{Petit}
+Petit, G.; Petit, G.
+\newblock Edgar Aubert de la Rüe. — Etude géologique et géographique de
+  l’Archipel de Kerguelen.
+\newblock {\em Rev. D'Écologie} {\bf 1933}, {\em
+  3},~63--64.
+
+\bibitem[Recq(1989)]{RECQ1989133}
+Recq, M.
+\newblock Contribution a l'etude de la structure profonde du banc de Crozet
+  (Ocean Indien Austral).
+\newblock {\em Mar. Geol.} {\bf 1989}, {\em 88},~133--144.
+\newblock {\url{https://doi.org/10.1016/0025-3227(89)90009-1}}.
+
+\bibitem[Operto(1995)]{Operto}
+Operto, S.
+\newblock {Structure et Origine du Plateau de Kerguelen (Océan Indien
+  Austral): Implications Géodynamique. Modélisation de Données Sismiques
+  Grand-Angle Marines}.
+\newblock Ph.D. Thesis, Université Pierre et Marie Curie (\hl{Universit\'{e} Paris 6}), %MDPI: Please check if this should be deleted.
+  Paris, France,  1995.
+
+\bibitem[Ramsay et~al.(1986)Ramsay, Colwell, Coffin, Davies, Hill, Pigram, and
+  Stagg]{Ramsay}
+Ramsay, D.C.; Colwell, J.B.; Coffin, M.F.; Davies, H.L.; Hill, P.J.; Pigram,
+  C.J.; Stagg, H.M.J.
+\newblock {New findings from the Kerguelen Plateau}.
+\newblock {\em Geology} {\bf 1986}, {\em 14},~589--593.
+\newblock
+  {\url{https://doi.org/10.1130/0091-7613(1986)14<589:NFFTKP>2.0.CO;2}}.
+
+\bibitem[Breton et~al.(2013)Breton, Nauret, Pichat, Moine, Moreira, Rose-Koga,
+  Auclair, Bosq, and Wavrant]{BRETON2013126}
+Breton, T.; Nauret, F.; Pichat, S.; Moine, B.; Moreira, M.; Rose-Koga, E.F.;
+  Auclair, D.; Bosq, C.; Wavrant, L.M.
+\newblock Geochemical heterogeneities within the Crozet hotspot.
+\newblock {\em Earth Planet. Sci. Lett.} {\bf 2013}, {\em
+  376},~126--136.
+\newblock {\url{https://doi.org/10.1016/j.epsl.2013.06.020}}.
+
+\bibitem[Guglielmi(1982)]{Guglielmi}
+Guglielmi, M.
+\newblock Etude Géophysique du Plateau de Kerguelen.
+\newblock Ph.D. Thesis, Université Louis Pasteur, Strasbourg, France,  1982.
+
+\bibitem[Gaina et~al.(2007)Gaina, Müller, Brown, Ishihara, and Ivanov]{Gaina}
+Gaina, C.; Müller, R.D.; Brown, B.; Ishihara, T.; Ivanov, S.
+\newblock Breakup and early seafloor spreading between India and Antarctica.
+\newblock {\em Geophys. J. Int.} {\bf 2007}, {\em
+  170},~151--169.
+\newblock {\url{https://doi.org/10.1111/j.1365-246X.2007.03450.x}}.
+
+\bibitem[Henry and Plessard(1997)]{Henry}
+Henry, B.; Plessard, C.
+\newblock New palaeomagnetic results from the Kerguelen Islands.
+\newblock {\em Geophys. J. Int.} {\bf 1997}, {\em
+  128},~73--83.
+\linebreak {\url{https://doi.org/10.1111/j.1365-246X.1997.tb04072.x}}.
+
+\bibitem[Nicolaysen et~al.(2000)Nicolaysen, Frey, Hodges, Weis, and
+  Giret]{NICOLAYSEN2000313}
+Nicolaysen, K.; Frey, F.; Hodges, K.; Weis, D.; Giret, A.
+\newblock 40Ar/39Ar geochronology of flood basalts from the Kerguelen
+  Archipelago, southern Indian Ocean: Implications for Cenozoic eruption rates
+  of the Kerguelen plume.
+\newblock {\em Earth Planet. Sci. Lett.} {\bf 2000}, {\em
+  174},~313--328.
+\newblock {\url{https://doi.org/10.1016/S0012-821X(99)00271-X}}.
+
+\bibitem[Lacroix(1915)]{Lacroix}
+Lacroix, A.
+\newblock Les zéolites et les produits siliceux des basaltes de l'archipel de
+  Kerguelen.
+\newblock {\em Bull. Minéralogie} {\bf 1915}, {\em 38},~134--137.
+\newblock {\url{https://doi.org/10.3406/bulmi.1915.3614}}.
+
+\bibitem[Doucet et~al.(2005)Doucet, Scoates, Weis, and Giret]{Doucet}
+Doucet, S.; Scoates, J.S.; Weis, D.; Giret, A.
+\newblock Constraining the components of the Kerguelen mantle plume: A
+  Hf-Pb-Sr-Nd isotopic study of picrites and high-MgO basalts from the
+  Kerguelen Archipelago.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2005}, \emph{\hl{6}}.
+\newblock {\url{https://doi.org/10.1029/2004GC000806}}.
+
+\bibitem[Li(1988)]{Li}
+Li, Z.
+\newblock Structure, origine et évolution du plateau de Kerguelen.
+\newblock Ph.D. Thesis, Université Louis Pasteur, Strasbourg, France,  1988.
+
+\bibitem[{Aubert de la Rue}(1931)]{Rue1931}
+{Aubert de la Rue}, E.
+\newblock Aubert de la Rue (Edgar).---Terres françaises: Iles Kerguelen,
+  Crozet, Saint-Paul.
+\newblock {\em Outre-Mers. Rev. D'histoire} {\bf 1931}, {\em 19},~552--553.
+
+\bibitem[Faivre(1960)]{Faivre}
+Faivre, J.P.
+\newblock Marthe Emmanuel.---La France et l'exploration polaire. I. De
+  Verrazano à la Pêrouse.
+\newblock {\em Outre-Mers. Rev. D'histoire} {\bf 1960}, {\em 47},~291--292.
+
+\bibitem[Dupouy(1935)]{Dupouy}
+Dupouy, A.
+\newblock Supplément à l'histoire de Kerguélen (d'après des documents
+  inédits).
+\newblock {\em Ann. Bretagne Des Pays L'Ouest} {\bf 1935}, {\em
+  42},~146--169.
+\newblock {\url{https://doi.org/10.3406/abpo.1935.1730}}.
+
+\bibitem[Aubert~de La~Rüe(1932)]{Rue1932b}
+\textls[-10]{Aubert~de La~Rüe, E.
+\newblock La flore et la faune des îles Kerguelen.
+\newblock {\em Rev. D'Écologie} {\bf 1932}, {\em
+  2},~29--51.
+\newblock {\url{https://doi.org/10.3406/revec.1932.2596}}.}
+
+\bibitem[Ferchiou et~al.(2023)Ferchiou, Caza, Villemur, Labonne, and
+  St-Pierre]{fishes8040174}
+Ferchiou, S.; Caza, F.; Villemur, R.; Labonne, J.; St-Pierre, Y.
+\newblock Skin and Blood Microbial Signatures of Sedentary and Migratory Trout
+  (Salmo trutta) of the Kerguelen Islands.
+\newblock {\em Fishes} {\bf 2023}, {\em 8}, \hl{174}.
+\newblock {\url{https://doi.org/10.3390/fishes8040174}}.
+
+\bibitem[{Aubert de La Rüe}(1932)]{Rue1932a}
+\textls[-25]{{Aubert de La Rüe}, E.
+\newblock A propos de la flore des îles Kerguelen.
+\newblock {\em Rev. D'Écologie} {\bf 1932}, {\em
+  2},~114--115.
+\newblock {\url{https://doi.org/10.3406/revec.1932.5652}}.}
+
+\bibitem[Paulian(1952)]{Paulian}
+Paulian, P.
+\newblock La vie animale aux îles Kerguelen.
+\newblock {\em Rev. D'Écologie} {\bf 1952}, {\em
+  6},~129--138.
+\newblock {\url{https://doi.org/10.3406/revec.1952.3276}}.
+
+\bibitem[Aubert~de La~Rüe(1953)]{Aubert3723}
+Aubert~de La~Rüe, E.
+\newblock Sur la répartition des grandes colonies de Manchots de la péninsule
+  Courbet (Archipel des Kerguelen ).
+\newblock {\em Rev. D'Écologie} {\bf 1953}, {\em
+  7},~132--134.
+\newblock {\url{https://doi.org/10.3406/revec.1953.3723}}.
+
+\bibitem[Park et~al.(2009)Park, Vivier, Roquet, and Kestenare]{Park2009}
+Park, Y.H.; Vivier, F.; Roquet, F.; Kestenare, E.
+\newblock Direct observations of the ACC transport across the Kerguelen
+  Plateau.
+\newblock {\em Geophys. Res. Lett.} {\bf 2009}, {\em 36}.
+\newblock {\url{https://doi.org/10.1029/2009GL039617}}.
+
+\bibitem[Damerell et~al.(2013)Damerell, Heywood, and Stevens]{Damerell}
+Damerell, G.M.; Heywood, K.J.; Stevens, D.P.
+\newblock Direct observations of the Antarctic circumpolar current transport on
+  the northern flank of the Kerguelen Plateau.
+\newblock {\em J. Geophys. Res. Ocean.} {\bf 2013}, {\em
+  118},~1333--1348.
+\newblock {\url{https://doi.org/10.1002/jgrc.20067}}.
+
+\bibitem[Mongin et~al.(2008)Mongin, Molina, and Trull]{MONGIN2008880}
+Mongin, M.; Molina, E.; Trull, T.W.
+\newblock Seasonality and scale of the Kerguelen plateau phytoplankton bloom: A
+  remote sensing and modeling analysis of the influence of natural iron
+  fertilization in the Southern Ocean.
+\newblock {\em Deep Sea Res. Part II Top. Stud. Oceanogr.} {\bf
+  2008}, {\em 55},~880--892. {\url{https://doi.org/10.1016/j.dsr2.2007.12.039}}. \newblock \hl{KEOPS: Kerguelen Ocean and Plateau compared Study}.
+  
+\bibitem[Park et~al.(2008)Park, Gasco, and Duhamel]{Park}
+Park, Y.H.; Gasco, N.; Duhamel, G.
+\newblock Slope currents around the Kerguelen Islands from demersal longline
+  fishing records.
+\newblock {\em Geophys. Res. Lett.} {\bf 2008}, \emph{\hl{35}}.
+\newblock {\url{https://doi.org/10.1029/2008GL033660}}.
+
+\bibitem[Park et~al.(2014)Park, Durand, Kestenare, Rougier, Zhou, d'Ovidio,
+  Cotté, and Lee]{Park2014}
+Park, Y.H.; Durand, I.; Kestenare, E.; Rougier, G.; Zhou, M.; d'Ovidio, F.;
+  Cotté, C.; Lee, J.H.
+\newblock Polar Front around the Kerguelen Islands: An up-to-date determination
+  and associated circulation of surface/subsurface waters.
+\newblock {\em J. Geophys. Res. Ocean.} {\bf 2014}, {\em
+  119},~6575--6592.
+\newblock {\url{https://doi.org/https://doi.org/10.1002/2014JC010061}}.
+
+\bibitem[Pollard et~al.(2007)Pollard, Venables, Read, and
+  Allen]{POLLARD20071915}
+\textls[-5]{Pollard, R.; Venables, H.; Read, J.; Allen, J.
+\newblock Large-scale circulation around the Crozet Plateau controls an annual
+  phytoplankton bloom in the Crozet Basin.
+\newblock {\em Deep Sea Res. Part II Top. Stud. Oceanogr.} {\bf
+  2007}, {\em 54},~1915--1929.  {\url{https://doi.org/10.1016/j.dsr2.2007.06.012}}.} \hl{The Crozet Natural Iron Bloom and Export Experiment.}
+ 
+\bibitem[Pauthenet et~al.(2018)Pauthenet, Roquet, Madec, Guinet, Hindell,
+  McMahon, Harcourt, and Nerini]{Pauthenet}
+Pauthenet, E.; Roquet, F.; Madec, G.; Guinet, C.; Hindell, M.; McMahon, C.R.;
+  Harcourt, R.; Nerini, D.
+\newblock Seasonal Meandering of the Polar Front Upstream of the Kerguelen
+  Plateau.
+\newblock {\em Geophys. Res. Lett.} {\bf 2018}, {\em 45},~9774--9781.
+\newblock {\url{https://doi.org/10.1029/2018GL079614}}.
+
+\bibitem[Della~Penna et~al.(2018)Della~Penna, Trull, Wotherspoon, De~Monte,
+  Johnson, and d'Ovidio]{Penna}
+Della~Penna, A.; Trull, T.W.; Wotherspoon, S.; De~Monte, S.; Johnson, C.R.;
+  d'Ovidio, F.
+\newblock Mesoscale Variability of Conditions Favoring an Iron-Induced Diatom
+  Bloom Downstream of the Kerguelen Plateau.
+\newblock {\em J. Geophys. Res. Ocean.} {\bf 2018}, {\em
+  123},~3355--3367.
+\newblock {\url{https://doi.org/https://doi.org/10.1029/2018JC013884}}.
+
+\bibitem[Rietbroek et~al.(2006)Rietbroek, LeGrand, Wouters, Lemoine, Ramillien,
+  and Hughes]{Rietbroek}
+Rietbroek, R.; LeGrand, P.; Wouters, B.; Lemoine, J.M.; Ramillien, G.; Hughes,
+  C.W.
+\newblock Comparison of in~situ bottom pressure data with GRACE gravimetry in
+  the Crozet-Kerguelen region.
+\newblock {\em Geophys. Res. Lett.} {\bf 2006}, \emph{\hl{33}}.
+\newblock {\url{https://doi.org/10.1029/2006GL027452}}.
+
+\bibitem[Sombetzki-Lengagne(2003{\natexlab{a}})]{Sombetzkib}
+Sombetzki-Lengagne, D.
+\newblock La protection de l'environnement dans les Terres australes et
+  antarctiques françaises: Le projet de création d'une réserve naturelle
+  des terres australes.
+\newblock {\em Rev. Jurid. L'Environ.} {\bf 2003}, {\em
+  28},~307--317.
+\newblock {\url{https://doi.org/10.3406/rjenv.2003.4168}}.
+
+\bibitem[Sombetzki-Lengagne(2003{\natexlab{b}})]{Sombetzkia}
+Sombetzki-Lengagne, D.
+\newblock Commentaire de la loi n° 2003-347 du 15 avril 2003 relative à la
+  protection de l'environnement en Antarctique.
+\newblock {\em Rev. Jurid. L'Environ.} {\bf 2003}, {\em
+  28},~447--460.
+\newblock {\url{https://doi.org/10.3406/rjenv.2003.4190}}.
+
+\bibitem[Naim-Gesbert and Manouvel(2007)]{Naim}
+Naim-Gesbert, E.; Manouvel, M.
+\newblock Le double visage de la réserve naturelle des Terres australes
+  françaises.
+\newblock {\em Rev. Jurid. L'Environ.} {\bf 2007}, {\em
+  32},~445--455.
+\newblock {\url{https://doi.org/10.3406/rjenv.2007.4673}}.
+
+\bibitem[Müller et~al.(2008)Müller, Sdrolias, Gaina, and Roest]{Mueller}
+Müller, R.D.; Sdrolias, M.; Gaina, C.; Roest, W.R.
+\newblock Age, spreading rates, and spreading asymmetry of the world's ocean
+  crust.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2008}, \emph{\hl{9}}.
+\newblock {\url{https://doi.org/10.1029/2007GC001743}}.
+
+\bibitem[{NOAA National Centers for Environmental Information}(2022)]{NOAA}
+{NOAA National Centers for Environmental Information}.
+\newblock \emph{ETOPO 2022 15 Arc-Second Global Relief Model};
+\newblock NOAA National Centers for Environmental Information: \hl{Asheville, NC, USA,}  2022.
+\newblock \url{https://doi.org/10.25921/fd45-gt74}  (accessed on 29 June 2023).
+
+\bibitem[Pavlis et~al.(2012)Pavlis, Holmes, Kenyon, and Factor]{Pavlis}
+Pavlis, N.K.; Holmes, S.A.; Kenyon, S.C.; Factor, J.K.
+\newblock The development and evaluation of the Earth Gravitational Model 2008
+  (EGM2008).
+\newblock {\em J. Geophys. Res. Solid Earth} {\bf 2012}, \emph{\hl{117}}.
+\newblock {\url{https://doi.org/10.1029/2011JB008916}}.
+
+\bibitem[Pavlis et~al.(2008)Pavlis, Holmes, Kenyon, and Factor]{EGU}
+Pavlis, N.K.; Holmes, S.A.; Kenyon, S.C.; Factor, J.K.
+\newblock {An Earth Gravitational Model to Degree 2160: EGM2008}.
+\newblock \emph{Geophys. Res. Abstr.} \textbf{2008}, \emph{10}, EGU2008-A-01891. \hl{SRef-ID: 1607-7962/gra/EGU2008-A-01891.} %MDPI: Please confirm reference format and check if this part is necessary.
+
+
+\bibitem[Braitenberg(2021)]{BRAITENBERG2021706}
+Braitenberg, C.
+\newblock Gravity. In {\em Encyclopedia of Geology}, 2nd ed.;  Alderton, D., Elias, S.A., Eds.; Academic Press: Oxford,  UK, 2021;
+  pp.~706--718.
+\newblock {\url{https://doi.org/10.1016/B978-0-08-102908-4.00182-X}}.
+
+\bibitem[McNutt(2019)]{MCNUTT201920}
+McNutt, M.
+\newblock Gravity. In {\em Encyclopedia of Ocean Sciences}, 3rd ed.;  Cochran, J.K., Bokuniewicz, H.J., Yager, P.L., Eds.;
+  Academic Press: Oxford,  UK, 2019; pp. 20--27.
+\newblock {\url{https://doi.org/10.1016/B978-0-12-409548-9.11225-4}}.
+
+\bibitem[Condie(2022)]{CONDIE202281}
+Condie, K.C.
+\newblock The mantle. In {\em Earth as an Evolving Planetary System}, 4th ed.;  Condie, K.C., Ed.; Academic Press: \hl{Oxford, UK}, 2022; Chapter 4, pp. 81--125.
+\newblock {\url{https://doi.org/10.1016/B978-0-12-819914-5.00010-X}}.
+
+\bibitem[Straume et~al.(2019)Straume, Gaina, Medvedev, Hochmuth, Gohl,
+  Whittaker, Abdul~Fattah, Doornenbal, and Hopper]{Straume}
+Straume, E.O.; Gaina, C.; Medvedev, S.; Hochmuth, K.; Gohl, K.; Whittaker,
+  J.M.; Abdul~Fattah, R.; Doornenbal, J.C.; Hopper, J.R.
+\newblock GlobSed: Updated Total Sediment Thickness in the World's Oceans.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2019}, {\em
+  20},~1756--1772.
+\newblock {\url{https://doi.org/https://doi.org/10.1029/2018GC008115}}.
+
+\bibitem[Maus et~al.(2009)Maus, Barckhausen, Berkenbosch, Bournas, Brozena,
+  Childers, Dostaler, Fairhead, Finn, von Frese, Gaina, Golynsky, Kucks, Lühr,
+  Milligan, Mogren, Müller, Olesen, Pilkington, Saltus, Schreckenberger,
+  Thébault, and Caratori~Tontini]{Maus}
+Maus, S.; Barckhausen, U.; Berkenbosch, H.; Bournas, N.; Brozena, J.; Childers,
+  V.; Dostaler, F.; Fairhead, J.D.; Finn, C.; von Frese, R.R.B.;  et~al.
+\newblock EMAG2: A 2–arc min resolution Earth Magnetic Anomaly Grid compiled
+  from satellite, airborne, and marine magnetic measurements.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2009}, \emph{\hl{10}}.
+\newblock {\url{https://doi.org/10.1029/2009GC002471}}.
+
+\bibitem[Lesur et~al.(2016)Lesur, Hamoudi, Choi, Dyment, and Thébault]{Lesur}
+Lesur, V.; Hamoudi, M.; Choi, Y.; Dyment, J.; Thébault, E.
+\newblock {Building the second version of the World Digital Magnetic Anomaly
+  Map (WDMAM)}.
+\newblock {\em Earth Planets Space} {\bf 2016}, {\em 68},~27.
+\newblock {\url{https://doi.org/10.1186/s40623-016-0404-6}}.
+
+\bibitem[Sandwell et~al.(2014)Sandwell, Müller, Smith, Garcia, and
+  Francis]{Sandwell}
+Sandwell, D.T.; Müller, R.D.; Smith, W.H.F.; Garcia, E.; Francis, R.
+\newblock New global marine gravity model from CryoSat-2 and Jason-1 reveals
+  buried tectonic structure.
+\newblock {\em Science} {\bf 2014}, {\em 346},~65--67.
+\newblock {\url{https://doi.org/10.1126/science.1258213}}.
+
+\bibitem[Emishaw and Abdelsalam(2023)]{EMISHAW2023104775}
+Emishaw, L.; Abdelsalam, M.G.
+\newblock Satellite gravity data for mapping lithospheric structure of
+  Precambrian tectonic blocks in Africa: The advantages and limitations.
+\newblock {\em J. Afr. Earth Sci.} {\bf 2023}, {\em
+  197},~104775.
+\newblock {\url{https://doi.org/10.1016/j.jafrearsci.2022.104775}}.
+
+\bibitem[Wang et~al.(2023)Wang, Qi, Luo, Li, Zhou, and Guo]{WANG2023}
+Wang, J.; Qi, X.; Luo, K.; Li, Z.; Zhou, R.; Guo, J.
+\newblock Height connection across sea by using satellite altimetry data sets,
+  ellipsoidal heights, astrogeodetic deflections of the vertical, and an Earth
+  Gravity Model.
+\newblock {\em Geod. Geodyn.} {\bf 2023}, \emph{\hl{14}}, \hl{347--354}. \linebreak
+ {\url{https://doi.org/10.1016/j.geog.2022.11.010}}.
+
+\bibitem[Lehmann(2000)]{Lehmann}
+Lehmann, R.
+\newblock {Altimetry–gravimetry problems with free vertical datum}.
+\newblock {\em J. Geod.} {\bf 2000}, {\em 74},~327--334.
+\newblock {\url{https://doi.org/10.1007/s001900050290}}.
+
+\bibitem[Nguyen et~al.(2020)Nguyen, Pham, {Van Nguyen}, Andersen, Forsberg, and
+  {Tien Bui}]{NGUYEN2020505}
+Nguyen, V.S.; Pham, V.T.; {Van Nguyen}, L.; Andersen, O.B.; Forsberg, R.; {Tien
+  Bui}, D.
+\newblock Marine gravity anomaly mapping for the Gulf of Tonkin area (Vietnam)
+  using Cryosat-2 and Saral/AltiKa satellite altimetry data.
+\newblock {\em Adv. Space Res.} {\bf 2020}, {\em 66},~505--519.
+\newblock {\url{https://doi.org/10.1016/j.asr.2020.04.051}}.
+
+\bibitem[Wessel et~al.(2019)Wessel, Luis, Uieda, Scharroo, Wobbe, Smith, and
+  Tian]{Wessel}
+Wessel, P.; Luis, J.F.; Uieda, L.; Scharroo, R.; Wobbe, F.; Smith, W.H.F.;
+  Tian, D.
+\newblock The Generic Mapping Tools Version 6.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2019}, {\em
+  20},~5556--5564.
+\newblock {\url{https://doi.org/10.1029/2019GC008515}}.
+
+\bibitem[Lemenkova(2022{\natexlab{a}})]{Lemenkova202212}
+Lemenkova, P.
+\newblock {Handling Dataset with Geophysical and Geological Variables on the
+  Bolivian Andes by the GMT Scripts}.
+\newblock {\em Data} {\bf 2022}, {\em 7},~74.
+\newblock {\url{https://doi.org/10.3390/data7060074}}.
+
+\bibitem[Lemenkova(2022{\natexlab{b}})]{Lemenkova202203}
+Lemenkova, P.
+\newblock {Console-Based Mapping of Mongolia Using GMT Cartographic Scripting
+  Toolset for Processing TerraClimate Data}.
+\newblock {\em Geosciences} {\bf 2022}, {\em 12},~1--36.
+\newblock {\url{https://doi.org/10.3390/geosciences12030140}}.
+
+\bibitem[Wessel and Luis(2017)]{WesselLuis}
+\textls[-35]{Wessel, P.; Luis, J.F.
+\newblock The GMT/MATLAB Toolbox.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2017}, {\em
+  18},~811--823.
+\newblock {\url{https://doi.org/10.1002/2016GC006723}}.}
+
+\bibitem[Lemenkova(2022)]{Lemenkova202217}
+Lemenkova, P.
+\newblock {Mapping Climate Parameters over the Territory of Botswana Using GMT
+  and Gridded Surface Data from TerraClimate}.
+\newblock {\em ISPRS Int. J. Geo-Inf.} {\bf 2022}, {\em
+  11},~473.
+\newblock {\url{https://doi.org/10.3390/ijgi11090473}}.
+
+\bibitem[Neteler et~al.(2012)Neteler, Bowman, Landa, and Metz]{NETELER2012124}
+Neteler, M.; Bowman, M.H.; Landa, M.; Metz, M.
+\newblock GRASS GIS: A multi-purpose open source GIS.
+\newblock {\em Environ. Model. Softw.} {\bf 2012}, {\em
+  31},~124--130.
+\newblock {\url{https://doi.org/10.1016/j.envsoft.2011.11.014}}.
+
+\bibitem[Rocchini et~al.(2017)Rocchini, Petras, Petrasova, Chemin, Ricotta,
+  Frigeri, Landa, Marcantonio, Bastin, Metz, Delucchi, and
+  Neteler]{ROCCHINI2017166}
+\textls[-20]{Rocchini, D.; Petras, V.; Petrasova, A.; Chemin, Y.; Ricotta, C.; Frigeri, A.;
+  Landa, M.; Marcantonio, M.; Bastin, L.; Metz, M.;  et~al.
+\newblock Spatio-ecological complexity measures in GRASS GIS.
+\newblock {\em Comput. Geosci.} {\bf 2017}, {\em 104},~166--176.
+\newblock {\url{https://doi.org/10.1016/j.cageo.2016.05.006}}.}
+
+\bibitem[Frigeri et~al.(2011)Frigeri, Hare, Neteler, Coradini, Federico, and
+  Orosei]{FRIGERI20111265}
+Frigeri, A.; Hare, T.; Neteler, M.; Coradini, A.; Federico, C.; Orosei, R.
+\newblock A working environment for digital planetary data processing and
+  mapping using ISIS and GRASS GIS.
+\newblock {\em Planet. Space Sci.} {\bf 2011}, {\em 59},~1265--1272.
+{\url{https://doi.org/10.1016/j.pss.2010.12.008}}. \hl{Geological Mapping of Mars}.
+
+\bibitem[Lemenkova(2023)]{Lemenkova202313}
+Lemenkova, P.
+\newblock {A GRASS GIS Scripting Framework for Monitoring Changes in the
+  Ephemeral Salt Lakes of Chotts Melrhir and Merouane, Algeria}.
+\newblock {\em Appl. Syst. Innov.} {\bf 2023}, {\em 6},~61.
+\newblock {\url{https://doi.org/10.3390/asi6040061}}.
+
+\bibitem[Sorokine(2007)]{SOROKINE2007685}
+Sorokine, A.
+\newblock Implementation of a parallel high-performance visualization technique
+  in GRASS GIS.
+\newblock {\em Comput. Geosci.} {\bf 2007}, {\em 33},~685--695.
+\newblock {\url{https://doi.org/10.1016/j.cageo.2006.09.008}}.
+
+\bibitem[Lee et~al.(2019)Lee, Wood, and Phrampus]{Lee}
+Lee, T.R.; Wood, W.T.; Phrampus, B.J.
+\newblock A Machine Learning (kNN) Approach to Predicting Global Seafloor Total
+  Organic Carbon.
+\newblock {\em Glob. Biogeochem. Cycles} {\bf 2019}, {\em 33},~37--46.
+\newblock {\url{https://doi.org/10.1029/2018GB005992}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202206}
+Lemenkova, P.
+\newblock {Tanzania Craton, Serengeti Plain and Eastern Rift Valley: Mapping of
+  geospatial data by scripting techniques}.
+\newblock {\em Est. J. Earth Sci.} {\bf 2022}, {\em
+  71},~61--79.
+\newblock {\url{https://doi.org/10.3176/earth.2022.05}}.
+
+\bibitem[DeSanto et~al.(2016)DeSanto, Sandwell, and Chadwell]{DeSanto}
+DeSanto, J.B.; Sandwell, D.T.; Chadwell, C.D.
+\newblock Seafloor geodesy from repeated sidescan sonar surveys.
+\newblock {\em J. Geophys. Res. Solid Earth} {\bf 2016}, {\em
+  121},~4800--4813.
+\newblock {\url{https://doi.org/10.1002/2016JB013025}}.
+
+\bibitem[Harper et~al.(2021)Harper, Tozer, Sandwell, and Hey]{Harper}
+\textls[-25]{Harper, H.; Tozer, B.; Sandwell, D.T.; Hey, R.N.
+\newblock Marine Vertical Gravity Gradients Reveal the Global Distribution and
+  Tectonic Significance of “Seesaw” Ridge Propagation.
+\newblock {\em J. Geophys. Res. Solid Earth} {\bf 2021}, {\em
+  126},~e2020JB020017.
+\newblock {\url{https://doi.org/10.1029/2020JB020017}}.}
+
+\bibitem[Fanjat et~al.(2012)Fanjat, Camps, Shcherbakov, Barou, Sougrati, and
+  Perrin]{Fanjat}
+Fanjat, G.; Camps, P.; Shcherbakov, V.; Barou, F.; Sougrati, M.T.; Perrin, M.
+\newblock Magnetic interactions at the origin of abnormal magnetic fabrics in
+  lava flows: A case study from Kerguelen flood basalts.
+\newblock {\em Geophys. J. Int.} {\bf 2012}, {\em
+  189},~815--832.
+\linebreak {\url{https://doi.org/10.1111/j.1365-246X.2012.05421.x}}.
+
+\bibitem[Weissel and Hayes(1978)]{Weissel}
+\textls[-20]{Weissel, J.K.; Hayes, D.E. Magnetic Anomalies in the Southeast Indian Ocean.
+\newblock In {\em Antarctica Oceanology II: The Australian–New Zealand
+  Sector}; American Geophysical Union (AGU): \hl{Washington, DC, USA},  1978; pp. 165--196.
+\newblock {\url{https://doi.org/10.1029/AR019p0165}}.}
+
+\bibitem[Jokat et~al.(2010)Jokat, Nogi, and Leinweber]{Jokat}
+Jokat, W.; Nogi, Y.; Leinweber, V.
+\newblock New aeromagnetic data from the western Enderby Basin and consequences
+  for Antarctic-India break-up.
+\newblock {\em Geophys. Res. Lett.} {\bf 2010}, \emph{\hl{37}}.
+\newblock {\url{https://doi.org/10.1029/2010GL045117}}.
+
+\bibitem[Lemenkova(2022)]{Lemenkova202213}
+Lemenkova, P.
+\newblock {Mapping submarine geomorphology of the Philippine and Mariana
+  trenches by an automated approach using GMT scripts}.
+\newblock {\em Proc. Latv. Acad. Sciences. Sect. B Nat. Exact Appl. Sci.} {\bf 2022}, {\em 76},~258--266.
+\newblock {\url{https://doi.org/10.2478/prolas-2022-0039}}.
+
+\bibitem[Lemenkova(2020)]{Lemenkova202018}
+Lemenkova, P.
+\newblock {Geomorphology of the Puerto Rico Trench and Cayman Trough in the
+  Context of the Geological Evolution of the Caribbean Sea}.
+\newblock {\em Ann. Univ. Mariae Curie-Sklodowska Sect. B – Geogr. Geol. Mineral. Petrogr.} {\bf 2020}, {\em
+  75},~115--141.
+\newblock {\url{https://doi.org/10.17951/b.2020.75.115-141}}.
+
+\bibitem[Lemenkova(2021)]{Lemenkova202017}
+Lemenkova, P.
+\newblock {Using GMT for 2D and 3D Modeling of the Ryukyu Trench Topography,
+  Pacific Ocean}.
+\newblock {\em Misc. Geogr.} {\bf 2021}, {\em 25},~213--225.
+\newblock {\url{https://doi.org/10.2478/mgrsd-2020-0038}}.
+
+\bibitem[Bradley and Frey(1988)]{BRADLEY1988243}
+Bradley, L.M.; Frey, H.
+\newblock Constraints on the crustal nature and tectonic history of the
+  Kerguelen Plateau from comparative magnetic modeling using MAGSAT data.
+\newblock {\em Tectonophysics} {\bf 1988}, {\em 145},~243--251.
+\newblock {\url{https://doi.org/10.1016/0040-1951(88)90198-9}}.
+
+\bibitem[Duncan et~al.(2016)Duncan, Falloon, Quilty, and Coffin]{Duncan2016}
+Duncan, R.A.; Falloon, T.J.; Quilty, P.G.; Coffin, M.F.
+\newblock Widespread Neogene volcanism on Central Kerguelen Plateau, Southern
+  Indian Ocean.
+\newblock {\em Aust. J. Earth Sci.} {\bf 2016}, {\em
+  63},~379--392.
+\newblock {\url{https://doi.org/10.1080/08120099.2016.1221857}}.
+
+\bibitem[Plenier et~al.(2005)Plenier, Camps, Henry, and Ildefonse]{Plenier}
+Plenier, G.; Camps, P.; Henry, B.; Ildefonse, B.
+\newblock Determination of flow directions by combining AMS and thin-section
+  analyses: Implications for Oligocene volcanism in the Kerguelen Archipelago
+  (southern Indian Ocean).
+\newblock {\em Geophys. J. Int.} {\bf 2005}, {\em
+  160},~63--78.
+\newblock {\url{https://doi.org/10.1111/j.1365-246X.2004.02488.x}}.
+
+\bibitem[Houtz et~al.(1977)Houtz, Hayes, and Markl]{HOUTZ197795}
+Houtz, R.E.; Hayes, D.E.; Markl, R.G.
+\newblock Kerguelen Plateau bathymetry, sediment distribution and crustal
+  structure.
+\newblock {\em Mar. Geol.} {\bf 1977}, {\em 25},~95--130.
+\newblock {\url{https://doi.org/10.1016/0025-3227(77)90049-4}}. \hl{Circum-Antartic Marine Geology.}
+
+\bibitem[Recq and Charvis(1986)]{Recq}
+Recq, M.; Charvis, P.
+\newblock A seismic refraction survey in the Kerguelen Isles, southern Indian
+  Ocean.
+\newblock {\em Geophys. J. R. Astron. Soc.} {\bf
+  1986}, {\em 84},~529--559.
+\newblock {\url{https://doi.org/10.1111/j.1365-246X.1986.tb04370.x}}.
+
+\bibitem[Fröhlich and Wicquart(1989)]{Froehlich}
+Fröhlich, F.; Wicquart, E.
+\newblock {Upper cretaceous and paleogene sediments from the Northern Kerguelen
+  Plateau}.
+\newblock {\em Geo-Mar. Lett.} {\bf 1989}, {\em 9},~127--133.
+\newblock {\url{https://doi.org/10.1007/BF02431039}}.
+
+\bibitem[Duncan et~al.(2016)Duncan, Quilty, Barling, and Fox]{Duncan}
+Duncan, R.A.; Quilty, P.G.; Barling, J.; Fox, J.M.
+\newblock Geological development of Heard Island, Central Kerguelen Plateau.
+\newblock {\em Aust. J. Earth Sci.} {\bf 2016}, {\em
+  63},~81--89.
+\newblock {\url{https://doi.org/10.1080/08120099.2016.1139000}}.
+
+\bibitem[Huang et~al.(2022)Huang, Wu, De~Santis, Wang, and
+  Hernández-Molina]{Huang}
+Huang, X.; Wu, S.; De~Santis, L.; Wang, G.; Hernández-Molina, F.J.
+\newblock Deep water sedimentary processes in the Enderby Basin (East Antarctic
+  margin) during the Cenozoic.
+\newblock {\em Basin Res.} {\bf 2022}, {\em 34},~1917--1935.
+\newblock {\url{https://doi.org/10.1111/bre.12690}}.
+
+\bibitem[Robert et~al.(2002)Robert, Diester-Haass, and Chamley]{ROBERT200237}
+Robert, C.; Diester-Haass, L.; Chamley, H.
+\newblock Late Eocene-Oligocene oceanographic development at southern high
+  latitudes, from terrigenous and biogenic particles: A comparison of Kerguelen
+  Plateau and Maud Rise, ODP Sites 744 and 689.
+\newblock {\em Mar. Geol.} {\bf 2002}, {\em 191},~37--54.
+\newblock {\url{https://doi.org/10.1016/S0025-3227(02)00508-X}}.
+
+\bibitem[Whittaker et~al.(2008)Whittaker, Müller, Roest, Wessel, and
+  Smith]{Whittaker}
+Whittaker, J.; Müller, R.; Roest, W.; Wessel, P.; Smith, W.H.F.
+\newblock {How supercontinents and superoceans affect seafloor roughness}.
+\newblock {\em Nature} {\bf 2008}, {\em 456},~938--941.
+\newblock {\url{https://doi.org/10.1038/nature07573}}.
+
+\bibitem[Weis et~al.(2002)Weis, Frey, Schlich, Schaming, Montigny, Damasceno,
+  Mattielli, Nicolaysen, and Scoates]{Weis}
+Weis, D.; Frey, F.A.; Schlich, R.; Schaming, M.; Montigny, R.; Damasceno, D.;
+  Mattielli, N.; Nicolaysen, K.E.; Scoates, J.S.
+\newblock Trace of the Kerguelen mantle plume: Evidence from seamounts between
+  the Kerguelen Archipelago and Heard Island, Indian Ocean.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2002}, {\em
+  3},~1--27.
+\newblock {\url{https://doi.org/10.1029/2001GC000251}}.
+
+\bibitem[Le~Pichon and Heirtzler(1968)]{LePichon}
+Le~Pichon, X.; Heirtzler, J.R.
+\newblock Magnetic anomalies in the Indian Ocean and sea-floor spreading.
+\newblock {\em J. Geophys. Res.} {\bf 1968}, {\em
+  73},~2101--2117.
+\newblock {\url{https://doi.org/10.1029/JB073i006p02101}}.
+
+\bibitem[Maus(2009)]{Maus2009}
+Maus, S.
+\newblock Earth Magnetic Anomaly Grid Released.
+\newblock {\em Eos Trans. Am. Geophys. Union} {\bf 2009}, {\em
+  90},~239--239.
+\newblock {\url{https://doi.org/10.1029/2009EO280003}}.
+
+\bibitem[Henry et~al.(2003)Henry, Plenier, and Camps]{HENRY2003153}
+Henry, B.; Plenier, G.; Camps, P.
+\newblock Post-emplacement tilting of lava flows inferred from magnetic fabric
+  study: The example of Oligocene lavas in the Jeanne d’Arc Peninsula
+  (Kerguelen Islands).
+\newblock {\em J. Volcanol. Geotherm. Res.} {\bf 2003}, {\em
+  127},~153--164.
+\linebreak {\url{https://doi.org/10.1016/S0377-0273(03)00198-7}}.
+
+\bibitem[Xu et~al.(2007)Xu, Frey, Weis, Scoates, and Giret]{Xu}
+Xu, G.; Frey, F.A.; Weis, D.; Scoates, J.S.; Giret, A.
+\newblock Flood basalts from Mt. Capitole in the central Kerguelen Archipelago:
+  Insights into the growth of the archipelago and source components
+  contributing to plume-related volcanism.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2007}, \emph{\hl{8}}.
+\newblock {\url{https://doi.org/10.1029/2007GC001608}}.
+
+\bibitem[Pettersen and Maupin(2002)]{Pettersen}
+Pettersen, {\O}.; Maupin, V.
+\newblock Lithospheric anisotropy on the Kerguelen hotspot track inferred from
+  Rayleigh wave polarisation anomalies.
+\newblock {\em Geophys. J. Int.} {\bf 2002}, {\em
+  149},~225--246.
+\newblock {\url{https://doi.org/10.1046/j.1365-246X.2002.01646.x}}.
+
+\bibitem[Direen et~al.(2017)Direen, Cohen, Maas, Frey, Whittaker, Coffin,
+  Meffre, Halpin, and Crawford]{Direen}
+Direen, N.G.; Cohen, B.E.; Maas, R.; Frey, F.A.; Whittaker, J.M.; Coffin, M.F.;
+  Meffre, S.; Halpin, J.A.; Crawford, A.J.
+\newblock Naturaliste Plateau: Constraints on the timing and evolution of the
+  Kerguelen Large Igneous Province and its role in Gondwana breakup.
+\newblock {\em Aust. J. Earth Sci.} {\bf 2017}, {\em
+  64},~851--869.
+\newblock {\url{https://doi.org/10.1080/08120099.2017.1367326}}.
+
+\bibitem[Charvis et~al.(1995)Charvis, Recq, Operto, and Brefort]{Charvis1995}
+Charvis, P.; Recq, M.; Operto, S.; Brefort, D.
+\newblock Deep structure of the northern Kerguelen Plateau and hotspot-related
+  activity.
+\newblock {\em Geophys. J. Int.} {\bf 1995}, {\em
+  122},~899--924.
+\newblock {\url{https://doi.org/10.1111/j.1365-246X.1995.tb06845.x}}.
+
+\bibitem[Recq and Charvis(1987)]{RECQ1987301}
+Recq, M.; Charvis, P.
+\newblock La ride asismique de Kerguelen-Heard---Anomalie du geoide et
+  compensation isostatique.
+\newblock {\em Mar. Geol.} {\bf 1987}, {\em 76},~301--311.
+\newblock {\url{https://doi.org/10.1016/0025-3227(87)90035-1}}.
+
+\bibitem[Coblentz et~al.(2011)Coblentz, Chase, Karlstrom, and van
+  Wijk]{Coblentz}
+Coblentz, D.; Chase, C.G.; Karlstrom, K.E.; van Wijk, J.
+\newblock Topography, the geoid, and compensation mechanisms for the southern
+  Rocky Mountains.
+\newblock {\em Geochem. Geophys. Geosyst.} {\bf 2011}, \emph{\hl{12}}.
+\newblock {\url{https://doi.org/10.1029/2010GC003459}}.
+
+\bibitem[Sandwell and MacKenzie(1989)]{SandwellMacKenzie}
+Sandwell, D.T.; MacKenzie, K.R.
+\newblock Geoid height versus topography for oceanic plateaus and swells.
+\newblock {\em J. Geophys. Res. Solid Earth} {\bf 1989}, {\em
+  94},~7403--7418.
+\newblock {\url{https://doi.org/10.1029/JB094iB06p07403}}.
+
+\end{thebibliography}
+\PublishersNote{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{adjustwidth}
+\end{document}
